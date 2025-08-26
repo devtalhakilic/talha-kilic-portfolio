@@ -5,8 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frontend Developer Talha KILIÇ</title>
     <link href="../dist/output.css" rel="stylesheet">
+<style>
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background: linear-gradient(135deg, #6366f1, #06b6d4);
+color: white;
+text-align: center;
+}
+.container {
+background-color: rgba(0,0,0,0.4);
+padding: 50px;
+border-radius: 20px;
+box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+max-width: 500px;
+}
+h1 {
+font-size: 3rem;
+margin-bottom: 20px;
+}
+p {
+font-size: 1.2rem;
+margin-bottom: 30px;
+}
+.countdown {
+font-size: 1.5rem;
+margin-bottom: 30px;
+}
+.social-links a {
+margin: 0 10px;
+text-decoration: none;
+color: white;
+font-size: 1.5rem;
+}
+</style>
 </head>
 <body>
-        <h2>Selam</h2>
+<div class="container">
+<h1>Çok Yakında Sizlerle</h1>
+<p>Site hala yapım aşamasında</p>
+<div class="countdown" id="countdown">4 Gün Sonra Açılıyor</div>
+<div class="social-links">
+</div>
+</div>
+
+
+<script>
+// Example countdown logic
+const countdownEl = document.getElementById('countdown');
+let daysLeft = 10;
+setInterval(() => {
+daysLeft--;
+countdownEl.textContent = `Launching in ${daysLeft} days`;
+if (daysLeft <= 0) {
+countdownEl.textContent = "Launching today!";
+}
+}, 1000 * 60 * 60 * 24); // decrease daily
+</script>
 </body>
 </html>
