@@ -1,0 +1,14 @@
+<!-- callback.html -->
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+  // Spotify gönderdiği code'u al
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+  console.log("Spotify authorization code:", code);
+
+  // Burada backend'e gönderip access token alabilirsin
+</script>
+</body>
+</html>
