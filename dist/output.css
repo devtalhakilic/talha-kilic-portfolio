@@ -1,5 +1,6 @@
 /*! tailwindcss v4.1.12 | MIT License | https://tailwindcss.com */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -7,14 +8,25 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-900: oklch(39.6% 0.141 25.723);
+    --color-green-800: oklch(44.8% 0.119 151.328);
+    --color-blue-950: oklch(28.2% 0.091 267.935);
     --color-white: #fff;
     --spacing: 0.25rem;
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
     --text-7xl: 4.5rem;
     --text-7xl--line-height: 1;
+    --font-weight-light: 300;
+    --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -168,24 +180,36 @@
   }
 }
 @layer utilities {
-  .rounded-full {
-    border-radius: calc(infinity * 1px);
+  .bg-blue-950 {
+    background-color: var(--color-blue-950);
+  }
+  .bg-green-800 {
+    background-color: var(--color-green-800);
+  }
+  .bg-red-900 {
+    background-color: var(--color-red-900);
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
   }
 }
 * {
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
   font-style: normal;
+}
+html {
+  scroll-behavior: smooth;
 }
 @layer components {
   .navbar {
     position: fixed;
+    z-index: 1;
     display: flex;
     height: calc(var(--spacing) * 20);
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    background-color: transparent;
     color: var(--color-white);
   }
   .navbar .navbarLeftSide {
@@ -207,27 +231,111 @@
     width: 100%;
     justify-content: space-around;
   }
+  .section {
+    width: 100%;
+    padding-top: calc(var(--spacing) * 25);
+    padding-bottom: calc(var(--spacing) * 25);
+    @media (width >= 64rem) {
+      height: 100vh;
+    }
+  }
   .firstSection {
     display: flex;
-    height: 100vh;
-    width: 100%;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: space-around;
     color: var(--color-white);
+    @media (width >= 64rem) {
+      flex-direction: row;
+    }
   }
   .firstSection .aboutMeText {
     display: flex;
-    width: calc(1/2 * 100%);
+    width: 100%;
     flex-direction: column;
-    gap: calc(var(--spacing) * 5);
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--spacing) * 10);
+    @media (width >= 64rem) {
+      width: calc(1/2 * 100%);
+    }
+    @media (width >= 64rem) {
+      align-items: flex-start;
+    }
+    @media (width >= 64rem) {
+      justify-content: flex-start;
+    }
+    @media (width >= 64rem) {
+      gap: calc(var(--spacing) * 5);
+    }
   }
   .firstSection .aboutMeText h1 {
-    font-size: var(--text-7xl);
-    line-height: var(--tw-leading, var(--text-7xl--line-height));
+    margin-top: calc(var(--spacing) * 10);
+    text-align: center;
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    @media (width >= 48rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
+    }
+    @media (width >= 64rem) {
+      margin-top: calc(var(--spacing) * 0);
+    }
+    @media (width >= 64rem) {
+      text-align: left;
+    }
+    @media (width >= 64rem) {
+      font-size: var(--text-7xl);
+      line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
   }
   .firstSection .aboutMeText span {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+    color: #1b7506;
+    @media (width >= 48rem) {
+      font-size: var(--text-3xl);
+      line-height: var(--tw-leading, var(--text-3xl--line-height));
+    }
+    @media (width >= 64rem) {
+      font-size: var(--text-4xl);
+      line-height: var(--tw-leading, var(--text-4xl--line-height));
+    }
+  }
+  .firstSection .logoContainer .logoImage {
+    height: 180px;
+    border-radius: calc(infinity * 1px);
+    @media (width >= 48rem) {
+      height: 350px;
+    }
+    @media (width >= 64rem) {
+      height: 460px;
+    }
+  }
+  .firstSection .aboutMeText p {
+    width: calc(3/4 * 100%);
+    text-align: center;
+    --tw-font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-light);
+    @media (width >= 64rem) {
+      width: auto;
+    }
+    @media (width >= 64rem) {
+      text-align: left;
+    }
+  }
+  .firstSection .aboutMeText .text {
+    width: 100vw;
+    text-align: center;
+    @media (width >= 64rem) {
+      text-align: left;
+    }
+  }
+  .secondSection {
+    height: 100vh;
+    width: 100%;
   }
 }
 body {
@@ -236,4 +344,44 @@ body {
   background: -moz-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100%);
   background: -webkit-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
+  background-attachment: fixed;
+  background-size: cover;
+}
+.logoImage {
+  box-shadow: -1px 1px 110px 15px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -1px 1px 110px 15px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 1px 110px 15px rgba(0,0,0,0.75);
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.navbar .navbarRightSide .navigation a {
+  text-shadow: 0px 0px 9px rgba(0, 0, 0, 1);
+}
+.navbar {
+  transition: 0.2s ease-in;
+}
+.scrolled {
+  backdrop-filter: blur(8px);
+  background-color: #00000080;
+}
+.non-scrolled {
+  background: transparent;
+}
+#aboutMeLink {
+  color: #07ff39;
+}
+.navigationItem {
+  transition: 0.2s ease-in;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-font-weight: initial;
+    }
+  }
 }

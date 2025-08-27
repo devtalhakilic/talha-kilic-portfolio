@@ -5,16 +5,21 @@
 @tailwind utilities;
 *{
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
   font-style: normal;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 @layer components {
+
+
   /*
   Navbar
   */
   .navbar {
-    @apply flex w-full h-20 bg-transparent text-white justify-between items-center fixed;
+    @apply flex w-full h-20 z-1 text-white justify-between items-center fixed;
   }
   .navbar .navbarLeftSide{
     @apply flex flex-5;
@@ -29,28 +34,55 @@
     @apply flex justify-around w-full;
   }
 
+
   /*
   Section 1
   */
 
+  .section {
+    @apply lg:h-[100vh] w-full pt-25 pb-25;
+  }
+
   .firstSection{
-    @apply h-[100vh] w-full flex items-center justify-around text-white;
+    @apply flex items-center flex-col-reverse lg:flex-row justify-around text-white;
   }
 
   .firstSection .aboutMeText{
-    @apply w-1/2 flex flex-col gap-5;
+    @apply lg:w-1/2 flex flex-col lg:gap-5 gap-10 w-full lg:justify-start justify-center lg:items-start items-center;
   }
 
   .firstSection .aboutMeText h1{
-    @apply text-7xl
+    @apply lg:text-7xl text-3xl md:text-5xl font-bold lg:text-left text-center lg:mt-0 mt-10;
   }
 
   .firstSection .aboutMeText span{
-    @apply text-4xl;
+    @apply lg:text-4xl text-2xl md:text-3xl text-[#1b7506];
   }
+
+  .firstSection .logoContainer .logoImage{
+    @apply rounded-full lg:h-[460px] h-[180px] md:h-[350px];
+  }
+
+  .firstSection .aboutMeText p{
+    @apply font-light lg:text-left text-center lg:w-auto w-3/4;
+  }
+  .firstSection .aboutMeText .text{
+    @apply w-[100vw] lg:text-left text-center;
+  }
+
+    /*
+  Section 2
+  */
+
+  .secondSection{
+    @apply h-[100vh] w-full;
+  }
+
 
 }
 
+
+.firstSection{}
 
 body{
 background: hsla(0, 0%, 0%, 1);
@@ -62,4 +94,49 @@ background: -moz-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 
 background: -webkit-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100%);
 
 filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
+
+  background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+.logoImage{
+/* box-shadow: -1px 1px 110px -22px rgba(227,227,227,0.75);
+-webkit-box-shadow: -1px 1px 110px -22px rgba(227,227,227,0.75);
+-moz-box-shadow: -1px 1px 110px -22px rgba(227,227,227,0.75); */
+
+box-shadow: -1px 1px 110px 15px rgba(0,0,0,0.75);
+-webkit-box-shadow: -1px 1px 110px 15px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 1px 110px 15px rgba(0,0,0,0.75);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar .navbarRightSide .navigation a{
+  text-shadow: 0px 0px 9px rgba(0, 0, 0, 1);
+}
+
+.navbar{
+  transition: 0.2s ease-in;
+  
+}
+
+.scrolled{
+   backdrop-filter: blur(8px);
+  background-color:#00000080;
+}
+
+.non-scrolled{
+  background: transparent;
+
+}
+
+#aboutMeLink{
+  color: #07ff39;
+}
+
+.navigationItem{
+  transition: 0.2s ease-in;
 }

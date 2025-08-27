@@ -4,40 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frontend Developer Talha KILIÇ</title>
+      <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link href="./dist/output.css" rel="stylesheet">
 </head>
 <body>
 
-    <header class="navbar">
+
+
+    <header class="navbar animate__animated animate__fadeInDown non-scrolled" id="navbar">
         <div class="navbarLeftSide">
             <h2>Talha <span>KILIÇ</span></h2>
         </div>
         <div class="navbarRightSide">
             <nav class="navigation">
-                <a href="" class="navigationItem">About Me</a>
-                <a href="" class="navigationItem">Skills</a>
-                <a href="" class="navigationItem">Projects</a>
-                <a href="" class="navigationItem">Contact</a>  
+                <a href="#firstSection" class="navigationItem" id="aboutMeLink">About Me</a> <!--text-[#07ff39]-->
+                <a href="#secondSection" class="navigationItem" id="skillsLink">Skills</a>
+                <a href="#thirdSection" class="navigationItem" id="projectsLink">Projects</a>
+                <a href="#fourthSection" class="navigationItem" id="socialsLink">Socials</a>  
             </nav>
         </div>
     </header>
 
-    <section class="firstSection">
-        <div class="aboutMeText">
-            <h1>Talha KILIÇ 👋</h1>
-            <span>Junior Front End Developer</span>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius itaque commodi maiores quo eaque magnam illo cupiditate quod voluptas doloremque modi mollitia optio ex, consequatur esse, quasi praesentium rerum odit.
-            Ea, saepe hic! Doloribus, saepe commodi. Adipisci, provident accusamus totam vitae, nulla voluptas reprehenderit perspiciatis eos voluptate fugit ea. Rerum voluptatibus voluptate quo pariatur ab. Assumenda blanditiis placeat qui cumque.
-            Suscipit, dolorem! Dicta voluptas nam, praesentium reprehenderit perspiciatis facere quaerat provident perferendis similique reiciendis accusamus non odit, itaque quis qui, dolorum totam? Accusantium vel maiores rem iste iusto modi quaerat.
-            Cumque voluptatibus quis quisquam. Deleniti architecto, ex ipsa non iste esse consectetur magni? Autem enim officiis quod ratione, libero quibusdam minus culpa nostrum est veniam, placeat consequuntur harum, reiciendis debitis.</p>
-            <div class="spotify">
-                <h2>I am listening now:</h2>
+    <section class="firstSection section" id="firstSection">
+        <div class="aboutMeText animate__animated animate__fadeInLeftBig">
+            <h1>Talha KILIÇ</h1>
+            <div class="text">
+                <span id="skill"></span>
+            </div>
+
+            <p class="text-xl">
+                Hello everyone, my name is Talha Kılıç. I’ve been passionate about software and technology since I was 11 years old, and what started as a simple curiosity has now grown into a serious interest and skill set. In the early days, I experimented with small Python projects, writing basic scripts and exploring how coding works behind the scenes, which gave me a strong foundation in problem-solving and logic. Over time, I expanded my knowledge into web development, where I began learning how to create websites, work with modern frameworks, and understand the structure of the internet from a developer’s perspective. Recently, I’ve also started learning Java to broaden my programming skills and gain experience with more complex, object-oriented programming concepts. This journey has been a mix of curiosity, self-learning, and constant practice, and I’m excited to continue improving and building more advanced projects as I move forward.
+            </p>
+
+
             </div>
         </div>
 
-        <div class="logoContainer">
-            <img src="https://github.com/devtalhakilic.png" alt="GitHub Avatar" class="rounded-full"/>
+        <div class="logoContainer animate__animated animate__fadeInRightBig">
+            <img src="https://github.com/devtalhakilic.png" alt="GitHub Avatar" class="logoImage"/>
         </div>
     </section>
+
+
+    <section class="secondSection section bg-red-900" id="secondSection">
+
+    </section>
+
+    <section class="thirdSection section bg-blue-950" id="thirdSection">
+
+    </section>
+
+    <section class="fourthSection section bg-green-800" id="fourthSection">
+
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js" integrity="sha512-tQQXRDB2wEmuJGtFrmmoFYzNTq8StA1XJrfO0OQbbTxd9G0CwaTDL6/C1y805IlvBVrMwOqob1kf6r/2U5XXVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="src/scripts/index.js"></script>
 </body>
 </html>
