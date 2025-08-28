@@ -1,42 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-*{
+* {
   font-family: "Poppins", sans-serif;
   font-style: normal;
 }
 
-html{
-    scroll-behavior: smooth;
-    overscroll-behavior-y: contain;
-    min-height: -webkit-fill-available
-
-}
-
 @layer components {
-
-
   /*
   Navbar
   */
   .navbar {
     @apply flex w-full h-20 z-1 text-white justify-between items-center fixed;
+    transition: 0.2s ease-in;
   }
-  .navbar .navbarLeftSide{
+
+  .navbar .navbarLeftSide {
     @apply flex flex-5;
   }
-  .navbar .navbarLeftSide h2{
+  .navbar .navbarLeftSide h2 {
     @apply pl-5 text-2xl;
   }
-  .navbar .navbarRightSide{
+  .navbar .navbarRightSide {
     @apply flex flex-2 justify-end;
   }
-  .navbar .navbarRightSide .navigation{
+  .navbar .navbarRightSide .navigation {
     @apply flex justify-around w-full;
   }
 
+  .navigationItem {
+    transition: 0.2s ease-in;
+  }
+
+  .navbar .navbarRightSide .navigation a {
+    text-shadow: 0px 0px 9px rgba(0, 0, 0, 1);
+  }
+
+  #aboutMeLink {
+    color: #07ff39;
+  }
 
   /*
   Section 1
@@ -46,133 +47,98 @@ html{
     @apply lg:h-[100vh] w-full pt-25 pb-25;
   }
 
-  .firstSection{
+  .firstSection {
     @apply flex items-center flex-col-reverse lg:flex-row justify-around text-white;
   }
 
-  .firstSection .aboutMeText{
+  .firstSection .aboutMeText {
     @apply lg:w-1/2 flex flex-col lg:gap-5 gap-10 w-full lg:justify-start justify-center lg:items-start items-center;
   }
 
-  .firstSection .aboutMeText h1{
+  .firstSection .aboutMeText h1 {
     @apply lg:text-7xl text-3xl md:text-5xl font-bold lg:text-left text-center lg:mt-0 mt-10;
   }
 
-  .firstSection .aboutMeText span{
+  .firstSection .aboutMeText span {
     @apply lg:text-4xl text-2xl md:text-3xl text-[#1b7506];
   }
 
-  .firstSection .logoContainer .logoImage{
+  .firstSection .logoContainer .logoImage {
     @apply rounded-full lg:h-[460px] h-[180px] md:h-[350px];
+    box-shadow: -1px 1px 110px 15px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -1px 1px 110px 15px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 1px 110px 15px rgba(0, 0, 0, 0.75);
   }
 
-  .firstSection .aboutMeText p{
+  .firstSection .aboutMeText p {
     @apply font-light lg:text-left text-center lg:w-auto w-3/4;
   }
-  .firstSection .aboutMeText .text{
+  .firstSection .aboutMeText .text {
     @apply w-[100vw] lg:text-left text-center;
   }
 
-    /*
+  /*
   Section 2
   */
 
-  .secondSection{
+  .secondSection {
     @apply h-[100vh] w-full;
   }
-
-
 }
 
-
-.firstSection{}
-
-/* body{
-background: hsla(0, 0%, 0%, 1);
-
-background: linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100%);
-
-background: -moz-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100%);
-
-background: -webkit-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100%);
-
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
-
-  background-attachment: fixed;
-    background-size: cover;
-
-    overscroll-behavior-y: contain;
-
-    min-height: -webkit-fill-available
-
-} */
-
-body::before {
-  background: hsla(0, 0%, 0%, 1);
-
-background: linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100%);
-
-background: -moz-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100%);
-
-background: -webkit-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100%);
-
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
-
-  background-attachment: fixed;
-    background-size: cover;
-
-    overscroll-behavior-y: contain;
-  content: "";
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: linear-gradient(135deg, #000 0%, #000 60%, #1f7f2b 100%);
-  z-index: -1;
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior-y: contain;
+  min-height: -webkit-fill-available;
 }
 
-.logoImage{
-/* box-shadow: -1px 1px 110px -22px rgba(227,227,227,0.75);
--webkit-box-shadow: -1px 1px 110px -22px rgba(227,227,227,0.75);
--moz-box-shadow: -1px 1px 110px -22px rgba(227,227,227,0.75); */
+body {
+  /* background: hsla(0, 0%, 0%, 1);
 
-box-shadow: -1px 1px 110px 15px rgba(0,0,0,0.75);
--webkit-box-shadow: -1px 1px 110px 15px rgba(0,0,0,0.75);
--moz-box-shadow: -1px 1px 110px 15px rgba(0,0,0,0.75);
+  background: linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
+
+  background-attachment: fixed;
+  background-size: cover;
+
+  overscroll-behavior-y: contain;
+
+  min-height: -webkit-fill-available; */
+
+  position: relative;
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
 
-.navbar .navbarRightSide .navigation a{
-  text-shadow: 0px 0px 9px rgba(0, 0, 0, 1);
+.scrolled {
+  backdrop-filter: blur(8px);
+  background-color: #00000080;
 }
 
-.navbar{
-  transition: 0.2s ease-in;
-  
-}
-
-.scrolled{
-   backdrop-filter: blur(8px);
-  background-color:#00000080;
-}
-
-.non-scrolled{
+.non-scrolled {
   background: transparent;
-
 }
 
-#aboutMeLink{
-  color: #07ff39;
-}
 
-.navigationItem{
-  transition: 0.2s ease-in;
-}
-
-.section{
-  min-height: -webkit-fill-available;
-}
