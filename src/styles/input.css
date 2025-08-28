@@ -11,6 +11,7 @@
 html{
     scroll-behavior: smooth;
     overscroll-behavior-y: contain;
+    min-height: -webkit-fill-available
 
 }
 
@@ -102,6 +103,9 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", en
 
     overscroll-behavior-y: contain;
 
+    min-height: -webkit-fill-available
+
+
     
 }
 
@@ -144,4 +148,8 @@ box-shadow: -1px 1px 110px 15px rgba(0,0,0,0.75);
 
 .navigationItem{
   transition: 0.2s ease-in;
+}
+
+.section{
+  min-height: -webkit-fill-available;
 }

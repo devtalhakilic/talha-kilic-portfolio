@@ -201,6 +201,7 @@
 html {
   scroll-behavior: smooth;
   overscroll-behavior-y: contain;
+  min-height: -webkit-fill-available;
 }
 @layer components {
   .navbar {
@@ -348,6 +349,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   overscroll-behavior-y: contain;
+  min-height: -webkit-fill-available;
 }
 .logoImage {
   box-shadow: -1px 1px 110px 15px rgba(0,0,0,0.75);
@@ -375,6 +377,9 @@ body {
 }
 .navigationItem {
   transition: 0.2s ease-in;
+}
+.section {
+  min-height: -webkit-fill-available;
 }
 @property --tw-font-weight {
   syntax: "*";
