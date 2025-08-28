@@ -116,9 +116,10 @@ html {
 
 body {
   background: hsla(0, 0%, 0%, 1);
+  min-height: 100vh;
   
   @media (min-width: 768px) {
-    /* Sadece tablet ve desktop için fixed background kullanalım */
+    /* Desktop ve tablet için fixed gradient */
     background: linear-gradient(
       135deg,
       hsla(0, 0%, 0%, 1) 0%,
@@ -130,16 +131,29 @@ body {
   }
 
   @media (max-width: 767px) {
-    /* Mobil için alternatif çözüm */
+    /* Mobil için özel çözüm */
+    position: relative;
+    overflow-x: hidden;
+  }
+}
+
+/* Mobil için gradient overlay */
+@media (max-width: 767px) {
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(
       135deg,
       hsla(0, 0%, 0%, 1) 0%,
       hsla(0, 0%, 0%, 1) 60%,
       hsla(126, 84%, 17%, 1) 100%
     );
-    background-size: 100% 100vh;
-    min-height: 100vh;
-    position: relative;
+    z-index: -1;
+    pointer-events: none;
   }
 }
 
