@@ -28,7 +28,7 @@
   }
 
   .navigationItem {
-    transition: 0.2s ease-in;
+    transition: 0.1s ease-in;
   }
 
   .navbar .navbarRightSide .navigation a {
@@ -37,10 +37,6 @@
 
   #aboutMeLink {
     color: #07ff39;
-  }
-
-  .navbar .navbarRightSide .navigationResponsiveContainer {
-    @apply lg:hidden w-full flex justify-end;
   }
 
   .hamburgerButton {
@@ -52,9 +48,13 @@
   }
 
   .responsiveNavigationBar {
-    @apply h-[100vh] w-[100vw] bg-red-500 z-20 fixed;
-    backdrop-filter: blur(8px);
-    background-color: #18430380;
+    @apply h-[100vh] w-[100vw] z-20 fixed flex items-center;
+  backdrop-filter: blur(8px);
+  background-color: #00000080;
+  }
+
+  .responsiveNavigationBar .navigationMenuResponsive {
+    @apply h-full w-full flex justify-center items-center flex-col gap-10 text-white text-2xl uppercase;
   }
 
   .hiddenNav {
@@ -115,7 +115,8 @@ html {
 }
 
 body {
-  background: hsla(0, 0%, 0%, 1);
+  position: relative;
+  /* background: hsla(0, 0%, 0%, 1);
 
   background: linear-gradient(
     315deg,
@@ -141,7 +142,7 @@ body {
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
 
   background-attachment: fixed;
-  background-size: cover;
+  background-size: cover; */
 }
 
 ::-webkit-scrollbar {
@@ -155,4 +156,42 @@ body {
 
 .non-scrolled {
   background: transparent;
+}
+
+
+.background{
+  background: hsla(0, 0%, 0%, 1);
+
+  background: linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -5;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
 }

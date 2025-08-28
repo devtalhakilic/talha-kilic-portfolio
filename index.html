@@ -14,8 +14,12 @@
 </head>
 <body id="body">
 
+    <div class="background">
+        
+    </div>
 
     <header class="navbar animate__animated animate__fadeInDown non-scrolled" id="navbar">
+
         <div class="navbarLeftSide">
             <h2>Talha <span>KILIÇ</span></h2>
         </div>
@@ -26,18 +30,20 @@
                 <a href="#thirdSection" class="navigationItem" id="projectsLink">Projects</a>
                 <a href="#fourthSection" class="navigationItem" id="socialsLink">Socials</a>  
             </nav>
-            <nav class="navigationResponsiveContainer">
-
-            </nav>
         </div>
     </header>
 
     <div class="responsiveNavigationBar animate__animated hiddenNav" id="responsiveNavigationBar">
-                    
+        <div class="navigationMenuResponsive">
+            <a href="#firstSection" class="navigationItem" onclick="hamburgerMenu()" id="aboutMeLink1">About Me</a>
+            <a href="#secondSection" class="navigationItem" onclick="hamburgerMenu()" id="skillsLink1">Skills</a>
+            <a href="#thirdSection" class="navigationItem" onclick="hamburgerMenu()" id="projectsLink1">Projects</a>
+            <a href="#fourthSection" class="navigationItem" onclick="hamburgerMenu()" id="socialsLink1">Socials</a>
+        </div>
     </div>
 
      <div class="hamburgerButton">
-         <button id="hamburgerButton"><i id="hamburgerIcon" class="fa-solid fa-bars"></i></button>
+         <button id="hamburgerButton"><i id="hamburgerIcon" onclick="hamburgerMenu()" class="fa-solid fa-bars"></i></button>
      </div>
 
     <section class="firstSection section" id="firstSection">
@@ -53,7 +59,6 @@
 
 
             </div>
-        </div>
 
         <div class="logoContainer animate__animated animate__fadeInRightBig">
             <img src="https://github.com/devtalhakilic.png" alt="GitHub Avatar" class="logoImage"/>
