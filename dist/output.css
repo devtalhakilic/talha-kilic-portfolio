@@ -346,9 +346,6 @@ body {
   background: -moz-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100%);
   background: -webkit-linear-gradient(315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
-  background-attachment: fixed;
-  background-size: cover;
-  overscroll-behavior-y: contain;
   min-height: -webkit-fill-available;
 }
 .logoImage {
