@@ -5,38 +5,6 @@
   font-style: normal;
 }
 
-
-html{
-   background: hsla(0, 0%, 0%, 1);
-
-  background: linear-gradient(
-    315deg,
-    hsla(0, 0%, 0%, 1) 0%,
-    hsla(0, 0%, 0%, 1) 60%,
-    hsla(126, 84%, 17%, 1) 100%
-  );
-
-  background: -moz-linear-gradient(
-    315deg,
-    hsla(0, 0%, 0%, 1) 0%,
-    hsla(0, 0%, 0%, 1) 60%,
-    hsla(126, 84%, 17%, 1) 100%
-  );
-
-  background: -webkit-linear-gradient(
-    315deg,
-    hsla(0, 0%, 0%, 1) 0%,
-    hsla(0, 0%, 0%, 1) 60%,
-    hsla(126, 84%, 17%, 1) 100%
-  );
-
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
-
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat; 
-}
-
 @layer components {
   /*
   Navbar
@@ -81,8 +49,8 @@ html{
 
   .responsiveNavigationBar {
     @apply h-[100vh] w-[100vw] z-20 fixed flex items-start;
-  backdrop-filter: blur(8px);
-  background-color: #00000080;
+    backdrop-filter: blur(8px);
+    background-color: #00000080;
   }
 
   .responsiveNavigationBar .navigationMenuResponsive {
@@ -147,7 +115,13 @@ html {
 }
 
 body {
-  /* background: hsla(0, 0%, 0%, 1);
+  width: 100%;
+  position: absolute;
+}
+
+body::before {
+  content: "";
+     background: hsla(0, 0%, 0%, 1);
 
   background: linear-gradient(
     315deg,
@@ -174,7 +148,14 @@ body {
 
   background-attachment: fixed;
   background-size: cover;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+  min-height: 100vh;
+  width: 100vw;
+  z-index: -1;
 }
 
 ::-webkit-scrollbar {
