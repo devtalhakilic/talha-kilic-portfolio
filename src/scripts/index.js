@@ -7,17 +7,16 @@ let aboutMeLink = document.getElementById("aboutMeLink")
 let skillsLink = document.getElementById("skillsLink")
 let projectsLink = document.getElementById("projectsLink")
 let socialsLink = document.getElementById("socialsLink")
-
+let hamburgerButton = document.getElementById("hamburgerButton")
+let responsiveNavigationBar = document.getElementById("responsiveNavigationBar")
+let hamburgerIcon = document.getElementById("hamburgerIcon")
+let body = document.getElementById("body")
 let typed = new Typed("#skill", {
   strings: ["Junior Front End Developer"],
   typeSpeed: 50, // hız
   backSpeed: 50, // geri silme hızı
   loop: true     // sonsuz döngü
 });
-console.log(secondSection)
-console.log(thirdSection)
-console.log(fourthSection)
-
 
 window.addEventListener("scroll", () => {
     if(window.scrollY > 0){
@@ -59,3 +58,31 @@ window.addEventListener("scroll", () => {
     }
 
 })
+
+console.log(hamburgerButton)
+
+hamburgerButton.addEventListener("click", () => {
+    console.log("TIKLANDI")
+    if(responsiveNavigationBar.classList.contains("hiddenNav")){
+        body.style.overflow = "hidden"
+    responsiveNavigationBar.classList.remove("hiddenNav")
+    responsiveNavigationBar.classList.add("animate__fadeIn")
+    responsiveNavigationBar.classList.remove("animate__fadeOut")
+    hamburgerIcon.classList.remove("fa-bars")
+    hamburgerIcon.classList.add("fa-xmark")
+    }
+    else if(responsiveNavigationBar.classList.contains("hiddenNav") == false){
+
+            body.style.overflow = "scroll"
+        responsiveNavigationBar.classList.remove("animate__fadeIn")
+        responsiveNavigationBar.classList.add("animate__fadeOut")
+        setTimeout(() => {
+              responsiveNavigationBar.classList.add("hiddenNav");
+            }, 400);
+        hamburgerIcon.classList.add("fa-bars")
+        hamburgerIcon.classList.remove("fa-xmark")
+    }
+
+
+})
+

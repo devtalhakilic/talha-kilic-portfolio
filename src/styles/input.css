@@ -10,7 +10,7 @@
   Navbar
   */
   .navbar {
-    @apply flex w-full h-20 z-1 text-white justify-between items-center fixed;
+    @apply flex w-full h-20 z-10 text-white justify-between items-center fixed;
     transition: 0.2s ease-in;
   }
 
@@ -21,10 +21,10 @@
     @apply pl-5 text-2xl;
   }
   .navbar .navbarRightSide {
-    @apply flex flex-2 justify-end;
+    @apply flex flex-2;
   }
   .navbar .navbarRightSide .navigation {
-    @apply flex justify-around w-full;
+    @apply lg:flex justify-around w-full hidden;
   }
 
   .navigationItem {
@@ -39,12 +39,34 @@
     color: #07ff39;
   }
 
+  .navbar .navbarRightSide .navigationResponsiveContainer {
+    @apply lg:hidden w-full flex justify-end;
+  }
+
+  .hamburgerButton {
+    @apply lg:hidden flex sticky top-0 right-1 z-50 text-white h-20 w-full justify-end items-center;
+  }
+
+  .hamburgerButton button {
+    @apply lg:hidden text-2xl pr-5;
+  }
+
+  .responsiveNavigationBar {
+    @apply h-[100vh] w-[100vw] bg-red-500 z-20 fixed;
+    backdrop-filter: blur(8px);
+    background-color: #18430380;
+  }
+
+  .hiddenNav {
+    display: none;
+  }
+
   /*
   Section 1
   */
 
   .section {
-    @apply lg:h-[100vh] w-full pt-25 pb-25;
+    @apply min-h-[100vh] w-full lg:pt-25 pb-25;
   }
 
   .firstSection {
@@ -93,7 +115,7 @@ html {
 }
 
 body {
-  /* background: hsla(0, 0%, 0%, 1);
+  background: hsla(0, 0%, 0%, 1);
 
   background: linear-gradient(
     315deg,
@@ -120,12 +142,6 @@ body {
 
   background-attachment: fixed;
   background-size: cover;
-
-  overscroll-behavior-y: contain;
-
-  min-height: -webkit-fill-available; */
-
-  position: relative;
 }
 
 ::-webkit-scrollbar {
@@ -140,5 +156,3 @@ body {
 .non-scrolled {
   background: transparent;
 }
-
-
