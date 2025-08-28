@@ -418,7 +418,11 @@ body {
     height: 100%;
     background: linear-gradient( 135deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100% );
     z-index: -1;
-    pointer-events: none;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000;
   }
 }
 ::-webkit-scrollbar {

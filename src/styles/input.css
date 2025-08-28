@@ -119,7 +119,6 @@ body {
   min-height: 100vh;
   
   @media (min-width: 768px) {
-    /* Desktop ve tablet için fixed gradient */
     background: linear-gradient(
       135deg,
       hsla(0, 0%, 0%, 1) 0%,
@@ -131,13 +130,11 @@ body {
   }
 
   @media (max-width: 767px) {
-    /* Mobil için özel çözüm */
     position: relative;
     overflow-x: hidden;
   }
 }
 
-/* Mobil için gradient overlay */
 @media (max-width: 767px) {
   body::before {
     content: '';
@@ -153,7 +150,11 @@ body {
       hsla(126, 84%, 17%, 1) 100%
     );
     z-index: -1;
-    pointer-events: none;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000;
   }
 }
 
