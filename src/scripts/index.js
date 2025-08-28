@@ -19,9 +19,13 @@ let projectsLink1 = document.getElementById("projectsLink1");
 let socialsLink1 = document.getElementById("socialsLink1");
 
 let typed = new Typed("#skill", {
-  strings: ["Junior Front End Developer"],
-  typeSpeed: 50, // hız
-  backSpeed: 50, // geri silme hızı
+  strings: [
+    "a Junior Front End Developer",
+    "From Turkey",
+    "14 years old",
+  ],
+  typeSpeed: 60, // hız
+  backSpeed: 40, // geri silme hızı
   loop: true, // sonsuz döngü
 });
 

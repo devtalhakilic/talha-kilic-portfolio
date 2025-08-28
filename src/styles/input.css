@@ -39,6 +39,10 @@
     color: #07ff39;
   }
 
+  #aboutMeLink1 {
+    color: #07ff39;
+  }
+
   .hamburgerButton {
     @apply lg:hidden flex sticky top-0 right-1 z-50 text-white h-20 w-full justify-end items-center;
   }
@@ -82,7 +86,7 @@
   }
 
   .firstSection .aboutMeText span {
-    @apply lg:text-4xl text-2xl md:text-3xl text-[#1b7506];
+    @apply lg:text-4xl text-2xl md:text-3xl text-[#08a508];
   }
 
   .firstSection .logoContainer .logoImage {
