@@ -396,11 +396,6 @@ html {
   min-height: -webkit-fill-available;
 }
 body {
-  width: 100%;
-  position: absolute;
-}
-body::before {
-  content: "";
   background: hsla(0, 0%, 0%, 1);
   background: linear-gradient( 315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100% );
   background: -moz-linear-gradient( 315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100% );
@@ -409,13 +404,6 @@ body::before {
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: fixed;
-  min-height: 100vh;
-  width: 100vw;
-  z-index: -1;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -426,6 +414,20 @@ body::before {
 }
 .non-scrolled {
   background: transparent;
+}
+.bg {
+  background: hsla(0, 0%, 0%, 1);
+  background: linear-gradient( 135deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100% );
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -1;
+}
+.content {
+  position: absolute;
+  width: 100%;
 }
 @property --tw-font-weight {
   syntax: "*";
