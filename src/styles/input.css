@@ -115,6 +115,27 @@ html {
 }
 
 body {
+
+
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.scrolled {
+  backdrop-filter: blur(8px);
+  background-color: #00000080;
+}
+
+.non-scrolled {
+  background: transparent;
+}
+
+.bg {
   background: hsla(0, 0%, 0%, 1);
 
   background: linear-gradient(
@@ -140,45 +161,16 @@ body {
 
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
 
-  background-attachment: fixed;
-  background-size: cover;
   background-repeat: no-repeat;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-.scrolled {
-  backdrop-filter: blur(8px);
-  background-color: #00000080;
-}
-
-.non-scrolled {
-  background: transparent;
-}
-
-.bg{
-  background: hsla(0, 0%, 0%, 1);
-
-  background: linear-gradient(
-    135deg,
-    hsla(0, 0%, 0%, 1) 0%,
-    hsla(0, 0%, 0%, 1) 60%,
-    hsla(126, 84%, 17%, 1) 100%
-  );
-
-   background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
   width: 100vw;
   position: fixed;
   /* z-index usage is up to you.. although there is no need of using it because the default stack context will work. */
   z-index: -1;
-
 }
 
-.content{
-    position: absolute;
+.content {
+  position: absolute;
   width: 100%;
 }

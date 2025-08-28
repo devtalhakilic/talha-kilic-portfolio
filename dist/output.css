@@ -396,11 +396,6 @@ html {
   min-height: -webkit-fill-available;
 }
 body {
-  background: hsla(0, 0%, 0%, 1);
-  background: linear-gradient( 315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100% );
-  background: -moz-linear-gradient( 315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100% );
-  background: -webkit-linear-gradient( 315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100% );
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -417,7 +412,10 @@ body {
 }
 .bg {
   background: hsla(0, 0%, 0%, 1);
-  background: linear-gradient( 135deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100% );
+  background: linear-gradient( 315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100% );
+  background: -moz-linear-gradient( 315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100% );
+  background: -webkit-linear-gradient( 315deg, hsla(0, 0%, 0%, 1) 0%, hsla(0, 0%, 0%, 1) 60%, hsla(126, 84%, 17%, 1) 100% );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
