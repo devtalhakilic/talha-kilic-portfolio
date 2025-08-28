@@ -5,6 +5,38 @@
   font-style: normal;
 }
 
+
+html{
+   background: hsla(0, 0%, 0%, 1);
+
+  background: linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
+
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat; 
+}
+
 @layer components {
   /*
   Navbar
@@ -48,7 +80,7 @@
   }
 
   .responsiveNavigationBar {
-    @apply h-[100vh] w-[100vw] z-20 fixed flex items-center;
+    @apply h-[100vh] w-[100vw] z-20 fixed flex items-start;
   backdrop-filter: blur(8px);
   background-color: #00000080;
   }
@@ -115,47 +147,34 @@ html {
 }
 
 body {
-  background: hsla(0, 0%, 0%, 1);
-  min-height: 100vh;
-  
-  @media (min-width: 768px) {
-    background: linear-gradient(
-      135deg,
-      hsla(0, 0%, 0%, 1) 0%,
-      hsla(0, 0%, 0%, 1) 60%,
-      hsla(126, 84%, 17%, 1) 100%
-    );
-    background-attachment: fixed;
-    background-size: cover;
-  }
+  /* background: hsla(0, 0%, 0%, 1);
 
-  @media (max-width: 767px) {
-    position: relative;
-    overflow-x: hidden;
-  }
-}
+  background: linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
 
-@media (max-width: 767px) {
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      135deg,
-      hsla(0, 0%, 0%, 1) 0%,
-      hsla(0, 0%, 0%, 1) 60%,
-      hsla(126, 84%, 17%, 1) 100%
-    );
-    z-index: -1;
-    will-change: transform;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000;
-  }
+  background: -moz-linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    315deg,
+    hsla(0, 0%, 0%, 1) 0%,
+    hsla(0, 0%, 0%, 1) 60%,
+    hsla(126, 84%, 17%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
+
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat; */
 }
 
 ::-webkit-scrollbar {
