@@ -115,34 +115,32 @@ html {
 }
 
 body {
-  position: relative;
-  /* background: hsla(0, 0%, 0%, 1);
+  background: hsla(0, 0%, 0%, 1);
+  
+  @media (min-width: 768px) {
+    /* Sadece tablet ve desktop için fixed background kullanalım */
+    background: linear-gradient(
+      135deg,
+      hsla(0, 0%, 0%, 1) 0%,
+      hsla(0, 0%, 0%, 1) 60%,
+      hsla(126, 84%, 17%, 1) 100%
+    );
+    background-attachment: fixed;
+    background-size: cover;
+  }
 
-  background: linear-gradient(
-    315deg,
-    hsla(0, 0%, 0%, 1) 0%,
-    hsla(0, 0%, 0%, 1) 60%,
-    hsla(126, 84%, 17%, 1) 100%
-  );
-
-  background: -moz-linear-gradient(
-    315deg,
-    hsla(0, 0%, 0%, 1) 0%,
-    hsla(0, 0%, 0%, 1) 60%,
-    hsla(126, 84%, 17%, 1) 100%
-  );
-
-  background: -webkit-linear-gradient(
-    315deg,
-    hsla(0, 0%, 0%, 1) 0%,
-    hsla(0, 0%, 0%, 1) 60%,
-    hsla(126, 84%, 17%, 1) 100%
-  );
-
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
-
-  background-attachment: fixed;
-  background-size: cover; */
+  @media (max-width: 767px) {
+    /* Mobil için alternatif çözüm */
+    background: linear-gradient(
+      135deg,
+      hsla(0, 0%, 0%, 1) 0%,
+      hsla(0, 0%, 0%, 1) 60%,
+      hsla(126, 84%, 17%, 1) 100%
+    );
+    background-size: 100% 100vh;
+    min-height: 100vh;
+    position: relative;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -156,42 +154,4 @@ body {
 
 .non-scrolled {
   background: transparent;
-}
-
-
-.background{
-  background: hsla(0, 0%, 0%, 1);
-
-  background: linear-gradient(
-    315deg,
-    hsla(0, 0%, 0%, 1) 0%,
-    hsla(0, 0%, 0%, 1) 60%,
-    hsla(126, 84%, 17%, 1) 100%
-  );
-
-  background: -moz-linear-gradient(
-    315deg,
-    hsla(0, 0%, 0%, 1) 0%,
-    hsla(0, 0%, 0%, 1) 60%,
-    hsla(126, 84%, 17%, 1) 100%
-  );
-
-  background: -webkit-linear-gradient(
-    315deg,
-    hsla(0, 0%, 0%, 1) 0%,
-    hsla(0, 0%, 0%, 1) 60%,
-    hsla(126, 84%, 17%, 1) 100%
-  );
-
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", endColorstr="#000000", GradientType=1 );
-
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: -5;
-  background-attachment: fixed;
-  background-size: cover;
-  overflow: hidden;
 }
