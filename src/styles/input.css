@@ -10,6 +10,8 @@
 
 html{
     scroll-behavior: smooth;
+    overscroll-behavior-y: contain;
+
 }
 
 @layer components {
@@ -97,6 +99,9 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#000000", en
 
   background-attachment: fixed;
     background-size: cover;
+
+    overscroll-behavior-y: contain;
+
     
 }
 
