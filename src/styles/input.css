@@ -111,11 +111,11 @@
     @apply flex justify-around items-center text-white;
   }
 
-  .secondSection .textContainer{
+  .secondSection .textContainer {
     @apply flex w-1/2 items-center flex-col gap-10;
   }
 
-  .secondSection .textContainer h1{
+  .secondSection .textContainer h1 {
     @apply text-7xl font-bold text-center lg:mt-0 mt-10;
   }
 
@@ -123,22 +123,45 @@
     @apply flex w-1/7 flex-col gap-10;
   }
 
-  .secondSection .skillsContainer .skill{
+  .secondSection .skillsContainer .skill {
     @apply w-full;
   }
 
+  .secondSection .skillsContainer .skill .infoBox {
+    @apply flex w-20 h-20 items-start bg-transparent;
+    cursor: pointer;
+    animation: downOval 5s ease-in-out infinite;
+    transition: 0.2s;
+  }
+
+    .secondSection .skillsContainer .skill .infoBox:hover {
+    @apply flex w-full h-50 items-start bg-gray-800 rounded-3xl;
+    cursor: pointer;
+    animation: downOval 5s ease-in-out infinite;
+  }
+
+
   .secondSection .skillsContainer .skill img {
     @apply h-20 w-20;
-    animation: downOval 5s ease-in-out infinite;
   }
 }
 
-.secondSection .skillsContainer .skill:nth-child(odd) {
+.secondSection .skillsContainer .skill:nth-child(odd) .infoBox{
   display: flex;
   justify-content: flex-start;
 }
 
-.secondSection .skillsContainer .skill:nth-child(even) {
+.secondSection .skillsContainer .skill:nth-child(even) .infoBox{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.secondSection .skillsContainer .skill:nth-child(odd){
+  display: flex;
+  justify-content: flex-start;
+}
+
+.secondSection .skillsContainer .skill:nth-child(even){
   display: flex;
   justify-content: flex-end;
 }
@@ -228,5 +251,3 @@ body {
     transform: translate(0, 0);
   }
 }
-
-
