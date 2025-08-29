@@ -442,6 +442,7 @@
   justify-content: flex-end;
 }
 html {
+  scroll-behavior: smooth;
   overscroll-behavior-y: contain;
   min-height: -webkit-fill-available;
 }

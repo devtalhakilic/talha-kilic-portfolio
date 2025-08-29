@@ -36,56 +36,60 @@ window.addEventListener("scroll", () => {
     navbar.classList.add("non-scrolled");
   }
 
-  if (
-    window.scrollY >= firstSection.offsetTop &&
-    window.scrollY < secondSection.offsetTop
-  ) {
-    aboutMeLink.style.color = "#07ff39";
-    skillsLink.style.color = "white";
-    projectsLink.style.color = "white";
-    socialsLink.style.color = "white";
+  const buffer = 400; // Ne kadar erken geçiş yapacağını ayarlayabilirsin
 
-    aboutMeLink1.style.color = "#07ff39";
-    skillsLink1.style.color = "white";
-    projectsLink1.style.color = "white";
-    socialsLink1.style.color = "white";
-  } else if (
-    window.scrollY >= secondSection.offsetTop &&
-    window.scrollY < thirdSection.offsetTop
-  ) {
-    aboutMeLink.style.color = "white";
-    skillsLink.style.color = "#07ff39";
-    projectsLink.style.color = "white";
-    socialsLink.style.color = "white";
+  window.addEventListener("scroll", () => {
+    if (
+      window.scrollY >= firstSection.offsetTop &&
+      window.scrollY < secondSection.offsetTop - buffer
+    ) {
+      aboutMeLink.style.color = "#07ff39";
+      skillsLink.style.color = "white";
+      projectsLink.style.color = "white";
+      socialsLink.style.color = "white";
 
-    aboutMeLink1.style.color = "white";
-    skillsLink1.style.color = "#07ff39";
-    projectsLink1.style.color = "white";
-    socialsLink1.style.color = "white";
-  } else if (
-    window.scrollY >= thirdSection.offsetTop &&
-    window.scrollY < fourthSection.offsetTop
-  ) {
-    aboutMeLink.style.color = "white";
-    skillsLink.style.color = "white";
-    projectsLink.style.color = "#07ff39";
-    socialsLink.style.color = "white";
+      aboutMeLink1.style.color = "#07ff39";
+      skillsLink1.style.color = "white";
+      projectsLink1.style.color = "white";
+      socialsLink1.style.color = "white";
+    } else if (
+      window.scrollY >= secondSection.offsetTop - buffer &&
+      window.scrollY < thirdSection.offsetTop - buffer
+    ) {
+      aboutMeLink.style.color = "white";
+      skillsLink.style.color = "#07ff39";
+      projectsLink.style.color = "white";
+      socialsLink.style.color = "white";
 
-    aboutMeLink1.style.color = "white";
-    skillsLink1.style.color = "white";
-    projectsLink1.style.color = "#07ff39";
-    socialsLink1.style.color = "white";
-  } else if (window.scrollY >= fourthSection.offsetTop) {
-    aboutMeLink.style.color = "white";
-    skillsLink.style.color = "white";
-    projectsLink.style.color = "white";
-    socialsLink.style.color = "#07ff39";
+      aboutMeLink1.style.color = "white";
+      skillsLink1.style.color = "#07ff39";
+      projectsLink1.style.color = "white";
+      socialsLink1.style.color = "white";
+    } else if (
+      window.scrollY >= thirdSection.offsetTop - buffer &&
+      window.scrollY < fourthSection.offsetTop - buffer
+    ) {
+      aboutMeLink.style.color = "white";
+      skillsLink.style.color = "white";
+      projectsLink.style.color = "#07ff39";
+      socialsLink.style.color = "white";
 
-    aboutMeLink1.style.color = "white";
-    skillsLink1.style.color = "white";
-    projectsLink1.style.color = "white";
-    socialsLink1.style.color = "#07ff39";
-  }
+      aboutMeLink1.style.color = "white";
+      skillsLink1.style.color = "white";
+      projectsLink1.style.color = "#07ff39";
+      socialsLink1.style.color = "white";
+    } else if (window.scrollY >= fourthSection.offsetTop - buffer) {
+      aboutMeLink.style.color = "white";
+      skillsLink.style.color = "white";
+      projectsLink.style.color = "white";
+      socialsLink.style.color = "#07ff39";
+
+      aboutMeLink1.style.color = "white";
+      skillsLink1.style.color = "white";
+      projectsLink1.style.color = "white";
+      socialsLink1.style.color = "#07ff39";
+    }
+  });
 });
 
 function hamburgerMenu() {
@@ -112,9 +116,48 @@ function hamburgerMenu() {
 ScrollReveal().reveal(".skill", {
   beforeReveal: (el) => {
     el.classList.add("animate__animated", "animate__fadeInLeft");
+    el.addEventListener(
+      "animationend",
+      () => {
+        el.classList.remove("animate__animated", "animate__fadeInLeft");
+      },
+      { once: true }
+    ); // sadece bir kere çalışsın
   },
-  reset: true, // tekrar kaydırınca animasyon yeniden başlasın
+  reset: true, // tekrar görünce animasyon tekrar tetiklenecek
 });
 
-ScrollReveal().reveal(".textContainer");
+ScrollReveal().reveal(".textContainer", {
+  reset: true,
+});
+
+ScrollReveal().reveal(".aboutMeText", {
+  beforeReveal: (el) => {
+    el.classList.add("animate__animated", "animate__fadeInLeft");
+
+    el.addEventListener(
+      "animationend",
+      () => {
+        el.classList.remove("animate__animated", "animate__fadeInLeft");
+      },
+      { once: true }
+    );
+  },
+  reset: true,
+});
+
+ScrollReveal().reveal(".logoContainer", {
+  beforeReveal: (el) => {
+    el.classList.add("animate__animated", "animate__fadeInRight");
+
+    el.addEventListener(
+      "animationend",
+      () => {
+        el.classList.remove("animate__animated", "animate__fadeInRight");
+      },
+      { once: true }
+    );
+  },
+  reset: true,
+});
 
