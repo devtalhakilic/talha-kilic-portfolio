@@ -19,11 +19,7 @@ let projectsLink1 = document.getElementById("projectsLink1");
 let socialsLink1 = document.getElementById("socialsLink1");
 
 let typed = new Typed("#skill", {
-  strings: [
-    "a Junior Front End Developer",
-    "From Turkey",
-    "14 years old",
-  ],
+  strings: ["a Junior Front End Developer", "From Turkey", "14 years old"],
   typeSpeed: 60, // hız
   backSpeed: 40, // geri silme hızı
   loop: true, // sonsuz döngü
@@ -92,25 +88,33 @@ window.addEventListener("scroll", () => {
   }
 });
 
-function hamburgerMenu(){
-    console.log("TIKLANDI");
-    if (responsiveNavigationBar.classList.contains("hiddenNav")) {
-      body.style.overflow = "hidden";
-      responsiveNavigationBar.classList.remove("hiddenNav");
-      responsiveNavigationBar.classList.add("animate__fadeIn");
-      responsiveNavigationBar.classList.remove("animate__fadeOut");
-      hamburgerIcon.classList.remove("fa-bars");
-      hamburgerIcon.classList.add("fa-xmark");
-    } else if (
-      responsiveNavigationBar.classList.contains("hiddenNav") == false
-    ) {
-      body.style.overflow = "scroll";
-      responsiveNavigationBar.classList.remove("animate__fadeIn");
-      responsiveNavigationBar.classList.add("animate__fadeOut");
-      setTimeout(() => {
-        responsiveNavigationBar.classList.add("hiddenNav");
-      }, 400);
-      hamburgerIcon.classList.add("fa-bars");
-      hamburgerIcon.classList.remove("fa-xmark");
-    }
+function hamburgerMenu() {
+  console.log("TIKLANDI");
+  if (responsiveNavigationBar.classList.contains("hiddenNav")) {
+    body.style.overflow = "hidden";
+    responsiveNavigationBar.classList.remove("hiddenNav");
+    responsiveNavigationBar.classList.add("animate__fadeIn");
+    responsiveNavigationBar.classList.remove("animate__fadeOut");
+    hamburgerIcon.classList.remove("fa-bars");
+    hamburgerIcon.classList.add("fa-xmark");
+  } else if (responsiveNavigationBar.classList.contains("hiddenNav") == false) {
+    body.style.overflow = "scroll";
+    responsiveNavigationBar.classList.remove("animate__fadeIn");
+    responsiveNavigationBar.classList.add("animate__fadeOut");
+    setTimeout(() => {
+      responsiveNavigationBar.classList.add("hiddenNav");
+    }, 400);
+    hamburgerIcon.classList.add("fa-bars");
+    hamburgerIcon.classList.remove("fa-xmark");
+  }
 }
+
+ScrollReveal().reveal(".skill", {
+  beforeReveal: (el) => {
+    el.classList.add("animate__animated", "animate__fadeInLeft");
+  },
+  reset: true, // tekrar kaydırınca animasyon yeniden başlasın
+});
+
+ScrollReveal().reveal(".textContainer");
+

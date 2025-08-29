@@ -180,6 +180,9 @@
   .hidden {
     display: none;
   }
+  .text-center {
+    text-align: center;
+  }
   .text-xl {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
@@ -392,12 +395,53 @@
     }
   }
   .secondSection {
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--color-white);
+  }
+  .secondSection .textContainer {
+    display: flex;
+    width: calc(1/2 * 100%);
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--spacing) * 10);
+  }
+  .secondSection .textContainer h1 {
+    margin-top: calc(var(--spacing) * 10);
+    text-align: center;
+    font-size: var(--text-7xl);
+    line-height: var(--tw-leading, var(--text-7xl--line-height));
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    @media (width >= 64rem) {
+      margin-top: calc(var(--spacing) * 0);
+    }
+  }
+  .secondSection .skillsContainer {
+    display: flex;
+    width: calc(1/7 * 100%);
+    flex-direction: column;
+    gap: calc(var(--spacing) * 10);
+  }
+  .secondSection .skillsContainer .skill {
     width: 100%;
   }
+  .secondSection .skillsContainer .skill img {
+    height: calc(var(--spacing) * 20);
+    width: calc(var(--spacing) * 20);
+    animation: downOval 5s ease-in-out infinite;
+  }
+}
+.secondSection .skillsContainer .skill:nth-child(odd) {
+  display: flex;
+  justify-content: flex-start;
+}
+.secondSection .skillsContainer .skill:nth-child(even) {
+  display: flex;
+  justify-content: flex-end;
 }
 html {
-  scroll-behavior: smooth;
   overscroll-behavior-y: contain;
   min-height: -webkit-fill-available;
 }
@@ -432,6 +476,26 @@ body {
 .content {
   position: absolute;
   width: 100%;
+}
+.floating {
+  animation: downOval 5s ease-in-out infinite;
+}
+@keyframes downOval {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(8px, 8px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  75% {
+    transform: translate(-8px, 8px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 @property --tw-font-weight {
   syntax: "*";
