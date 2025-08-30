@@ -1,0 +1,19 @@
+{
+  "semi": false,
+  "singleQuote": false,
+  "bracketSpacing": true,
+  "endOfLine": "auto",
+
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "html",
+        "printWidth": 1000,
+        "tabWidth": 2,
+        "useTabs": false,
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    }
+  ]
+}

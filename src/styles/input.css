@@ -127,26 +127,17 @@
     @apply w-full;
   }
 
-  .secondSection .skillsContainer .skill .infoBox {
-    @apply flex w-20 h-20 items-start bg-transparent;
-    cursor: pointer;
-    animation: downOval 5s ease-in-out infinite;
-    transition: 0.4s;
-    overflow: hidden;
-  }
-
-  .secondSection .skillsContainer .skill .infoBox h2 {
-    @apply text-2xl font-bold text-center lg:mt-0 mt-10;
-  }
-
-  .secondSection .skillsContainer .skill .infoBox:hover {
-    @apply flex w-full h-50 bg-gray-800 rounded-3xl;
-    cursor: pointer;
-    animation: downOval 5s ease-in-out infinite;
-  }
-
   .secondSection .skillsContainer .skill img {
     @apply h-20 w-20;
+    cursor: pointer;
+  }
+
+  .secondSection .skillsContainer .skill .skillImage {
+    transition: 0.2s ease-in;
+  }
+
+  .secondSection .skillsContainer .skill .skillImage:hover {
+    transform: scale(1.1);
   }
 }
 
@@ -238,6 +229,10 @@ body {
   animation: downOval 5s ease-in-out infinite;
 }
 
+#skill1{
+    animation: downOval 5s ease-in-out infinite;
+}
+
 @keyframes downOval {
   0% {
     transform: translate(0, 0);
@@ -254,4 +249,90 @@ body {
   100% {
     transform: translate(0, 0);
   }
+}
+
+
+
+
+#skill2 {
+  animation: upOval 5s ease-in-out infinite;
+}
+@keyframes upOval {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(8px, -8px); }
+  50%  { transform: translate(0, -15px); }
+  75%  { transform: translate(-8px, -8px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* 3: sağa oval */
+#skill3 {
+  animation: rightOval 5s ease-in-out infinite;
+}
+@keyframes rightOval {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(15px, -8px); }
+  50%  { transform: translate(25px, 0); }
+  75%  { transform: translate(15px, 8px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* 4: sola oval */
+#skill4 {
+  animation: leftOval 5s ease-in-out infinite;
+}
+@keyframes leftOval {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-15px, -8px); }
+  50%  { transform: translate(-25px, 0); }
+  75%  { transform: translate(-15px, 8px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* 5: çapraz sağ aşağı oval */
+#skill5 {
+  animation: downRightOval 5s ease-in-out infinite;
+}
+@keyframes downRightOval {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(12px, 12px); }
+  50%  { transform: translate(20px, 20px); }
+  75%  { transform: translate(12px, 12px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* 6: çapraz sol aşağı oval */
+#skill6 {
+  animation: downLeftOval 5s ease-in-out infinite;
+}
+@keyframes downLeftOval {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-12px, 12px); }
+  50%  { transform: translate(-20px, 20px); }
+  75%  { transform: translate(-12px, 12px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* 7: küçük daire */
+#skill7 {
+  animation: smallCircle 5s ease-in-out infinite;
+}
+@keyframes smallCircle {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(10px, -10px); }
+  50%  { transform: translate(0, -20px); }
+  75%  { transform: translate(-10px, -10px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* 8: büyük daire */
+#skill8 {
+  animation: bigCircle 5s ease-in-out infinite;
+}
+@keyframes bigCircle {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(20px, -20px); }
+  50%  { transform: translate(0, -35px); }
+  75%  { transform: translate(-20px, -20px); }
+  100% { transform: translate(0, 0); }
 }

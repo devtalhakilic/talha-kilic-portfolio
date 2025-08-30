@@ -1,144 +1,131 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Frontend Developer Talha KILIÇ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <link href="./dist/output.css" rel="stylesheet">
-    
-</head>
-<body id="body">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="./dist/output.css" rel="stylesheet" />
+  </head>
+  <body id="body">
     <div class="bg"></div>
 
     <div class="content">
-            <header class="navbar animate__animated animate__fadeInDown non-scrolled" id="navbar">
-
+      <header class="navbar animate__animated animate__fadeInDown non-scrolled" id="navbar">
         <div class="navbarLeftSide">
-            <h2>Talha <span>KILIÇ</span></h2>
+          <h2>
+            Talha
+            <span>KILIÇ</span>
+          </h2>
         </div>
         <div class="navbarRightSide">
-            <nav class="navigation">
-                <a href="#firstSection" class="navigationItem" id="aboutMeLink">About Me</a> <!--text-[#07ff39]-->
-                <a href="#secondSection" class="navigationItem" id="skillsLink">Skills</a>
-                <a href="#thirdSection" class="navigationItem" id="projectsLink">Projects</a>
-                <a href="#fourthSection" class="navigationItem" id="socialsLink">Socials</a>  
-            </nav>
+          <nav class="navigation">
+            <a href="#firstSection" class="navigationItem" id="aboutMeLink">About Me</a>
+            <!--text-[#07ff39]-->
+            <a href="#secondSection" class="navigationItem" id="skillsLink">Skills</a>
+            <a href="#thirdSection" class="navigationItem" id="projectsLink">Projects</a>
+            <a href="#fourthSection" class="navigationItem" id="socialsLink">Socials</a>
+          </nav>
         </div>
-    </header>
+      </header>
 
-    <div class="responsiveNavigationBar animate__animated hiddenNav" id="responsiveNavigationBar">
+      <div class="responsiveNavigationBar animate__animated hiddenNav" id="responsiveNavigationBar">
         <div class="navigationMenuResponsive">
-            <a href="#firstSection" class="navigationItem" onclick="hamburgerMenu()" id="aboutMeLink1">About Me</a>
-            <a href="#secondSection" class="navigationItem" onclick="hamburgerMenu()" id="skillsLink1">Skills</a>
-            <a href="#thirdSection" class="navigationItem" onclick="hamburgerMenu()" id="projectsLink1">Projects</a>
-            <a href="#fourthSection" class="navigationItem" onclick="hamburgerMenu()" id="socialsLink1">Socials</a>
+          <a href="#firstSection" class="navigationItem" onclick="hamburgerMenu()" id="aboutMeLink1">About Me</a>
+          <a href="#secondSection" class="navigationItem" onclick="hamburgerMenu()" id="skillsLink1">Skills</a>
+          <a href="#thirdSection" class="navigationItem" onclick="hamburgerMenu()" id="projectsLink1">Projects</a>
+          <a href="#fourthSection" class="navigationItem" onclick="hamburgerMenu()" id="socialsLink1">Socials</a>
         </div>
-    </div>
+      </div>
 
-     <div class="hamburgerButton">
-         <button id="hamburgerButton"><i id="hamburgerIcon" onclick="hamburgerMenu()" class="fa-solid fa-bars"></i></button>
-     </div>
+      <div class="hamburgerButton">
+        <button id="hamburgerButton"><i id="hamburgerIcon" onclick="hamburgerMenu()" class="fa-solid fa-bars"></i></button>
+      </div>
 
-    <section class="firstSection section" id="firstSection">
-        <div class="aboutMeText"> <!-- animate__animated animate__fadeInLeftBig-->
-            <h1>Talha KILIÇ</h1>
-            <div class="text">
-                <span class="text-[#1d7a05]">I'm.. <span id="skill"></span></span>
-            </div>
+      <section class="firstSection section" id="firstSection">
+        <div class="aboutMeText">
+          <!-- animate__animated animate__fadeInLeftBig-->
+          <h1>Talha KILIÇ</h1>
+          <div class="text">
+            <span class="text-[#1d7a05]">
+              I'm..
+              <span id="skill"></span>
+            </span>
+          </div>
 
-            <p class="text-xl">
-                Hello everyone, my name is Talha Kılıç. I’ve been passionate about software and technology since I was 11 years old, and what started as a simple curiosity has now grown into a serious interest and skill set. In the early days, I experimented with small Python projects, writing basic scripts and exploring how coding works behind the scenes, which gave me a strong foundation in problem-solving and logic. Over time, I expanded my knowledge into web development, where I began learning how to create websites, work with modern frameworks, and understand the structure of the internet from a developer’s perspective. Recently, I’ve also started learning Java to broaden my programming skills and gain experience with more complex, object-oriented programming concepts. This journey has been a mix of curiosity, self-learning, and constant practice, and I’m excited to continue improving and building more advanced projects as I move forward.
-            </p>
-
-
-            </div>
-
-        <div class="logoContainer"> <!-- animate__animated animate__fadeInRightBig-->
-            <img src="https://github.com/devtalhakilic.png" alt="GitHub Avatar" class="logoImage floating"/>
+          <p class="text-xl">Hello everyone, my name is Talha Kılıç. I’ve been passionate about software and technology since I was 11 years old, and what started as a simple curiosity has now grown into a serious interest and skill set. In the early days, I experimented with small Python projects, writing basic scripts and exploring how coding works behind the scenes, which gave me a strong foundation in problem-solving and logic. Over time, I expanded my knowledge into web development, where I began learning how to create websites, work with modern frameworks, and understand the structure of the internet from a developer’s perspective. Recently, I’ve also started learning Java to broaden my programming skills and gain experience with more complex, object-oriented programming concepts. This journey has been a mix of curiosity, self-learning, and constant practice, and I’m excited to continue improving and building more advanced projects as I move forward.</p>
         </div>
-    </section>
 
+        <div class="logoContainer">
+          <!-- animate__animated animate__fadeInRightBig-->
+          <img src="https://github.com/devtalhakilic.png" alt="GitHub Avatar" class="logoImage floating1" />
+        </div>
+      </section>
 
-    <section class="secondSection section" id="secondSection">
-                <div class="skillsContainer">
-            <div class="skill">
-                <div class="infoBox">
-                    <img src="https://skillicons.dev/icons?i=bootstrap"/>
-                    <div class="titleContainer p-1 h-20 flex justify-center items-center">
-                        <h2>Bootstrap</h2>
-                    </div>
-                </div>
-
+      <section class="secondSection section" id="secondSection">
+        <div class="skillsContainer">
+          <div class="skill">
+            <div class="skillImage">
+              <img id="skill1" src="https://skillicons.dev/icons?i=bootstrap" />
             </div>
-            <div class="skill">
-                <div class="infoBox">
-                    <div class="titleContainer h-20 flex justify-center items-center">
-                        <h2>Python</h2>
-                    </div>
-                    <img src="https://skillicons.dev/icons?i=python"/>
-                </div>
+          </div>
+          <div class="skill">
+            <div class="skillImage">
+              <img id="skill2" src="https://skillicons.dev/icons?i=python" />
             </div>
-            <div class="skill">
-                <div class="infoBox">
-                    <img src="https://skillicons.dev/icons?i=java" />
-                </div>
+          </div>
+          <div class="skill">
+            <div class="skillImage">
+              <img id="skill3" src="https://skillicons.dev/icons?i=java" />
             </div>
-            <div class="skill">
-                <div class="infoBox">
-                    <img src="https://skillicons.dev/icons?i=figma" />
-                </div>
+          </div>
+          <div class="skill">
+            <div class="skillImage">
+              <img id="skill4" src="https://skillicons.dev/icons?i=figma" />
             </div>
+          </div>
         </div>
         <div class="textContainer">
-            <h1>My Skills</h1>
-            <p class="text-center">Scripting, markup, programming languages, and editing programs <br> I've learned through 4.5 years of experience</p>
+          <h1>My Skills</h1>
+          <p class="text-center">
+            Scripting, markup, programming languages, and editing programs
+            <br />
+            I've learned through 4.5 years of experience
+          </p>
         </div>
         <div class="skillsContainer skillsContainer">
-            <div class="skill">
-                <div class="infoBox">
-                    <img src="https://skillicons.dev/icons?i=html" />
-                </div>
+          <div class="skill">
+            <div class="skillImage">
+              <img id="skill5" src="https://skillicons.dev/icons?i=html" />
             </div>
-            <div class="skill">
-                <div class="infoBox">
-                    <img src="https://skillicons.dev/icons?i=css" />
-                </div>
+          </div>
+          <div class="skill">
+            <div class="skillImage">
+              <img id="skill6" src="https://skillicons.dev/icons?i=css" />
             </div>
-            <div class="skill">
-                <div class="infoBox">
-                    <img src="https://skillicons.dev/icons?i=javascript" />
-                </div>
+          </div>
+          <div class="skill">
+            <div class="skillImage">
+              <img id="skill7" src="https://skillicons.dev/icons?i=javascript" />
             </div>
-            <div class="skill">
-                <div class="infoBox">
-                    <img src="https://skillicons.dev/icons?i=tailwind" />
-                </div>
+          </div>
+          <div class="skill">
+            <div class="skillImage">
+              <img id="skill8" src="https://skillicons.dev/icons?i=tailwind" />
             </div>
-            
-
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section class="thirdSection section" id="thirdSection">
+      <section class="thirdSection section" id="thirdSection"></section>
 
-    </section>
-
-    <section class="fourthSection section" id="fourthSection">
-
-    </section>
+      <section class="fourthSection section" id="fourthSection"></section>
     </div>
 
-    
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js" integrity="sha512-tQQXRDB2wEmuJGtFrmmoFYzNTq8StA1XJrfO0OQbbTxd9G0CwaTDL6/C1y805IlvBVrMwOqob1kf6r/2U5XXVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="src/scripts/index.js"></script>
-    
-</body>
+  </body>
 </html>
