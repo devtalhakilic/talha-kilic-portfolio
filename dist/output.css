@@ -234,12 +234,6 @@
   .navbar .navbarRightSide .navigation a {
     text-shadow: 0px 0px 9px rgba(0, 0, 0, 1);
   }
-  #aboutMeLink {
-    color: #07ff39;
-  }
-  #aboutMeLink1 {
-    color: #07ff39;
-  }
   .hamburgerButton {
     position: sticky;
     top: calc(var(--spacing) * 0);
@@ -636,6 +630,9 @@ body {
   100% {
     transform: translate(0, 0);
   }
+}
+.floating1 {
+  animation: downOval 5s ease-in-out infinite;
 }
 @media (min-width: 1024px) {
   #skill1 {

@@ -35,14 +35,6 @@
     text-shadow: 0px 0px 9px rgba(0, 0, 0, 1);
   }
 
-  #aboutMeLink {
-    color: #07ff39;
-  }
-
-  #aboutMeLink1 {
-    color: #07ff39;
-  }
-
   .hamburgerButton {
     @apply lg:hidden flex sticky top-0 right-1 z-50 text-white h-20 w-full justify-end items-center;
   }
@@ -88,7 +80,6 @@
   .firstSection .aboutMeText span {
     @apply lg:text-4xl text-2xl md:text-3xl text-[#08a508];
   }
-  
 
   .firstSection .logoContainer .logoImage {
     @apply rounded-full lg:h-[460px] h-[180px] md:h-[350px];
@@ -118,11 +109,6 @@
 
   .secondSection .textContainer h1 {
     @apply lg:text-7xl text-3xl md:text-5xl font-bold text-center lg:mt-0 mt-10;
-  }
-
-  
-  .secondSection .textContainer p {
-    @apply ;
   }
 
   .secondSection .skillsContainer {
@@ -369,6 +355,10 @@ ANİMASYONLAR
   100% {
     transform: translate(0, 0);
   }
+}
+
+.floating1 {
+  animation: downOval 5s ease-in-out infinite;
 }
 
 @media (min-width: 1024px) {
