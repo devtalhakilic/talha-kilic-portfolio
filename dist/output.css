@@ -8,6 +8,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-white: #fff;
     --spacing: 0.25rem;
     --text-xl: 1.25rem;
@@ -24,6 +25,9 @@
     --text-7xl--line-height: 1;
     --font-weight-light: 300;
     --font-weight-bold: 700;
+    --radius-2xl: 1rem;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -440,19 +444,99 @@
   .secondSection .skillsContainer .skill .skillImage:hover {
     transform: scale(1.1);
   }
-}
-.secondSection .skillsContainer .skill:nth-child(odd) {
-  display: flex;
-  justify-content: center;
-  @media (width >= 64rem) {
-    justify-content: flex-start;
+  .secondSection .skillsContainer .skill:nth-child(odd) {
+    display: flex;
+    justify-content: center;
+    @media (width >= 64rem) {
+      justify-content: flex-start;
+    }
   }
-}
-.secondSection .skillsContainer .skill:nth-child(even) {
-  display: flex;
-  justify-content: center;
-  @media (width >= 64rem) {
-    justify-content: flex-end;
+  .secondSection .skillsContainer .skill:nth-child(even) {
+    display: flex;
+    justify-content: center;
+    @media (width >= 64rem) {
+      justify-content: flex-end;
+    }
+  }
+  .thirdSection {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+  }
+  .thirdSection .textContainerProjects {
+    display: flex;
+    height: calc(1/6 * 100%);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+  }
+  .thirdSection .textContainerProjects h1 {
+    text-align: center;
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    @media (width >= 48rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
+    }
+    @media (width >= 64rem) {
+      font-size: var(--text-7xl);
+      line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
+  }
+  .thirdSection .projectsContainer {
+    display: flex;
+    height: calc(5/6 * 100%);
+    flex-direction: column;
+    gap: calc(var(--spacing) * 10);
+    padding: calc(var(--spacing) * 5);
+  }
+  .thirdSection .projectsContainer .row {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    @media (width >= 64rem) {
+      flex-direction: row;
+    }
+  }
+  .thirdSection .projectsContainer .row .project {
+    position: relative;
+    margin: calc(var(--spacing) * 2);
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-2xl);
+    background-color: var(--color-gray-700);
+    aspect-ratio: 16 / 9;
+    cursor: pointer;
+  }
+  .thirdSection .projectsContainer .row .project .projectInfo {
+    position: absolute;
+    top: calc(var(--spacing) * 0);
+    left: calc(var(--spacing) * 0);
+    z-index: 20;
+    height: 100%;
+    width: 100%;
+    border-radius: var(--radius-2xl);
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    --tw-duration: 500ms;
+    transition-duration: 500ms;
+    transform: translateY(100%);
+    backdrop-filter: blur(8px);
+    background-color: #00000080;
+  }
+  .thirdSection .projectsContainer .row .project:hover .projectInfo {
+    transform: translateY(0%);
+  }
+  .thirdSection .projectsContainer .row .project img {
+    width: 100%;
+    border-radius: var(--radius-2xl);
+    aspect-ratio: 16/9;
   }
 }
 html {
@@ -664,10 +748,15 @@ body {
   syntax: "*";
   inherits: false;
 }
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-font-weight: initial;
+      --tw-duration: initial;
     }
   }
 }

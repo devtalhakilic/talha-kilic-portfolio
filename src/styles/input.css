@@ -131,16 +131,58 @@
   .secondSection .skillsContainer .skill .skillImage:hover {
     transform: scale(1.1);
   }
-}
 
-.secondSection .skillsContainer .skill:nth-child(odd) {
-  @apply flex lg:justify-start justify-center;
-}
+  .secondSection .skillsContainer .skill:nth-child(odd) {
+    @apply flex lg:justify-start justify-center;
+  }
 
-.secondSection .skillsContainer .skill:nth-child(even) {
-  @apply flex lg:justify-end justify-center;
-}
+  .secondSection .skillsContainer .skill:nth-child(even) {
+    @apply flex lg:justify-end justify-center;
+  }
 
+  /*
+  Section 3
+  */
+
+  .thirdSection {
+    @apply flex flex-col h-screen;
+  }
+  .thirdSection .textContainerProjects {
+    @apply flex w-full items-center justify-center h-1/6 text-white;
+  }
+  .thirdSection .textContainerProjects h1 {
+    @apply lg:text-7xl text-3xl md:text-5xl font-bold text-center;
+  }
+
+  .thirdSection .projectsContainer {
+    @apply flex h-5/6 flex-col p-5 gap-10;
+  }
+
+  .thirdSection .projectsContainer .row {
+    @apply flex justify-between lg:flex-row flex-col items-center flex-1;
+  }
+
+  .thirdSection .projectsContainer .row .project {
+    @apply w-full m-2 bg-gray-700 rounded-2xl relative overflow-hidden;
+    aspect-ratio: 16 / 9;
+    cursor: pointer
+  }
+  .thirdSection .projectsContainer .row .project .projectInfo{
+    @apply w-full h-full z-20 rounded-2xl absolute top-0 left-0 transition-transform duration-500;
+    transform: translateY(100%);
+    backdrop-filter: blur(8px);
+    background-color: #00000080;
+  }
+
+  .thirdSection .projectsContainer .row .project:hover .projectInfo {
+    transform: translateY(0%);
+  }
+
+  .thirdSection .projectsContainer .row .project img {
+    @apply w-full rounded-2xl;
+    aspect-ratio: 16/9;
+  }
+}
 html {
   scroll-behavior: smooth;
   overscroll-behavior-y: contain;
