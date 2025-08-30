@@ -88,6 +88,7 @@
   .firstSection .aboutMeText span {
     @apply lg:text-4xl text-2xl md:text-3xl text-[#08a508];
   }
+  
 
   .firstSection .logoContainer .logoImage {
     @apply rounded-full lg:h-[460px] h-[180px] md:h-[350px];
@@ -116,7 +117,12 @@
   }
 
   .secondSection .textContainer h1 {
-    @apply text-7xl font-bold text-center lg:mt-0 mt-10;
+    @apply lg:text-7xl text-3xl md:text-5xl font-bold text-center lg:mt-0 mt-10;
+  }
+
+  
+  .secondSection .textContainer p {
+    @apply ;
   }
 
   .secondSection .skillsContainer {
@@ -141,24 +147,12 @@
   }
 }
 
-.secondSection .skillsContainer .skill:nth-child(odd) .infoBox {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.secondSection .skillsContainer .skill:nth-child(even) .infoBox {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .secondSection .skillsContainer .skill:nth-child(odd) {
-  display: flex;
-  justify-content: flex-start;
+  @apply flex lg:justify-start justify-center;
 }
 
 .secondSection .skillsContainer .skill:nth-child(even) {
-  display: flex;
-  justify-content: flex-end;
+  @apply flex lg:justify-end justify-center;
 }
 
 html {
@@ -229,9 +223,9 @@ body {
   animation: downOval 5s ease-in-out infinite;
 }
 
-#skill1{
-    animation: downOval 5s ease-in-out infinite;
-}
+/*
+ANİMASYONLAR
+*/
 
 @keyframes downOval {
   0% {
@@ -251,88 +245,162 @@ body {
   }
 }
 
-
-
-
-#skill2 {
-  animation: upOval 5s ease-in-out infinite;
-}
 @keyframes upOval {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(8px, -8px); }
-  50%  { transform: translate(0, -15px); }
-  75%  { transform: translate(-8px, -8px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(8px, -8px);
+  }
+  50% {
+    transform: translate(0, -15px);
+  }
+  75% {
+    transform: translate(-8px, -8px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
-/* 3: sağa oval */
-#skill3 {
-  animation: rightOval 5s ease-in-out infinite;
-}
 @keyframes rightOval {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(15px, -8px); }
-  50%  { transform: translate(25px, 0); }
-  75%  { transform: translate(15px, 8px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(15px, -8px);
+  }
+  50% {
+    transform: translate(25px, 0);
+  }
+  75% {
+    transform: translate(15px, 8px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
-/* 4: sola oval */
-#skill4 {
-  animation: leftOval 5s ease-in-out infinite;
-}
 @keyframes leftOval {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(-15px, -8px); }
-  50%  { transform: translate(-25px, 0); }
-  75%  { transform: translate(-15px, 8px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-15px, -8px);
+  }
+  50% {
+    transform: translate(-25px, 0);
+  }
+  75% {
+    transform: translate(-15px, 8px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
-/* 5: çapraz sağ aşağı oval */
-#skill5 {
-  animation: downRightOval 5s ease-in-out infinite;
-}
 @keyframes downRightOval {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(12px, 12px); }
-  50%  { transform: translate(20px, 20px); }
-  75%  { transform: translate(12px, 12px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(12px, 12px);
+  }
+  50% {
+    transform: translate(20px, 20px);
+  }
+  75% {
+    transform: translate(12px, 12px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
-/* 6: çapraz sol aşağı oval */
-#skill6 {
-  animation: downLeftOval 5s ease-in-out infinite;
-}
 @keyframes downLeftOval {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(-12px, 12px); }
-  50%  { transform: translate(-20px, 20px); }
-  75%  { transform: translate(-12px, 12px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-12px, 12px);
+  }
+  50% {
+    transform: translate(-20px, 20px);
+  }
+  75% {
+    transform: translate(-12px, 12px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
-/* 7: küçük daire */
-#skill7 {
-  animation: smallCircle 5s ease-in-out infinite;
-}
 @keyframes smallCircle {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(10px, -10px); }
-  50%  { transform: translate(0, -20px); }
-  75%  { transform: translate(-10px, -10px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10px, -10px);
+  }
+  50% {
+    transform: translate(0, -20px);
+  }
+  75% {
+    transform: translate(-10px, -10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
-/* 8: büyük daire */
-#skill8 {
-  animation: bigCircle 5s ease-in-out infinite;
-}
 @keyframes bigCircle {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(20px, -20px); }
-  50%  { transform: translate(0, -35px); }
-  75%  { transform: translate(-20px, -20px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20px, -20px);
+  }
+  50% {
+    transform: translate(0, -35px);
+  }
+  75% {
+    transform: translate(-20px, -20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@media (min-width: 1024px) {
+  #skill1 {
+    animation: downOval 5s ease-in-out infinite;
+  }
+
+  #skill2 {
+    animation: upOval 5s ease-in-out infinite;
+  }
+
+  #skill3 {
+    animation: rightOval 5s ease-in-out infinite;
+  }
+
+  #skill4 {
+    animation: leftOval 5s ease-in-out infinite;
+  }
+
+  #skill5 {
+    animation: downRightOval 5s ease-in-out infinite;
+  }
+
+  #skill6 {
+    animation: downLeftOval 5s ease-in-out infinite;
+  }
+
+  #skill7 {
+    animation: smallCircle 5s ease-in-out infinite;
+  }
+
+  #skill8 {
+    animation: bigCircle 5s ease-in-out infinite;
+  }
 }

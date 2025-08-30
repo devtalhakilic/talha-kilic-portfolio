@@ -410,12 +410,20 @@
   .secondSection .textContainer h1 {
     margin-top: calc(var(--spacing) * 10);
     text-align: center;
-    font-size: var(--text-7xl);
-    line-height: var(--tw-leading, var(--text-7xl--line-height));
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
+    @media (width >= 48rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
+    }
     @media (width >= 64rem) {
       margin-top: calc(var(--spacing) * 0);
+    }
+    @media (width >= 64rem) {
+      font-size: var(--text-7xl);
+      line-height: var(--tw-leading, var(--text-7xl--line-height));
     }
   }
   .secondSection .skillsContainer {
@@ -439,21 +447,19 @@
     transform: scale(1.1);
   }
 }
-.secondSection .skillsContainer .skill:nth-child(odd) .infoBox {
-  display: flex;
-  justify-content: flex-start;
-}
-.secondSection .skillsContainer .skill:nth-child(even) .infoBox {
-  display: flex;
-  justify-content: flex-end;
-}
 .secondSection .skillsContainer .skill:nth-child(odd) {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  @media (width >= 64rem) {
+    justify-content: flex-start;
+  }
 }
 .secondSection .skillsContainer .skill:nth-child(even) {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  @media (width >= 64rem) {
+    justify-content: flex-end;
+  }
 }
 html {
   scroll-behavior: smooth;
@@ -495,9 +501,6 @@ body {
 .floating {
   animation: downOval 5s ease-in-out infinite;
 }
-#skill1 {
-  animation: downOval 5s ease-in-out infinite;
-}
 @keyframes downOval {
   0% {
     transform: translate(0, 0);
@@ -514,9 +517,6 @@ body {
   100% {
     transform: translate(0, 0);
   }
-}
-#skill2 {
-  animation: upOval 5s ease-in-out infinite;
 }
 @keyframes upOval {
   0% {
@@ -535,9 +535,6 @@ body {
     transform: translate(0, 0);
   }
 }
-#skill3 {
-  animation: rightOval 5s ease-in-out infinite;
-}
 @keyframes rightOval {
   0% {
     transform: translate(0, 0);
@@ -554,9 +551,6 @@ body {
   100% {
     transform: translate(0, 0);
   }
-}
-#skill4 {
-  animation: leftOval 5s ease-in-out infinite;
 }
 @keyframes leftOval {
   0% {
@@ -575,9 +569,6 @@ body {
     transform: translate(0, 0);
   }
 }
-#skill5 {
-  animation: downRightOval 5s ease-in-out infinite;
-}
 @keyframes downRightOval {
   0% {
     transform: translate(0, 0);
@@ -594,9 +585,6 @@ body {
   100% {
     transform: translate(0, 0);
   }
-}
-#skill6 {
-  animation: downLeftOval 5s ease-in-out infinite;
 }
 @keyframes downLeftOval {
   0% {
@@ -615,9 +603,6 @@ body {
     transform: translate(0, 0);
   }
 }
-#skill7 {
-  animation: smallCircle 5s ease-in-out infinite;
-}
 @keyframes smallCircle {
   0% {
     transform: translate(0, 0);
@@ -635,9 +620,6 @@ body {
     transform: translate(0, 0);
   }
 }
-#skill8 {
-  animation: bigCircle 5s ease-in-out infinite;
-}
 @keyframes bigCircle {
   0% {
     transform: translate(0, 0);
@@ -653,6 +635,32 @@ body {
   }
   100% {
     transform: translate(0, 0);
+  }
+}
+@media (min-width: 1024px) {
+  #skill1 {
+    animation: downOval 5s ease-in-out infinite;
+  }
+  #skill2 {
+    animation: upOval 5s ease-in-out infinite;
+  }
+  #skill3 {
+    animation: rightOval 5s ease-in-out infinite;
+  }
+  #skill4 {
+    animation: leftOval 5s ease-in-out infinite;
+  }
+  #skill5 {
+    animation: downRightOval 5s ease-in-out infinite;
+  }
+  #skill6 {
+    animation: downLeftOval 5s ease-in-out infinite;
+  }
+  #skill7 {
+    animation: smallCircle 5s ease-in-out infinite;
+  }
+  #skill8 {
+    animation: bigCircle 5s ease-in-out infinite;
   }
 }
 @property --tw-font-weight {
