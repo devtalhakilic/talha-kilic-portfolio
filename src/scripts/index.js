@@ -162,3 +162,67 @@ ScrollReveal().reveal(".logoContainer", {
   },
   reset: true,
 })
+
+ScrollReveal().reveal(".thirdSection .textContainerProjects h1 ", {
+  reset: true,
+})
+
+ScrollReveal().reveal(".textContainerSocials", {
+  beforeReveal: (el) => {
+    el.classList.add("animate__animated", "animate__fadeInDown")
+
+    el.addEventListener(
+      "animationend",
+      () => {
+        el.classList.remove("animate__animated", "animate__fadeInDown")
+      },
+      { once: true }
+    )
+  },
+  reset: true,
+})
+
+ScrollReveal().reveal(".social", {
+  beforeReveal: (el) => {
+    el.classList.add("animate__animated", "animate__fadeInUp")
+
+    el.addEventListener(
+      "animationend",
+      () => {
+        el.classList.remove("animate__animated", "animate__fadeInUp")
+      },
+      { once: true }
+    )
+  },
+  reset: true,
+})
+
+ScrollReveal().reveal("#project1", {
+  beforeReveal: (el) => {
+    el.classList.add("animate__animated", "animate__fadeInLeft")
+
+    el.addEventListener(
+      "animationend",
+      () => {
+        el.classList.remove("animate__animated", "animate__fadeInLeft")
+      },
+      { once: true }
+    )
+  },
+  reset: true,
+})
+
+ScrollReveal().reveal("#project2", {
+  beforeReveal: (el) => {
+    el.classList.add("animate__animated", "animate__fadeInRight")
+
+    el.addEventListener(
+      "animationend",
+      () => {
+        el.classList.remove("animate__animated", "animate__fadeInRight")
+      },
+      { once: true }
+    )
+  },
+  reset: true,
+})

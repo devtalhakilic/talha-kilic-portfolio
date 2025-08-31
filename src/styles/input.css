@@ -57,6 +57,15 @@
     display: none;
   }
 
+  .scrolled {
+    backdrop-filter: blur(8px);
+    background-color: #00000080;
+  }
+
+  .non-scrolled {
+    background: transparent;
+  }
+
   /*
   Section 1
   */
@@ -145,30 +154,30 @@
   */
 
   .thirdSection {
-    @apply flex flex-col h-screen;
+    @apply flex flex-col min-h-screen;
   }
   .thirdSection .textContainerProjects {
-    @apply flex w-full items-center justify-center h-1/6 text-white;
+    @apply flex w-full items-center justify-center flex-1 text-white;
   }
   .thirdSection .textContainerProjects h1 {
     @apply lg:text-7xl text-3xl md:text-5xl font-bold text-center;
   }
 
   .thirdSection .projectsContainer {
-    @apply flex h-5/6 flex-col p-5 gap-10;
+    @apply flex flex-5 flex-col p-5 gap-10;
   }
 
   .thirdSection .projectsContainer .row {
-    @apply flex justify-between lg:flex-row flex-col items-center flex-1;
+    @apply flex justify-around lg:flex-row flex-col lg:gap-20 gap-0 items-center flex-1;
   }
 
   .thirdSection .projectsContainer .row .project {
     @apply w-full m-2 bg-gray-700 rounded-2xl relative overflow-hidden;
     aspect-ratio: 16 / 9;
-    cursor: pointer
+    cursor: pointer;
   }
-  .thirdSection .projectsContainer .row .project .projectInfo{
-    @apply w-full h-full z-20 rounded-2xl absolute top-0 left-0 transition-transform duration-500;
+  .thirdSection .projectsContainer .row .project .projectInfo {
+    @apply w-full h-full z-20 rounded-2xl absolute top-0 left-0 transition-transform duration-500 flex text-white flex-col gap-10 lg:pt-0 pt-5 pb-5 lg:gap-0 justify-around items-center text-center;
     transform: translateY(100%);
     backdrop-filter: blur(8px);
     background-color: #00000080;
@@ -176,13 +185,99 @@
 
   .thirdSection .projectsContainer .row .project:hover .projectInfo {
     transform: translateY(0%);
+    overflow: scroll;
   }
 
   .thirdSection .projectsContainer .row .project img {
     @apply w-full rounded-2xl;
     aspect-ratio: 16/9;
   }
+
+  .thirdSection .projectsContainer .row .project .projectInfo h1 {
+    @apply lg:text-5xl text-2xl md:text-3xl font-bold;
+  }
+  .thirdSection .projectsContainer .row .project .projectInfo p {
+    @apply w-3/4 bg-transparent text-[16px];
+  }
+  .thirdSection .projectsContainer .row .project .projectInfo i {
+    @apply lg:text-5xl text-2xl md:text-4xl font-bold;
+  }
+
+  /*
+  Section 4
+  */
+
+  .fourthSection {
+    @apply flex flex-col min-h-screen;
+  }
+
+  .fourthSection .textContainerSocials {
+    @apply flex w-full items-center justify-center flex-1 text-white;
+  }
+  .fourthSection .textContainerSocials h1 {
+    @apply lg:text-7xl text-3xl md:text-5xl font-bold text-center;
+  }
+
+  .fourthSection .socialsLinkContainer {
+    @apply flex w-full flex-5 flex-wrap lg:flex-row flex-col lg:justify-between justify-center items-center gap-20 pl-10 pr-10 mt-5 lg:pr-5 lg:pl-5;
+  }
+
+  .fourthSection .socialsLinkContainer .social {
+    @apply flex lg:w-1/4 w-full h-40 rounded-2xl gap-5 items-center p-5 text-white overflow-hidden;
+    background: linear-gradient(
+      312deg,
+      rgba(27, 27, 27, 1),
+      rgba(0, 49, 83, 1)
+    );
+    -webkit-background: linear-gradient(
+      312deg,
+      rgba(27, 27, 27, 1),
+      rgba(0, 49, 83, 1)
+    );
+    -moz-background: linear-gradient(
+      312deg,
+      rgba(27, 27, 27, 1),
+      rgba(0, 49, 83, 1)
+    );
+    transition: 0.2s ease-in;
+    cursor: pointer;
+  }
+
+  .fourthSection .socialsLinkContainer .social img {
+    @apply w-14 h-14;
+  }
+
+  .fourthSection .socialsLinkContainer .social:hover {
+    transform: scale(1.05);
+  }
+
+  .fourthSection .socialsLinkContainer .social .socialText {
+    @apply flex flex-col text-left w-5/6;
+  }
+  .fourthSection .socialsLinkContainer .social h2 {
+    @apply text-[18px];
+  }
+  .fourthSection .socialsLinkContainer .social p {
+    @apply text-[16px];
+  }
+  .fourthSection .socialsLinkContainer .social a {
+    @apply text-[16px] mt-2;
+  }
+
+  /*
+Footer
+*/
+
+  .footer {
+    @apply flex w-full items-center justify-center p-5 text-white;
+    backdrop-filter: blur(8px);
+    background-color: #00000080;
+  }
 }
+/*
+Root Ayarlar
+*/
+
 html {
   scroll-behavior: smooth;
   overscroll-behavior-y: contain;
@@ -197,15 +292,6 @@ body {
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-.scrolled {
-  backdrop-filter: blur(8px);
-  background-color: #00000080;
-}
-
-.non-scrolled {
-  background: transparent;
 }
 
 .bg {
@@ -245,10 +331,6 @@ body {
 .content {
   position: absolute;
   width: 100%;
-}
-
-.floating {
-  animation: downOval 5s ease-in-out infinite;
 }
 
 /*
