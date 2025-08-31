@@ -223,7 +223,7 @@
   }
 
   .fourthSection .socialsLinkContainer .social {
-    @apply flex lg:w-1/4 w-full h-40 rounded-2xl gap-5 items-center p-5 text-white overflow-hidden;
+    @apply flex lg:w-1/4 w-full min-h-40 rounded-2xl gap-5 items-center p-5 text-white overflow-hidden;
     background: linear-gradient(
       312deg,
       rgba(27, 27, 27, 1),
@@ -272,6 +272,9 @@ Footer
     @apply flex w-full items-center justify-center p-5 text-white;
     backdrop-filter: blur(8px);
     background-color: #00000080;
+  }
+  .footer p{
+    @apply text-center;
   }
 }
 /*
