@@ -10,21 +10,25 @@
   Navbar
   */
   .navbar {
-    @apply flex w-full h-20 z-10 text-white justify-between items-center fixed;
+    @apply flex w-full h-20 z-10 justify-center text-white fixed;
     transition: 0.2s ease-in;
+  }
+
+  .navbar .navbarInside{
+    @apply h-full max-w-[1700px] w-full flex justify-between pl-5 pr-5 items-center;
   }
 
   .navbar .navbarLeftSide {
     @apply flex flex-5;
   }
   .navbar .navbarLeftSide h2 {
-    @apply pl-5 text-2xl;
+    @apply text-2xl;
   }
   .navbar .navbarRightSide {
     @apply flex flex-2;
   }
   .navbar .navbarRightSide .navigation {
-    @apply lg:flex justify-around w-full hidden;
+    @apply lg:flex justify-between w-full hidden;
   }
 
   .navigationItem {
@@ -75,11 +79,15 @@
   }
 
   .firstSection {
-    @apply flex items-center flex-col-reverse lg:flex-row justify-around text-white;
+    @apply flex text-white justify-center items-center;
+  }
+
+  .firstSection .firstSectionInside{
+    @apply flex items-center flex-col-reverse lg:flex-row justify-around pr-5 pl-5 max-w-[1700px] w-full;
   }
 
   .firstSection .aboutMeText {
-    @apply lg:w-1/2 flex flex-col lg:gap-5 gap-10 w-full lg:justify-start justify-center lg:items-start items-center;
+    @apply lg:w-5/9 flex flex-col lg:gap-5 gap-10 w-full lg:justify-start justify-center lg:items-start items-center;
   }
 
   .firstSection .aboutMeText h1 {
@@ -90,6 +98,10 @@
     @apply lg:text-4xl text-2xl md:text-3xl text-[#08a508];
   }
 
+  .firstSection .logoContainer {
+    @apply lg:w-4/9 flex justify-end items-center;
+  }
+
   .firstSection .logoContainer .logoImage {
     @apply rounded-full lg:h-[460px] h-[180px] md:h-[350px];
     box-shadow: -1px 1px 110px 15px rgba(0, 0, 0, 0.75);
@@ -98,7 +110,7 @@
   }
 
   .firstSection .aboutMeText p {
-    @apply font-light lg:text-left text-center lg:w-auto w-3/4;
+    @apply font-light lg:text-left text-center lg:w-auto w-full;
   }
   .firstSection .aboutMeText .text {
     @apply w-[100vw] lg:text-left text-center;
@@ -164,20 +176,21 @@
   }
 
   .thirdSection .projectsContainer {
-    @apply flex flex-5 flex-col p-5 gap-10;
+    @apply flex flex-5 flex-col gap-10 items-center;
   }
 
   .thirdSection .projectsContainer .row {
-    @apply flex justify-around lg:flex-row flex-col lg:gap-20 gap-0 items-center flex-1;
+    @apply flex lg:justify-between justify-center lg:flex-row flex-col mt-5 pr-5 pl-5 items-center flex-1 max-w-[1700px] w-full flex-wrap;
+    row-gap: 40px;
   }
 
   .thirdSection .projectsContainer .row .project {
-    @apply w-full m-2 bg-gray-700 rounded-2xl relative overflow-hidden;
+    @apply lg:w-19/40 w-full bg-gray-700 rounded-2xl relative overflow-hidden;
     aspect-ratio: 16 / 9;
     cursor: pointer;
   }
   .thirdSection .projectsContainer .row .project .projectInfo {
-    @apply w-full h-full z-20 rounded-2xl absolute top-0 left-0 transition-transform duration-500 flex text-white flex-col gap-10 lg:pt-0 pt-5 pb-5 lg:gap-0 justify-around items-center text-center;
+    @apply w-full h-full z-2 rounded-2xl absolute top-0 left-0 transition-transform duration-500 flex text-white flex-col gap-10 lg:pt-0 pt-5 pb-5 lg:gap-0 justify-around items-center text-center;
     transform: translateY(100%);
     backdrop-filter: blur(8px);
     background-color: #00000080;
@@ -219,26 +232,14 @@
   }
 
   .fourthSection .socialsLinkContainer {
-    @apply flex w-full flex-5 flex-wrap lg:flex-row flex-col lg:justify-between justify-center items-center gap-20 pl-10 pr-10 mt-5 lg:pr-5 lg:pl-5;
+    @apply flex w-full flex-5 flex-wrap lg:flex-row flex-col lg:justify-between justify-center items-center gap-20 pr-5 pl-5 mt-5 lg:pr-5 lg:pl-5 max-w-[1700px] m-auto;
+    
   }
 
   .fourthSection .socialsLinkContainer .social {
-    @apply flex lg:w-1/4 w-full min-h-40 rounded-2xl gap-5 items-center p-5 text-white overflow-hidden;
-    background: linear-gradient(
-      312deg,
-      rgba(27, 27, 27, 1),
-      rgba(0, 49, 83, 1)
-    );
-    -webkit-background: linear-gradient(
-      312deg,
-      rgba(27, 27, 27, 1),
-      rgba(0, 49, 83, 1)
-    );
-    -moz-background: linear-gradient(
-      312deg,
-      rgba(27, 27, 27, 1),
-      rgba(0, 49, 83, 1)
-    );
+    @apply flex lg:w-1/4 w-full h-40 rounded-2xl gap-5 items-center p-5 text-white overflow-hidden;
+    backdrop-filter: blur(80px);
+    background-color: #ffffff23;
     transition: 0.2s ease-in;
     cursor: pointer;
   }
