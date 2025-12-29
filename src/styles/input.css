@@ -5,6 +5,10 @@
   font-style: normal;
 }
 
+.capitalize{
+  text-transform: capitalize;
+}
+
 @layer components {
   /*
   Navbar
