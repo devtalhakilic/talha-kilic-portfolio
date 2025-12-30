@@ -126,45 +126,61 @@ ScrollReveal().reveal(".skill", {
       { once: true }
     ) // sadece bir kere çalışsın
   },
-  reset: true, // tekrar görünce animasyon tekrar tetiklenecek
+  reset: false, // tekrar görünce animasyon tekrar tetiklenecek
 })
 
 ScrollReveal().reveal(".textContainer", {
-  reset: true,
+  reset: false,
 })
 
 ScrollReveal().reveal(".aboutMeText", {
   beforeReveal: (el) => {
+    if(screen.width < 1024){
+      el.classList.add("animate__animated", "animate__fadeInUp")
+    }else{
     el.classList.add("animate__animated", "animate__fadeInLeft")
+    }
 
     el.addEventListener(
       "animationend",
       () => {
+        if(screen.width < 1024){
+          el.classList.remove("animate__animated", "animate__fadeInUp")
+        }else{
         el.classList.remove("animate__animated", "animate__fadeInLeft")
+        }
       },
       { once: true }
     )
   },
-  reset: true,
+  reset: false,
 })
 
 ScrollReveal().reveal(".logoContainer", {
   beforeReveal: (el) => {
+    if(screen.width < 1024){
+      el.classList.add("animate__animated", "animate__fadeInDown")
+    }else{
     el.classList.add("animate__animated", "animate__fadeInRight")
+    }
 
     el.addEventListener(
       "animationend",
       () => {
+        if(screen.width < 1024){
+          el.classList.remove("animate__animated", "animate__fadeInDown")
+        }else{
         el.classList.remove("animate__animated", "animate__fadeInRight")
+        }
       },
       { once: true }
     )
   },
-  reset: true,
+  reset: false,
 })
 
 ScrollReveal().reveal(".thirdSection .textContainerProjects h1 ", {
-  reset: true,
+  reset: false,
 })
 
 ScrollReveal().reveal(".textContainerSocials", {
@@ -179,7 +195,7 @@ ScrollReveal().reveal(".textContainerSocials", {
       { once: true }
     )
   },
-  reset: true,
+  reset: false,
 })
 
 ScrollReveal().reveal(".social", {
@@ -194,35 +210,52 @@ ScrollReveal().reveal(".social", {
       { once: true }
     )
   },
-  reset: true,
+  reset: false,
 })
 
 ScrollReveal().reveal("#project1", {
   beforeReveal: (el) => {
+    if(screen.width < 1024){
+      el.classList.add("animate__animated", "animate__fadeIn")
+    }else{
     el.classList.add("animate__animated", "animate__fadeInLeft")
+    }
 
     el.addEventListener(
       "animationend",
       () => {
+        if(screen.width < 1024){
+          el.classList.remove("animate__animated", "animate__fadeIn")
+        }else{
         el.classList.remove("animate__animated", "animate__fadeInLeft")
+        }
       },
       { once: true }
     )
   },
-  reset: true,
+  reset: false,
 })
 
 ScrollReveal().reveal("#project2", {
   beforeReveal: (el) => {
+    if(screen.width < 1024){
+      el.classList.add("animate__animated", "animate__fadeIn")
+    }else{
     el.classList.add("animate__animated", "animate__fadeInRight")
+    }
+
 
     el.addEventListener(
       "animationend",
       () => {
-        el.classList.remove("animate__animated", "animate__fadeInRight")
+    if(screen.width < 1024){
+      el.classList.remove("animate__animated", "animate__fadeIn")
+    }else{
+    el.classList.remove("animate__animated", "animate__fadeInRight")
+    }
       },
       { once: true }
     )
   },
-  reset: true,
+  reset: false,
 })
