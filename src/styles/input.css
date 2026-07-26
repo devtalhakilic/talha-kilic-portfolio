@@ -241,7 +241,7 @@
   }
 
   .fourthSection .socialsLinkContainer .social {
-    @apply flex lg:w-1/4 w-full h-40 rounded-2xl gap-5 items-center p-5 text-white overflow-hidden;
+    @apply flex lg:w-[45%] w-full h-40 rounded-2xl gap-5 items-center p-5 text-white overflow-hidden;
     backdrop-filter: blur(80px);
     background-color: #ffffff23;
     transition: 0.2s ease-in;
