@@ -1,233 +1,313 @@
 <!DOCTYPE html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Frontend Developer Talha KILIÇ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link href="./dist/output.css" rel="stylesheet" />
-    <link rel="icon" href="" type="image/x-icon" />
-  </head>
-  <body id="body">
-    <div class="bg"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontend Developer Talha KILIÇ</title>
 
-    <div class="content">
-      <header class="navbar animate__animated animate__fadeInDown non-scrolled" id="navbar">
-        <div class="navbarInside">
-          <div class="navbarLeftSide">
-            <h2>
-              Talha
-              <span>KILIÇ</span>
-            </h2>
-          </div>
-          <div class="navbarRightSide">
-            <nav class="navigation">
-              <a href="#firstSection" class="navigationItem" id="aboutMeLink">About Me</a>
-              <a href="#secondSection" class="navigationItem" id="skillsLink">Skills</a>
-              <a href="#thirdSection" class="navigationItem" id="projectsLink">Projects</a>
-              <a href="#fourthSection" class="navigationItem" id="socialsLink">Socials</a>
-            </nav>
-          </div>
+  <meta name="description" content="Talha KILIÇ - Junior Frontend Developer Portfolio. Explore my web development projects, skills, and social links." />
+  <meta name="keywords" content="Talha Kılıç, Frontend Developer, Web Developer, JavaScript, TailwindCSS, HTML, CSS, Portfolio, Turkey" />
+  <meta name="author" content="Talha KILIÇ" />
+  <meta name="theme-color" content="#07ff39" />
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://github.com/devtalhakilic" />
+  <meta property="og:title" content="Talha KILIÇ | Frontend Developer" />
+  <meta property="og:description" content="Passionate Junior Frontend Developer based in Turkey. Check out my projects and skills!" />
+  <meta property="og:image" content="https://github.com/devtalhakilic.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://x.com/devtalhakilic" />
+  <meta name="twitter:title" content="Talha KILIÇ | Frontend Developer" />
+  <meta name="twitter:description" content="Passionate Junior Frontend Developer based in Turkey. Check out my projects and skills!" />
+  <meta name="twitter:image" content="https://github.com/devtalhakilic.png" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="./dist/output.css" rel="stylesheet" />
+  <link rel="icon" href="src/images/icons/favicon-circle.png" type="image/png" />
+  <link rel="apple-touch-icon" href="src/images/icons/favicon-circle.png" />
+</head>
+
+<body id="body">
+  <div class="bg"></div>
+
+  <div class="content">
+    <header class="navbar animate__animated animate__fadeInDown non-scrolled" id="navbar">
+      <div class="navbarInside">
+        <div class="navbarLeftSide">
+          <h2>
+            Talha
+            <span>KILIÇ</span>
+          </h2>
         </div>
-      </header>
-
-      <div class="responsiveNavigationBar animate__animated hiddenNav" id="responsiveNavigationBar">
-        <div class="navigationMenuResponsive">
-          <a href="#firstSection" class="navigationItem" onclick="hamburgerMenu()" id="aboutMeLink1">About Me</a>
-          <a href="#secondSection" class="navigationItem" onclick="hamburgerMenu()" id="skillsLink1">Skills</a>
-          <a href="#thirdSection" class="navigationItem" onclick="hamburgerMenu()" id="projectsLink1">Projects</a>
-          <a href="#fourthSection" class="navigationItem" onclick="hamburgerMenu()" id="socialsLink1">Socials</a>
+        <div class="navbarRightSide">
+          <nav class="navigation">
+            <a href="#firstSection" class="navigationItem" id="aboutMeLink">About Me</a>
+            <a href="#secondSection" class="navigationItem" id="skillsLink">Skills</a>
+            <a href="#thirdSection" class="navigationItem" id="projectsLink">Projects</a>
+            <a href="#fourthSection" class="navigationItem" id="socialsLink">Socials</a>
+          </nav>
         </div>
       </div>
+    </header>
 
-      <div class="hamburgerButton animate__animated animate__fadeInDown">
-        <button id="hamburgerButton"><i id="hamburgerIcon" onclick="hamburgerMenu()" class="fa-solid fa-bars"></i></button>
+    <div class="responsiveNavigationBar animate__animated hiddenNav" id="responsiveNavigationBar">
+      <div class="navigationMenuResponsive">
+        <a href="#firstSection" class="navigationItem" onclick="hamburgerMenu()" id="aboutMeLink1">About Me</a>
+        <a href="#secondSection" class="navigationItem" onclick="hamburgerMenu()" id="skillsLink1">Skills</a>
+        <a href="#thirdSection" class="navigationItem" onclick="hamburgerMenu()" id="projectsLink1">Projects</a>
+        <a href="#fourthSection" class="navigationItem" onclick="hamburgerMenu()" id="socialsLink1">Socials</a>
       </div>
-
-      <section class="firstSection section" id="firstSection">
-        <div class="firstSectionInside">
-          <div class="aboutMeText">
-            <!-- animate__animated animate__fadeInLeftBig-->
-            <h1>Talha KILIÇ</h1>
-            <div class="text">
-              <span class="text-[#1d7a05]">
-                I'm..
-                <span id="skill"></span>
-              </span>
-            </div>
-
-            <p class="text-xl">Hello everyone, my name is Talha Kılıç. I’ve been passionate about software and technology since I was 11 years old, and what started as a simple curiosity has now grown into a serious interest and skill set. In the early days, I experimented with small Python projects, writing basic scripts and exploring how coding works behind the scenes, which gave me a strong foundation in problem-solving and logic. Over time, I expanded my knowledge into web development, where I began learning how to create websites, work with modern frameworks, and understand the structure of the internet from a developer’s perspective. Recently, I’ve also started learning Java to broaden my programming skills and gain experience with more complex, object-oriented programming concepts. This journey has been a mix of curiosity, self-learning, and constant practice, and I’m excited to continue improving and building more advanced projects as I move forward.</p>
-          </div>
-
-          <div class="logoContainer">
-            <!-- animate__animated animate__fadeInRightBig-->
-            <img src="https://github.com/devtalhakilic.png" alt="GitHub Avatar" class="logoImage floating1" />
-          </div>
-        </div>
-      </section>
-
-      <section class="secondSection section" id="secondSection">
-        <div class="skillsContainer">
-          <div class="skill">
-            <div class="skillImage">
-              <img id="skill1" src="https://skillicons.dev/icons?i=bootstrap" />
-            </div>
-          </div>
-          <div class="skill">
-            <div class="skillImage">
-              <img id="skill2" src="https://skillicons.dev/icons?i=python" />
-            </div>
-          </div>
-          <div class="skill">
-            <div class="skillImage">
-              <img id="skill3" src="https://skillicons.dev/icons?i=java" />
-            </div>
-          </div>
-          <div class="skill">
-            <div class="skillImage">
-              <img id="skill4" src="https://skillicons.dev/icons?i=figma" />
-            </div>
-          </div>
-        </div>
-        <div class="textContainer">
-          <h1>My Skills</h1>
-          <p class="text-center">
-            Scripting, markup, programming languages, and editing programs
-            <br />
-            I've learned through 4.5 years of experience
-          </p>
-        </div>
-        <div class="skillsContainer skillsContainer">
-          <div class="skill">
-            <div class="skillImage">
-              <img id="skill5" src="https://skillicons.dev/icons?i=html" />
-            </div>
-          </div>
-          <div class="skill">
-            <div class="skillImage">
-              <img id="skill6" src="https://skillicons.dev/icons?i=css" />
-            </div>
-          </div>
-          <div class="skill">
-            <div class="skillImage">
-              <img id="skill7" src="https://skillicons.dev/icons?i=javascript" />
-            </div>
-          </div>
-          <div class="skill">
-            <div class="skillImage">
-              <img id="skill8" src="https://skillicons.dev/icons?i=tailwind" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="thirdSection section" id="thirdSection">
-        <div class="textContainerProjects">
-          <h1>My Projects</h1>
-        </div>
-        <div class="projectsContainer" style="margin-top: 60px;">
-          <div class="firstRow row">
-            <div class="project" id="project1">
-              <img src="src/Images/tunc-kurt-matematik.png" />
-              <div class="projectInfo">
-                <h1>Tunç Kurt Math</h1>
-                <p>The website I created for Mr. Tunç for his mathematics channel was designed to provide a clean, modern, and user-friendly platform where he can share educational content, engage with his students, and present his lessons in an organized and accessible way.”</p>
-                <button>
-                  <a href="https://tunckurt.patar.tr/" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
-                </button>
-              </div>
-            </div>
-            <div class="project" id="project2">
-              <img src="src/Images/ders-alanim.png" />
-              <div class="projectInfo">
-                <h1>Ders Alanim</h1>
-                <p>A comprehensive study website that offers a variety of tools designed to improve learning efficiency, including customizable timers, note-taking and journaling features, question tracking, Pomodoro timers, detailed statistics, and additional study aids to help students stay organized, manage their time effectively, and maintain focus during their study sessions.</p>
-                <button>
-                  <a href="https://ders-alanim.netlify.app/" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="secondRow row" style="justify-content: center; margin-top: 0;">
-            <div class="project" id="project3">
-              <img src="src/Images/twbulteni.png" alt="Twitter Cehennem Bülteni" />
-              <div class="projectInfo">
-                <h1>Cehennem Bülteni</h1>
-                <p>A newsletter where we gather and summarize the most popular and interesting events on Twitter from the past week in an entertaining way!</p>
-                <button>
-                  <a href="https://twbulteni.com.tr/" target="_blank"><i class="fa-solid fa-up-right-from-square"></i></a>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="fourthSection section" id="fourthSection">
-        <div class="textContainerSocials">
-          <h1>My Socials</h1>
-        </div>
-
-        <div class="socialsLinkContainer">
-          <div class="social" id="github">
-            <div class="image">
-              <img src="https://skillicons.dev/icons?i=github" />
-            </div>
-            <div class="socialText">
-              <h2>GitHub</h2>
-              <div class="my-2 border-t border-gray-500"></div>
-              <p>Check out my projects and contributions on GitHub.</p>
-              <a href="https://github.com/devtalhakilic" target="_blank">@devtalhakilic</a>
-            </div>
-          </div>
-          <div class="social" id="gmail">
-            <div class="image">
-              <img src="src/Images/gmail_icon.png" />
-            </div>
-            <div class="socialText">
-              <h2>E-Mail</h2>
-              <div class="my-2 border-t border-gray-500"></div>
-              <p>Feel free to contact me via email for any inquiries or professional correspondence.</p>
-              <a href="mailto:devtalhakilic@gmail.com" target="_blank">@devtalhakilic</a>
-            </div>
-          </div>
-          <div class="social" id="twitter">
-            <div class="image">
-              <img src="src/Images/x_icon.png" />
-            </div>
-            <div class="socialText">
-              <h2>Twitter</h2>
-              <div class="my-2 border-t border-gray-500"></div>
-              <p>Follow me on Twitter to see my thoughts, reactions, and everyday updates.</p>
-              <a href="https://x.com/devtalhakilic" target="_blank">@devtalhakilic</a>
-            </div>
-          </div>
-          <div class="social" id="linkedin">
-            <div class="image">
-              <img src="https://skillicons.dev/icons?i=linkedin" />
-            </div>
-            <div class="socialText">
-              <h2>LinkedIn</h2>
-              <div class="my-2 border-t border-gray-500"></div>
-              <p>Connect with me on LinkedIn for professional networking and career updates.</p>
-              <a href="https://www.linkedin.com/in/talha-kili%C3%A7-549631420/" target="_blank">@talha-kilic</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer class="footer">
-        <p>&copy; 2025 This Website Developed by Talha KILIÇ.</p>
-      </footer>
     </div>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js" integrity="sha512-tQQXRDB2wEmuJGtFrmmoFYzNTq8StA1XJrfO0OQbbTxd9G0CwaTDL6/C1y805IlvBVrMwOqob1kf6r/2U5XXVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="src/scripts/config.js"></script>
-    <script src="src/scripts/lastfm.js"></script>
-    <script src="src/scripts/nowPlaying.js"></script>
-    <script src="src/scripts/index.js"></script>
-  </body>
+    <div class="hamburgerButton animate__animated animate__fadeInDown">
+      <button id="hamburgerButton"><i id="hamburgerIcon" onclick="hamburgerMenu()"
+          class="fa-solid fa-bars"></i></button>
+    </div>
+
+    <section class="firstSection section" id="firstSection">
+      <div class="firstSectionInside">
+        <div class="aboutMeText">
+          <!-- animate__animated animate__fadeInLeftBig-->
+          <h1>Talha KILIÇ</h1>
+          <div class="text">
+            <span class="text-[#1d7a05]">
+              I'm..
+              <span id="skill"></span>
+            </span>
+          </div>
+
+          <p class="text-xl">Hello everyone, my name is Talha Kılıç. I’ve been passionate about software and technology
+            since I was 11 years old, and what started as a simple curiosity has now grown into a serious interest and
+            skill set. In the early days, I experimented with small Python projects, writing basic scripts and exploring
+            how coding works behind the scenes, which gave me a strong foundation in problem-solving and logic. Over
+            time, I expanded my knowledge into web development, where I began learning how to create websites, work with
+            modern frameworks, and understand the structure of the internet from a developer’s perspective. Recently,
+            I’ve also started learning Java to broaden my programming skills and gain experience with more complex,
+            object-oriented programming concepts. This journey has been a mix of curiosity, self-learning, and constant
+            practice, and I’m excited to continue improving and building more advanced projects as I move forward.</p>
+        </div>
+
+        <div class="logoContainer">
+          <!-- animate__animated animate__fadeInRightBig-->
+          <img src="https://github.com/devtalhakilic.png" alt="GitHub Avatar" class="logoImage floating1" />
+        </div>
+      </div>
+    </section>
+
+    <section class="secondSection section" id="secondSection">
+      <div class="skillsContainer">
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill1" src="https://skillicons.dev/icons?i=bootstrap" />
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill2" src="https://skillicons.dev/icons?i=python" />
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill3" src="https://skillicons.dev/icons?i=java" />
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill4" src="https://skillicons.dev/icons?i=figma" />
+          </div>
+        </div>
+      </div>
+      <div class="textContainer">
+        <h1>My Skills</h1>
+        <p class="text-center">
+          Scripting, markup, programming languages, and editing programs
+          <br />
+          I've learned through 4.5 years of experience
+        </p>
+      </div>
+      <div class="skillsContainer skillsContainer">
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill5" src="https://skillicons.dev/icons?i=html" />
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill6" src="https://skillicons.dev/icons?i=css" />
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill7" src="https://skillicons.dev/icons?i=javascript" />
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill8" src="https://skillicons.dev/icons?i=tailwind" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="thirdSection section" id="thirdSection">
+      <div class="textContainerProjects">
+        <h1>My Projects</h1>
+      </div>
+      <div class="projectsContainer" style="margin-top: 60px;">
+        <div class="firstRow row">
+          <div class="project" id="project1">
+            <img src="src/images/projects/tunc-kurt-matematik.png" alt="Tunç Kurt Mathematics Website" />
+            <div class="projectInfo">
+              <h1>Tunç Kurt Math</h1>
+              <p>The website I created for Mr. Tunç for his mathematics channel was designed to provide a clean, modern, and user-friendly educational platform.</p>
+              <div class="projectBadges">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">Tailwind CSS</span>
+                <span class="tech-badge">JavaScript</span>
+              </div>
+              <div class="projectActionBtns">
+                <a href="https://tunckurt.patar.tr/" target="_blank" class="projectActionBtn" title="Live Demo">
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+                <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project" id="project2">
+            <img src="src/images/projects/ders-alanim.png" alt="Ders Alanım Study Website" />
+            <div class="projectInfo">
+              <h1>Ders Alanım</h1>
+              <p>A comprehensive study platform with customizable timers, Pomodoro timers, note-taking, question tracking, and detailed study statistics.</p>
+              <div class="projectBadges">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">JavaScript</span>
+              </div>
+              <div class="projectActionBtns">
+                <a href="https://ders-alanim.netlify.app/" target="_blank" class="projectActionBtn" title="Live Demo">
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+                <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="secondRow row" style="justify-content: center; margin-top: 0;">
+          <div class="project" id="project3">
+            <img src="src/images/projects/twbulteni.png" alt="Cehennem Bülteni Newsletter" />
+            <div class="projectInfo">
+              <h1>Cehennem Bülteni</h1>
+              <p>A newsletter where we gather and summarize the most popular and interesting events on Twitter from the past week in an entertaining way!</p>
+              <div class="projectBadges">
+                <span class="tech-badge">SQL</span>
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">JavaScript</span>
+              </div>
+              <div class="projectActionBtns">
+                <a href="https://twbulteni.com.tr/" target="_blank" class="projectActionBtn" title="Live Demo">
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+                <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fourthSection section" id="fourthSection">
+      <div class="textContainerSocials">
+        <h1>My Socials</h1>
+      </div>
+
+      <div class="socialsLinkContainer">
+        <a href="https://github.com/devtalhakilic" target="_blank" class="social" id="github">
+          <div class="image">
+            <img src="https://skillicons.dev/icons?i=github" alt="GitHub Logo" />
+          </div>
+          <div class="socialText">
+            <div class="socialHeader">
+              <h2>GitHub</h2>
+              <i class="fa-solid fa-arrow-up-right-from-square socialArrow"></i>
+            </div>
+            <div class="my-2 border-t border-white/10"></div>
+            <p>Check out my projects and contributions on GitHub.</p>
+            <span class="socialTag">@devtalhakilic</span>
+          </div>
+        </a>
+        <a href="mailto:devtalhakilic@gmail.com" target="_blank" class="social" id="gmail">
+          <div class="image">
+            <img src="src/images/icons/gmail_icon.png" alt="Gmail Logo" />
+          </div>
+          <div class="socialText">
+            <div class="socialHeader">
+              <h2>E-Mail</h2>
+              <i class="fa-solid fa-arrow-up-right-from-square socialArrow"></i>
+            </div>
+            <div class="my-2 border-t border-white/10"></div>
+            <p>Feel free to contact me via email for any inquiries or professional correspondence.</p>
+            <span class="socialTag">devtalhakilic@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://x.com/devtalhakilic" target="_blank" class="social" id="twitter">
+          <div class="image">
+            <img src="src/images/icons/x_icon.png" alt="Twitter X Logo" />
+          </div>
+          <div class="socialText">
+            <div class="socialHeader">
+              <h2>Twitter / X</h2>
+              <i class="fa-solid fa-arrow-up-right-from-square socialArrow"></i>
+            </div>
+            <div class="my-2 border-t border-white/10"></div>
+            <p>Follow me on Twitter to see my thoughts, reactions, and everyday updates.</p>
+            <span class="socialTag">@devtalhakilic</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/talha-kili%C3%A7-549631420/" target="_blank" class="social" id="linkedin">
+          <div class="image">
+            <img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn Logo" />
+          </div>
+          <div class="socialText">
+            <div class="socialHeader">
+              <h2>LinkedIn</h2>
+              <i class="fa-solid fa-arrow-up-right-from-square socialArrow"></i>
+            </div>
+            <div class="my-2 border-t border-white/10"></div>
+            <p>Connect with me on LinkedIn for professional networking and career updates.</p>
+            <span class="socialTag">@talha-kilic</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 This Website Developed by Talha KILIÇ.</p>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js"
+    integrity="sha512-tQQXRDB2wEmuJGtFrmmoFYzNTq8StA1XJrfO0OQbbTxd9G0CwaTDL6/C1y805IlvBVrMwOqob1kf6r/2U5XXVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="src/scripts/config.js"></script>
+  <script src="src/scripts/lastfm.js"></script>
+  <script src="src/scripts/nowPlaying.js"></script>
+  <script src="src/scripts/particles.js"></script>
+  <script src="src/scripts/index.js"></script>
+</body>
+
 </html>

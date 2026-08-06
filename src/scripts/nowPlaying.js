@@ -13,13 +13,13 @@ const NowPlayingWidget = {
 
   init() {
     this._injectStyles();
-    
+
     // Initialize Audio Object
     this.audioElement = new Audio();
     this.audioElement.volume = 0.5;
     this.audioElement.onended = () => {
-        this.isPlayingPreview = false;
-        this.updatePlayButton();
+      this.isPlayingPreview = false;
+      this.updatePlayButton();
     };
 
     // Create container
@@ -54,12 +54,12 @@ const NowPlayingWidget = {
     `;
 
     document.body.appendChild(this.container);
-    
+
     // Event Listeners
     const btn = document.getElementById("np-play-btn");
-    if(btn) btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        this.togglePreview();
+    if (btn) btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.togglePreview();
     });
 
     this.startPolling();
@@ -231,9 +231,9 @@ const NowPlayingWidget = {
 
   updateUI(track) {
     if (track) {
-       console.log("Widget Update - API Track:", track.name, "Is Playing:", track.isPlaying);
+      console.log("Widget Update - API Track:", track.name, "Is Playing:", track.isPlaying);
     }
-    
+
     const art = document.getElementById("np-art");
     const link = document.getElementById("np-link");
     const artist = document.getElementById("np-artist");
@@ -242,39 +242,39 @@ const NowPlayingWidget = {
     const timeAgo = document.getElementById("np-time-ago");
 
     if (track) {
-      art.src = track.image || "src/Images/spotify_icon.png";
+      art.src = (track.image && track.image.trim() !== '') ? track.image : "src/images/icons/spotify_icon.png";
       link.textContent = track.name;
       link.href = track.url;
-      
-      const artistName = (typeof track.artist === 'object' && track.artist['#text']) 
-            ? track.artist['#text'] 
-            : (track.artist || "Unknown Artist");
-            
+
+      const artistName = (typeof track.artist === 'object' && track.artist['#text'])
+        ? track.artist['#text']
+        : (track.artist || "Unknown Artist");
+
       artist.textContent = artistName;
-      
+
       // --------------- AUDIO PREVIEW LOGIC ---------------
       const newTrackKey = `${track.name}-${artistName}`;
-      
+
       if (this.currentTrackKey !== newTrackKey) {
-          this.currentTrackKey = newTrackKey;
-          this.stopAudio(); 
-          this.fetchAndSetPreview(track.name, artistName);
+        this.currentTrackKey = newTrackKey;
+        this.stopAudio();
+        this.fetchAndSetPreview(track.name, artistName);
       }
       // ---------------------------------------------------
 
       if (track.isPlaying) {
-          label.innerHTML = '<i class="fa-brands fa-spotify"></i> Talha\'s Now Listening';
-          label.className = "np-label"; 
-          equalizer.classList.remove("hidden");
-          timeAgo.textContent = "";
+        label.innerHTML = '<i class="fa-brands fa-spotify"></i> Talha\'s Now Listening';
+        label.className = "np-label";
+        equalizer.classList.remove("hidden");
+        timeAgo.textContent = "";
       } else {
-          // DIRECT MODE: Even if not playing, show the last track immediately
-          label.innerHTML = '<i class="fa-brands fa-spotify"></i> Talha\'s Last Played';
-          label.className = "np-label offline"; 
-          equalizer.classList.add("hidden");
-          
-          const ago = this.getTimeAgo(track.timestamp);
-          timeAgo.textContent = ago + " ago";
+        // DIRECT MODE: Even if not playing, show the last track immediately
+        label.innerHTML = '<i class="fa-brands fa-spotify"></i> Talha\'s Last Played';
+        label.className = "np-label offline";
+        equalizer.classList.add("hidden");
+
+        const ago = this.getTimeAgo(track.timestamp);
+        timeAgo.textContent = ago + " ago";
       }
 
       this.show();
@@ -282,101 +282,101 @@ const NowPlayingWidget = {
       this.hide();
     }
   },
-  
+
   // iTunes Audio Fetch
   async fetchAndSetPreview(trackName, artistName) {
-      const btn = document.getElementById("np-play-btn");
-      if(btn) btn.classList.add("hidden");
-      this.previewUrl = null;
+    const btn = document.getElementById("np-play-btn");
+    if (btn) btn.classList.add("hidden");
+    this.previewUrl = null;
 
-      try {
-          if(!trackName || !artistName) return;
-          const query = encodeURIComponent(`${artistName} ${trackName}`);
-          const res = await fetch(`https://itunes.apple.com/search?term=${query}&media=music&entity=song&limit=1`);
-          const data = await res.json();
-          
-          if (data.results && data.results.length > 0) {
-              this.previewUrl = data.results[0].previewUrl;
-              if (this.previewUrl && btn) {
-                  btn.classList.remove("hidden");
-              }
-          }
-      } catch (e) {
-          console.warn("iTunes Preview Error:", e);
+    try {
+      if (!trackName || !artistName) return;
+      const query = encodeURIComponent(`${artistName} ${trackName}`);
+      const res = await fetch(`https://itunes.apple.com/search?term=${query}&media=music&entity=song&limit=1`);
+      const data = await res.json();
+
+      if (data.results && data.results.length > 0) {
+        this.previewUrl = data.results[0].previewUrl;
+        if (this.previewUrl && btn) {
+          btn.classList.remove("hidden");
+        }
       }
+    } catch (e) {
+      console.warn("iTunes Preview Error:", e);
+    }
   },
 
   togglePreview() {
-      if (!this.previewUrl) return;
-      if (this.isPlayingPreview) {
-          this.audioElement.pause();
-          this.isPlayingPreview = false;
-      } else {
-          this.audioElement.src = this.previewUrl;
-          this.audioElement.play().catch(console.error);
-          this.isPlayingPreview = true;
-      }
-      this.updatePlayButton();
+    if (!this.previewUrl) return;
+    if (this.isPlayingPreview) {
+      this.audioElement.pause();
+      this.isPlayingPreview = false;
+    } else {
+      this.audioElement.src = this.previewUrl;
+      this.audioElement.play().catch(console.error);
+      this.isPlayingPreview = true;
+    }
+    this.updatePlayButton();
   },
 
   stopAudio() {
-      if (!this.audioElement) return;
-      this.audioElement.pause();
-      this.audioElement.currentTime = 0;
-      this.isPlayingPreview = false;
-      this.updatePlayButton();
+    if (!this.audioElement) return;
+    this.audioElement.pause();
+    this.audioElement.currentTime = 0;
+    this.isPlayingPreview = false;
+    this.updatePlayButton();
   },
 
   updatePlayButton() {
-      const icon = document.getElementById("np-play-icon");
-      if (!icon) return;
-      icon.className = this.isPlayingPreview ? "fa-solid fa-pause" : "fa-solid fa-play";
+    const icon = document.getElementById("np-play-icon");
+    if (!icon) return;
+    icon.className = this.isPlayingPreview ? "fa-solid fa-pause" : "fa-solid fa-play";
   },
-  
+
   getTimeAgo(timestamp) {
-      if (!timestamp) return "";
-      const now = Math.floor(Date.now() / 1000);
-      const diff = now - timestamp;
-      if (diff < 60) return `${diff}s`;
-      if (diff < 3600) return `${Math.floor(diff / 60)}m`;
-      if (diff < 86400) return `${Math.floor(diff / 3600)}h`;
-      return `${Math.floor(diff / 86400)}d`;
+    if (!timestamp) return "";
+    const now = Math.floor(Date.now() / 1000);
+    const diff = now - timestamp;
+    if (diff < 60) return `${diff}s`;
+    if (diff < 3600) return `${Math.floor(diff / 60)}m`;
+    if (diff < 86400) return `${Math.floor(diff / 3600)}h`;
+    return `${Math.floor(diff / 86400)}d`;
   },
-  
+
   show() {
-     if(this.container) this.container.classList.remove("hidden");
+    if (this.container) this.container.classList.remove("hidden");
   },
-  
+
   hide() {
-     if(this.container) this.container.classList.add("hidden");
+    if (this.container) this.container.classList.add("hidden");
   },
 
   // Main Polling Loop
-async startPolling() {
-      // Önce çalışan eski bir sayaç varsa onu durduruyoruz (Zombi engelleme)
-      if (this.pollInterval) clearInterval(this.pollInterval);
+  async startPolling() {
+    // Önce çalışan eski bir sayaç varsa onu durduruyoruz (Zombi engelleme)
+    if (this.pollInterval) clearInterval(this.pollInterval);
 
-      const check = async () => {
-          try {
-             // API'den veriyi çek
-             const track = await LastFmService.fetchRecentTracks();
-             this.updateUI(track);
-          } catch(e) {
-             console.error("Polling Error:", e);
-          }
-      };
+    const check = async () => {
+      try {
+        // API'den veriyi çek
+        const track = await LastFmService.fetchRecentTracks();
+        this.updateUI(track);
+      } catch (e) {
+        console.error("Polling Error:", e);
+      }
+    };
 
-      // İlk çalıştırma
-      await check();
-      
-      // Sayacı değişkene atıyoruz ki sonra durdurabilelim
-      this.pollInterval = setInterval(check, 5000);
+    // İlk çalıştırma
+    await check();
+
+    // Sayacı değişkene atıyoruz ki sonra durdurabilelim
+    this.pollInterval = setInterval(check, 5000);
   }
 };
 
 // Global Init
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => NowPlayingWidget.init());
+  document.addEventListener("DOMContentLoaded", () => NowPlayingWidget.init());
 } else {
-    NowPlayingWidget.init();
+  NowPlayingWidget.init();
 }

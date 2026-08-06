@@ -135,19 +135,19 @@ ScrollReveal().reveal(".textContainer", {
 
 ScrollReveal().reveal(".aboutMeText", {
   beforeReveal: (el) => {
-    if(screen.width < 1024){
+    if (screen.width < 1024) {
       el.classList.add("animate__animated", "animate__fadeInUp")
-    }else{
-    el.classList.add("animate__animated", "animate__fadeInLeft")
+    } else {
+      el.classList.add("animate__animated", "animate__fadeInLeft")
     }
 
     el.addEventListener(
       "animationend",
       () => {
-        if(screen.width < 1024){
+        if (screen.width < 1024) {
           el.classList.remove("animate__animated", "animate__fadeInUp")
-        }else{
-        el.classList.remove("animate__animated", "animate__fadeInLeft")
+        } else {
+          el.classList.remove("animate__animated", "animate__fadeInLeft")
         }
       },
       { once: true }
@@ -158,19 +158,19 @@ ScrollReveal().reveal(".aboutMeText", {
 
 ScrollReveal().reveal(".logoContainer", {
   beforeReveal: (el) => {
-    if(screen.width < 1024){
+    if (screen.width < 1024) {
       el.classList.add("animate__animated", "animate__fadeInDown")
-    }else{
-    el.classList.add("animate__animated", "animate__fadeInRight")
+    } else {
+      el.classList.add("animate__animated", "animate__fadeInRight")
     }
 
     el.addEventListener(
       "animationend",
       () => {
-        if(screen.width < 1024){
+        if (screen.width < 1024) {
           el.classList.remove("animate__animated", "animate__fadeInDown")
-        }else{
-        el.classList.remove("animate__animated", "animate__fadeInRight")
+        } else {
+          el.classList.remove("animate__animated", "animate__fadeInRight")
         }
       },
       { once: true }
@@ -215,19 +215,19 @@ ScrollReveal().reveal(".social", {
 
 ScrollReveal().reveal("#project1", {
   beforeReveal: (el) => {
-    if(screen.width < 1024){
+    if (screen.width < 1024) {
       el.classList.add("animate__animated", "animate__fadeIn")
-    }else{
-    el.classList.add("animate__animated", "animate__fadeInLeft")
+    } else {
+      el.classList.add("animate__animated", "animate__fadeInLeft")
     }
 
     el.addEventListener(
       "animationend",
       () => {
-        if(screen.width < 1024){
+        if (screen.width < 1024) {
           el.classList.remove("animate__animated", "animate__fadeIn")
-        }else{
-        el.classList.remove("animate__animated", "animate__fadeInLeft")
+        } else {
+          el.classList.remove("animate__animated", "animate__fadeInLeft")
         }
       },
       { once: true }
@@ -238,21 +238,21 @@ ScrollReveal().reveal("#project1", {
 
 ScrollReveal().reveal("#project2", {
   beforeReveal: (el) => {
-    if(screen.width < 1024){
+    if (screen.width < 1024) {
       el.classList.add("animate__animated", "animate__fadeIn")
-    }else{
-    el.classList.add("animate__animated", "animate__fadeInRight")
+    } else {
+      el.classList.add("animate__animated", "animate__fadeInRight")
     }
 
 
     el.addEventListener(
       "animationend",
       () => {
-    if(screen.width < 1024){
-      el.classList.remove("animate__animated", "animate__fadeIn")
-    }else{
-    el.classList.remove("animate__animated", "animate__fadeInRight")
-    }
+        if (screen.width < 1024) {
+          el.classList.remove("animate__animated", "animate__fadeIn")
+        } else {
+          el.classList.remove("animate__animated", "animate__fadeInRight")
+        }
       },
       { once: true }
     )
