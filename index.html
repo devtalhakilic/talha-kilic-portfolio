@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frontend Developer Talha KILIÇ</title>
 
-  <meta name="description" content="Talha KILIÇ - Junior Frontend Developer Portfolio. Explore my web development projects, skills, and social links." />
-  <meta name="keywords" content="Talha Kılıç, Frontend Developer, Web Developer, JavaScript, TailwindCSS, HTML, CSS, Portfolio, Turkey" />
+  <meta name="description"
+    content="Talha KILIÇ - Junior Frontend Developer Portfolio. Explore my web development projects, skills, and social links." />
+  <meta name="keywords"
+    content="Talha Kılıç, Frontend Developer, Web Developer, JavaScript, TailwindCSS, HTML, CSS, Portfolio, Turkey" />
   <meta name="author" content="Talha KILIÇ" />
   <meta name="theme-color" content="#07ff39" />
 
@@ -15,14 +17,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://github.com/devtalhakilic" />
   <meta property="og:title" content="Talha KILIÇ | Frontend Developer" />
-  <meta property="og:description" content="Passionate Junior Frontend Developer based in Turkey. Check out my projects and skills!" />
+  <meta property="og:description"
+    content="Passionate Junior Frontend Developer based in Turkey. Check out my projects and skills!" />
   <meta property="og:image" content="https://github.com/devtalhakilic.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://x.com/devtalhakilic" />
   <meta name="twitter:title" content="Talha KILIÇ | Frontend Developer" />
-  <meta name="twitter:description" content="Passionate Junior Frontend Developer based in Turkey. Check out my projects and skills!" />
+  <meta name="twitter:description"
+    content="Passionate Junior Frontend Developer based in Turkey. Check out my projects and skills!" />
   <meta name="twitter:image" content="https://github.com/devtalhakilic.png" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
@@ -50,6 +54,7 @@
           <nav class="navigation">
             <a href="#firstSection" class="navigationItem" id="aboutMeLink">About Me</a>
             <a href="#secondSection" class="navigationItem" id="skillsLink">Skills</a>
+            <a href="#experienceSection" class="navigationItem" id="experienceLink">Education</a>
             <a href="#thirdSection" class="navigationItem" id="projectsLink">Projects</a>
             <a href="#fourthSection" class="navigationItem" id="socialsLink">Socials</a>
           </nav>
@@ -61,6 +66,7 @@
       <div class="navigationMenuResponsive">
         <a href="#firstSection" class="navigationItem" onclick="hamburgerMenu()" id="aboutMeLink1">About Me</a>
         <a href="#secondSection" class="navigationItem" onclick="hamburgerMenu()" id="skillsLink1">Skills</a>
+        <a href="#experienceSection" class="navigationItem" onclick="hamburgerMenu()" id="experienceLink1">Education</a>
         <a href="#thirdSection" class="navigationItem" onclick="hamburgerMenu()" id="projectsLink1">Projects</a>
         <a href="#fourthSection" class="navigationItem" onclick="hamburgerMenu()" id="socialsLink1">Socials</a>
       </div>
@@ -102,71 +108,442 @@
     </section>
 
     <section class="secondSection section" id="secondSection">
-      <div class="skillsContainer">
+      <!-- Left floating icons -->
+      <div class="skillsContainer hidden lg:flex">
         <div class="skill">
           <div class="skillImage">
-            <img id="skill1" src="https://skillicons.dev/icons?i=bootstrap" />
+            <img id="skill1" src="https://skillicons.dev/icons?i=bootstrap" alt="Bootstrap" />
           </div>
         </div>
         <div class="skill">
           <div class="skillImage">
-            <img id="skill2" src="https://skillicons.dev/icons?i=python" />
+            <img id="skill2" src="https://skillicons.dev/icons?i=python" alt="Python" />
           </div>
         </div>
         <div class="skill">
           <div class="skillImage">
-            <img id="skill3" src="https://skillicons.dev/icons?i=java" />
+            <img id="skill3" src="https://skillicons.dev/icons?i=java" alt="Java" />
           </div>
         </div>
         <div class="skill">
           <div class="skillImage">
-            <img id="skill4" src="https://skillicons.dev/icons?i=figma" />
+            <img id="skill4" src="https://skillicons.dev/icons?i=figma" alt="Figma" />
           </div>
         </div>
       </div>
-      <div class="textContainer">
-        <h1>My Skills</h1>
-        <p class="text-center">
-          Scripting, markup, programming languages, and editing programs
-          <br />
-          I've learned through 4.5 years of experience
+
+      <!-- Center content: Heading & Skill Slider -->
+      <div class="skillsCenterContainer flex-1 flex flex-col items-center w-full max-w-xl mx-auto z-10 px-2">
+        <div class="textContainer">
+          <h1>My Skills</h1>
+          <p class="text-center text-gray-300 max-w-xl mx-auto font-light">
+            Scripting, markup, programming languages, and design tools I've learned through 4.5 years of experience.
+          </p>
+        </div>
+
+        <!-- Slider Navigation Dots -->
+        <div class="skillSliderNav">
+          <button class="skillNavDot activeSkillNav" data-slide="0">Frontend</button>
+          <button class="skillNavDot" data-slide="1">Programming</button>
+          <button class="skillNavDot" data-slide="2">Tools & Design</button>
+        </div>
+
+        <!-- Slider Container -->
+        <div class="skillSliderWrapper relative w-full">
+          <div class="skillSliderTrack flex transition-transform duration-500 ease-out" id="skillTrack">
+
+            <!-- Slide 1: Frontend -->
+            <div class="skillSlide w-full flex-shrink-0">
+              <div class="skillCategoryCard" id="skillCard1">
+                <div class="categoryHeader">
+                  <i class="fa-solid fa-code"></i>
+                  <h2>Frontend Development</h2>
+                </div>
+                <div class="skillList">
+                  <div class="skillItem">
+                    <div class="skillItemLeft">
+                      <img src="https://skillicons.dev/icons?i=html" alt="HTML5" />
+                      <span>HTML5</span>
+                    </div>
+                    <span class="skillLevelBadge advanced">Advanced</span>
+                  </div>
+                  <div class="skillItem">
+                    <div class="skillItemLeft">
+                      <img src="https://skillicons.dev/icons?i=css" alt="CSS3" />
+                      <span>CSS3</span>
+                    </div>
+                    <span class="skillLevelBadge advanced">Advanced</span>
+                  </div>
+                  <div class="skillItem">
+                    <div class="skillItemLeft">
+                      <img src="https://skillicons.dev/icons?i=javascript" alt="JavaScript" />
+                      <span>JavaScript</span>
+                    </div>
+                    <span class="skillLevelBadge advanced">Intermediate</span>
+                  </div>
+                  <div class="skillItem">
+                    <div class="skillItemLeft">
+                      <img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind CSS" />
+                      <span>Tailwind CSS</span>
+                    </div>
+                    <span class="skillLevelBadge advanced">Advanced</span>
+                  </div>
+                  <div class="skillItem">
+                    <div class="skillItemLeft">
+                      <img src="https://skillicons.dev/icons?i=bootstrap" alt="Bootstrap" />
+                      <span>Bootstrap</span>
+                    </div>
+                    <span class="skillLevelBadge intermediate">Intermediate</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Programming & Logic -->
+            <div class="skillSlide w-full flex-shrink-0">
+              <div class="skillCategoryCard" id="skillCard2">
+                <div class="categoryHeader">
+                  <i class="fa-solid fa-terminal"></i>
+                  <h2>Programming & Logic</h2>
+                </div>
+                <div class="skillList">
+                  <div class="skillItem">
+                    <div class="skillItemLeft">
+                      <img src="https://skillicons.dev/icons?i=python" alt="Python" />
+                      <span>Python</span>
+                    </div>
+                    <span class="skillLevelBadge intermediate">Scripting & Logic</span>
+                  </div>
+                  <div class="skillItem">
+                    <div class="skillItemLeft">
+                      <img src="https://skillicons.dev/icons?i=java" alt="Java" />
+                      <span>Java</span>
+                    </div>
+                    <span class="skillLevelBadge learning">Learning OOP</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Tools & Design -->
+            <div class="skillSlide w-full flex-shrink-0">
+              <div class="skillCategoryCard" id="skillCard3">
+                <div class="categoryHeader">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  <h2>Tools & Design</h2>
+                </div>
+                <div class="skillList">
+                  <div class="skillItem">
+                    <div class="skillItemLeft">
+                      <img src="https://skillicons.dev/icons?i=figma" alt="Figma" />
+                      <span>Figma</span>
+                    </div>
+                    <span class="skillLevelBadge intermediate">UI/UX Design</span>
+                  </div>
+                  <div class="skillItem">
+                    <div class="skillItemLeft">
+                      <img src="https://skillicons.dev/icons?i=github" alt="Git & GitHub" />
+                      <span>Git / GitHub</span>
+                    </div>
+                    <span class="skillLevelBadge advanced">Version Control</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Unified Pagination & Navigation Control Bar (Below Card) -->
+        <div class="skillPaginationControl">
+          <button class="skillSliderBtn prevBtn" id="skillPrevBtn" aria-label="Previous Skill Category">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="skillPaginationDots">
+            <button class="skillDot activeSkillDot" data-slide="0" aria-label="Slide 1"></button>
+            <button class="skillDot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="skillDot" data-slide="2" aria-label="Slide 3"></button>
+          </div>
+
+          <button class="skillSliderBtn nextBtn" id="skillNextBtn" aria-label="Next Skill Category">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right floating icons -->
+      <div class="skillsContainer hidden lg:flex">
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill5" src="https://skillicons.dev/icons?i=html" alt="HTML5" />
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill6" src="https://skillicons.dev/icons?i=css" alt="CSS3" />
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill7" src="https://skillicons.dev/icons?i=javascript" alt="JavaScript" />
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skillImage">
+            <img id="skill8" src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind CSS" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experienceSection section" id="experienceSection">
+      <div class="textContainerExp">
+        <h1>Education &amp; Academics</h1>
+        <p class="text-center text-gray-300 max-w-xl mx-auto font-light">
+          Academic excellence combined with a passion for building the future through code.
         </p>
       </div>
-      <div class="skillsContainer skillsContainer">
-        <div class="skill">
-          <div class="skillImage">
-            <img id="skill5" src="https://skillicons.dev/icons?i=html" />
+
+      <!-- Stat Summary Bar -->
+      <div class="eduStatsRow">
+        <div class="eduStatCard">
+          <span class="eduStatValue">483<span class="eduStatSub">/500</span></span>
+          <span class="eduStatLabel">LGS Score</span>
+        </div>
+        <div class="eduStatDivider"></div>
+        <div class="eduStatCard">
+          <span class="eduStatValue">%0.75</span>
+          <span class="eduStatLabel">Nationwide</span>
+        </div>
+        <div class="eduStatDivider"></div>
+        <div class="eduStatCard">
+          <span class="eduStatValue">4.5+</span>
+          <span class="eduStatLabel">Years Coding</span>
+        </div>
+        <div class="eduStatDivider"></div>
+        <div class="eduStatCard">
+          <span class="eduStatValue">10<span class="eduStatSub">th</span></span>
+          <span class="eduStatLabel">Grade</span>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="eduTimeline">
+
+        <!-- Node 1: High School -->
+        <div class="eduTimelineItem" id="edu1">
+          <div class="eduTimelineLeft">
+            <span class="eduTimelineYear">2023</span>
+            <span class="eduTimelineYearSub">Present</span>
+          </div>
+
+          <div class="eduTimelineConnector">
+            <div class="eduTimelineDot">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="eduTimelineLine"></div>
+          </div>
+
+          <div class="eduTimelineCard">
+            <div class="eduTimelineCardHeader">
+              <div>
+                <h2 class="eduCardTitle">Ankara Atatürk Anadolu Lisesi</h2>
+                <p class="eduCardMeta">
+                  <i class="fa-solid fa-location-dot"></i> Ankara, Turkey &nbsp;·&nbsp;
+                  <i class="fa-regular fa-calendar"></i> 2023 – Present
+                </p>
+              </div>
+            </div>
+
+            <p class="eduCardDesc">
+              Currently a 10th-grade student at <strong>Ankara Atatürk Anadolu Lisesi (AAAL)</strong>, one of Turkey's
+              most prestigious high schools.
+              I was admitted by scoring <strong>483 out of 500</strong> on the LGS national exam, placing me in the
+              <strong>top 0.75%</strong> of all students in Turkey.
+              I balance strong academic performance with a deep passion for software engineering.
+            </p>
+
+            <!-- Glassmorphism Metrics Panel -->
+            <div class="eduGlassPanel p-4 mt-4 bg-white/[0.03] border border-white/10 rounded-xl backdrop-blur-sm">
+              <div class="eduProgressItem">
+                <div class="eduProgressHeader">
+                  <span>LGS Score Performance</span>
+                  <span class="text-gray-300 font-medium">483 / 500 (96.6%)</span>
+                </div>
+                <div class="eduProgressBar">
+                  <div class="eduProgressFill" style="width: 96.6%"></div>
+                </div>
+              </div>
+
+              <div class="eduProgressItem mt-5">
+                <div class="eduProgressHeader">
+                  <span>Nationwide Percentile Standing</span>
+                  <span class="text-emerald-400 font-medium">Top 0.75% <span
+                      class="text-xs text-gray-400 font-normal">(1
+                      in 133 candidates)</span></span>
+                </div>
+                <div class="eduProgressBar mt-1.5 mb-3">
+                  <div class="eduProgressFill bg-emerald-500" style="width: 0.75%; min-width: 8px;"
+                    title="Top 0.75% Percentile Slice"></div>
+                </div>
+                <div class="eduDotGrid justify-center">
+                  <span class="eduDot activeDot" title="Talha KILIÇ - Selected Candidate (Rank 1 / 133)"><i
+                      class="fa-solid fa-crown"></i></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span><span
+                    class="eduDot" title="Other Exam Candidate"></span>
+                  <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
+                    title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span>
+                </div>
+                <span class="text-[11px] text-gray-400 block text-center mt-2">Visualized: Selected among top 1
+                  candidate out of ~133 test-takers nationwide</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="skill">
-          <div class="skillImage">
-            <img id="skill6" src="https://skillicons.dev/icons?i=css" />
+
+        <!-- Node 2: Self-Taught -->
+        <div class="eduTimelineItem" id="edu2">
+          <div class="eduTimelineLeft">
+            <span class="eduTimelineYear">2021</span>
+            <span class="eduTimelineYearSub">Present</span>
+          </div>
+
+          <div class="eduTimelineConnector">
+            <div class="eduTimelineDot eduTimelineDotAlt">
+              <i class="fa-solid fa-code"></i>
+            </div>
+          </div>
+
+          <div class="eduTimelineCard">
+            <div class="eduTimelineCardHeader">
+              <div>
+                <h2 class="eduCardTitle">Independent Developer Journey</h2>
+                <p class="eduCardMeta">
+                  <i class="fa-regular fa-calendar"></i> 2021 – Present
+                </p>
+              </div>
+            </div>
+
+            <p class="eduCardDesc">
+              Started coding at age 11 with Python scripting and algorithm fundamentals. Over 4.5+ years of continuous
+              self-learning,
+              I built modern web applications using HTML5, CSS3, JavaScript, Tailwind CSS, Bootstrap and Java OOP;
+              delivering multiple freelance projects for real clients.
+            </p>
           </div>
         </div>
-        <div class="skill">
-          <div class="skillImage">
-            <img id="skill7" src="https://skillicons.dev/icons?i=javascript" />
-          </div>
-        </div>
-        <div class="skill">
-          <div class="skillImage">
-            <img id="skill8" src="https://skillicons.dev/icons?i=tailwind" />
-          </div>
-        </div>
+
       </div>
     </section>
 
     <section class="thirdSection section" id="thirdSection">
       <div class="textContainerProjects">
         <h1>My Projects</h1>
+        <p class="text-center text-gray-300 max-w-xl mx-auto font-light">
+          Explore a curated showcase of my freelance client work and personal web development projects.
+        </p>
+        <div class="projectFilterTabs">
+          <button class="filterTabBtn activeFilter" data-filter="all" id="filterAll">
+            All Projects
+          </button>
+          <button class="filterTabBtn" data-filter="freelance" id="filterFreelance">
+            Freelance & Client
+          </button>
+          <button class="filterTabBtn" data-filter="personal" id="filterPersonal">
+            Personal Projects
+          </button>
+        </div>
       </div>
-      <div class="projectsContainer" style="margin-top: 60px;">
-        <div class="firstRow row">
-          <div class="project" id="project1">
+      <div class="projectsContainer">
+        <div class="row">
+          <div class="project" id="project1" data-category="freelance">
             <img src="src/images/projects/tunc-kurt-matematik.png" alt="Tunç Kurt Mathematics Website" />
             <div class="projectInfo">
               <h1>Tunç Kurt Math</h1>
-              <p>The website I created for Mr. Tunç for his mathematics channel was designed to provide a clean, modern, and user-friendly educational platform.</p>
+              <p>The website I created for Mr. Tunç for his mathematics channel was designed to provide a clean, modern,
+                and user-friendly educational platform.</p>
               <div class="projectBadges">
                 <span class="tech-badge">HTML5</span>
                 <span class="tech-badge">Tailwind CSS</span>
@@ -176,17 +553,41 @@
                 <a href="https://tunckurt.patar.tr/" target="_blank" class="projectActionBtn" title="Live Demo">
                   <i class="fa-solid fa-up-right-from-square"></i>
                 </a>
-                <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn" title="GitHub Repository">
+                <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn"
+                  title="GitHub Repository">
                   <i class="fa-brands fa-github"></i>
                 </a>
               </div>
             </div>
           </div>
-          <div class="project" id="project2">
+          <div class="project" id="project2" data-category="freelance">
+            <img src="src/images/projects/dostlar_manti.png" alt="Dostlar Mantı Restaurant Website" />
+            <div class="projectInfo">
+              <h1>Dostlar Mantı</h1>
+              <p>A modern, responsive website created for Dostlar Mantı restaurant featuring a digital menu, brand
+                highlights, and location details.</p>
+              <div class="projectBadges">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">Tailwind CSS</span>
+                <span class="tech-badge">JavaScript</span>
+              </div>
+              <div class="projectActionBtns">
+                <a href="https://dostlar-manti.netlify.app/" target="_blank" class="projectActionBtn" title="Live Demo">
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+                <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn"
+                  title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project" id="project3" data-category="personal">
             <img src="src/images/projects/ders-alanim.png" alt="Ders Alanım Study Website" />
             <div class="projectInfo">
               <h1>Ders Alanım</h1>
-              <p>A comprehensive study platform with customizable timers, Pomodoro timers, note-taking, question tracking, and detailed study statistics.</p>
+              <p>A comprehensive study platform with customizable timers, Pomodoro timers, note-taking, question
+                tracking, and detailed study statistics.</p>
               <div class="projectBadges">
                 <span class="tech-badge">HTML5</span>
                 <span class="tech-badge">CSS</span>
@@ -196,19 +597,19 @@
                 <a href="https://ders-alanim.netlify.app/" target="_blank" class="projectActionBtn" title="Live Demo">
                   <i class="fa-solid fa-up-right-from-square"></i>
                 </a>
-                <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn" title="GitHub Repository">
+                <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn"
+                  title="GitHub Repository">
                   <i class="fa-brands fa-github"></i>
                 </a>
               </div>
             </div>
           </div>
-        </div>
-        <div class="secondRow row" style="justify-content: center; margin-top: 0;">
-          <div class="project" id="project3">
+          <div class="project" id="project4" data-category="personal">
             <img src="src/images/projects/twbulteni.png" alt="Cehennem Bülteni Newsletter" />
             <div class="projectInfo">
               <h1>Cehennem Bülteni</h1>
-              <p>A newsletter where we gather and summarize the most popular and interesting events on Twitter from the past week in an entertaining way!</p>
+              <p>A newsletter where we gather and summarize the most popular and interesting events on Twitter from the
+                past week in an entertaining way!</p>
               <div class="projectBadges">
                 <span class="tech-badge">SQL</span>
                 <span class="tech-badge">HTML5</span>
@@ -219,7 +620,8 @@
                 <a href="https://twbulteni.com.tr/" target="_blank" class="projectActionBtn" title="Live Demo">
                   <i class="fa-solid fa-up-right-from-square"></i>
                 </a>
-                <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn" title="GitHub Repository">
+                <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn"
+                  title="GitHub Repository">
                   <i class="fa-brands fa-github"></i>
                 </a>
               </div>
@@ -232,6 +634,9 @@
     <section class="fourthSection section" id="fourthSection">
       <div class="textContainerSocials">
         <h1>My Socials</h1>
+        <p class="text-center text-gray-300 max-w-xl mx-auto font-light">
+          Connect with me across social platforms, view my open-source code, or send me a message.
+        </p>
       </div>
 
       <div class="socialsLinkContainer">

@@ -87,6 +87,42 @@
     @apply min-h-[100vh] w-full lg:pt-25 pb-25;
   }
 
+  /* ── Desktop Section Spacing Standardization ── */
+  @media (min-width: 769px) {
+
+    .section,
+    .firstSection,
+    .secondSection,
+    .thirdSection,
+    .fourthSection {
+      padding-top: 6rem !important;
+      padding-bottom: 6rem !important;
+    }
+  }
+
+  /* ── Section Header-to-Content Spacing Standardization ── */
+  .skillsCenterContainer .textContainer,
+  .textContainerExp,
+  .textContainerProjects,
+  .textContainerSocials {
+    margin-bottom: 2.5rem !important;
+  }
+
+  /* ── Mobile Section Spacing Standardization ── */
+  @media (max-width: 768px) {
+
+    .section,
+    .firstSection,
+    .secondSection,
+    .experienceSection,
+    .thirdSection,
+    .fourthSection {
+      padding-top: 4.5rem !important;
+      padding-bottom: 4.5rem !important;
+      min-height: auto !important;
+    }
+  }
+
   .firstSection {
     @apply flex text-white justify-center items-center;
   }
@@ -127,32 +163,23 @@
   }
 
   /*
-  Section 2
+  Section 2 - Skills
   */
 
   .secondSection {
-    @apply flex justify-around items-center text-white;
-  }
-
-  .secondSection .textContainer {
-    @apply flex w-1/2 items-center flex-col gap-10;
-  }
-
-  .secondSection .textContainer h1 {
-    @apply lg:text-7xl text-3xl md:text-5xl font-bold text-center lg:mt-0 mt-10;
+    @apply flex lg:flex-row flex-col justify-between items-center text-white min-h-screen py-20 px-5 max-w-[1700px] mx-auto w-full relative gap-8;
   }
 
   .secondSection .skillsContainer {
-    @apply flex w-1/7 flex-col gap-10;
+    @apply flex lg:w-1/6 w-full flex-row lg:flex-col justify-center gap-10 z-10;
   }
 
   .secondSection .skillsContainer .skill {
-    @apply w-full;
+    @apply w-full flex justify-center items-center;
   }
 
   .secondSection .skillsContainer .skill img {
-    @apply h-20 w-20;
-    cursor: pointer;
+    @apply h-20 w-20 cursor-pointer;
   }
 
   .secondSection .skillsContainer .skill .skillImage {
@@ -160,7 +187,7 @@
   }
 
   .secondSection .skillsContainer .skill .skillImage:hover {
-    filter: drop-shadow(0 0 10px rgba(7, 255, 57, 0.5));
+    filter: drop-shadow(0 0 15px rgba(7, 255, 57, 0.6));
   }
 
   .secondSection .skillsContainer .skill:nth-child(odd) {
@@ -169,6 +196,549 @@
 
   .secondSection .skillsContainer .skill:nth-child(even) {
     @apply flex lg:justify-end justify-center;
+  }
+
+  .secondSection .textContainer {
+    @apply flex w-full items-center flex-col gap-6;
+  }
+
+  .secondSection .textContainer h1 {
+    @apply lg:text-7xl text-3xl md:text-5xl font-bold text-center;
+  }
+
+  .skillsCategoryGrid {
+    @apply w-full;
+  }
+
+  .skillSliderNav {
+    @apply flex justify-center items-center gap-2 flex-wrap mb-6 z-10;
+  }
+
+  .skillNavDot {
+    @apply px-4 py-1.5 rounded-full text-xs font-medium text-gray-300 bg-white/5 border border-white/10 backdrop-blur-md transition-all duration-300 cursor-pointer hover:text-white hover:border-white/30;
+  }
+
+  .skillNavDot.activeSkillNav {
+    @apply text-black bg-white border-white font-semibold;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+  }
+
+  .skillSliderWrapper {
+    @apply relative w-full overflow-hidden rounded-2xl max-w-xl mx-auto;
+  }
+
+  .skillSliderTrack {
+    @apply flex w-full;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  .skillSlide {
+    @apply w-full flex-shrink-0 px-1;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+
+  .skillSlide.activeSlide {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @keyframes skillItemCascade {
+    from {
+      opacity: 0;
+      transform: translateY(14px) scale(0.96);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .skillSlide.activeSlide .skillItem {
+    animation: skillItemCascade 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .skillSlide.activeSlide .skillItem:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .skillSlide.activeSlide .skillItem:nth-child(2) {
+    animation-delay: 0.10s;
+  }
+
+  .skillSlide.activeSlide .skillItem:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+
+  .skillSlide.activeSlide .skillItem:nth-child(4) {
+    animation-delay: 0.20s;
+  }
+
+  .skillPaginationControl {
+    @apply flex justify-center items-center gap-4 mt-6 z-10;
+  }
+
+  .skillSliderBtn {
+    @apply relative w-9 h-9 rounded-full bg-white/5 border border-white/10 text-gray-300 flex items-center justify-center transition-all duration-300 hover:bg-white/15 hover:text-white hover:border-white/30 cursor-pointer text-xs shadow-md;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .skillSliderBtn:hover {
+    transform: scale(1.1);
+  }
+
+  .skillSliderBtn:active {
+    transform: scale(0.95);
+  }
+
+  .skillPaginationDots {
+    @apply flex justify-center items-center gap-2.5;
+  }
+
+  .skillDot {
+    @apply w-2.5 h-2.5 rounded-full bg-white/20 cursor-pointer border-none outline-none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .skillDot:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .skillDot.activeSkillDot {
+    @apply w-8 h-2.5 rounded-full bg-[#07ff39];
+    box-shadow: 0 0 12px rgba(7, 255, 57, 0.5);
+  }
+
+  .skillCategoryCard {
+    @apply bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-6 flex flex-col gap-6 shadow-lg h-full;
+    transition: border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .skillCategoryCard:hover {
+    border-color: rgba(7, 255, 57, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px -8px rgba(7, 255, 57, 0.15);
+  }
+
+  .skillCategoryCard .categoryHeader {
+    @apply flex items-center justify-center gap-3 border-b border-white/10 pb-4 text-center;
+  }
+
+  .skillCategoryCard .categoryHeader i {
+    @apply text-2xl text-[#07ff39];
+  }
+
+  .skillCategoryCard .categoryHeader h2 {
+    @apply text-xl font-bold text-white;
+  }
+
+  .skillList {
+    @apply flex flex-col gap-4;
+  }
+
+  .skillItem {
+    @apply flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .skillItem:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  .skillItemLeft {
+    @apply flex items-center gap-3;
+  }
+
+  .skillItemLeft img {
+    @apply w-8 h-8 rounded;
+  }
+
+  .skillItemLeft span {
+    @apply font-medium text-gray-200 text-sm;
+  }
+
+  .skillLevelBadge {
+    @apply text-xs font-semibold px-2.5 py-1 rounded-full border;
+  }
+
+  .skillLevelBadge.advanced {
+    @apply bg-emerald-500/20 text-emerald-300 border-emerald-500/40;
+  }
+
+  .skillLevelBadge.intermediate {
+    @apply bg-blue-500/20 text-blue-300 border-blue-500/40;
+  }
+
+  .skillLevelBadge.learning {
+    @apply bg-purple-500/20 text-purple-300 border-purple-500/40;
+  }
+
+  .experienceSection {
+    @apply flex flex-col justify-center items-center text-white min-h-screen py-16 px-5 max-w-[1700px] mx-auto w-full;
+  }
+
+  .experienceSection .textContainerExp {
+    @apply flex w-full items-center flex-col gap-2.5 text-white;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .experienceSection .textContainerExp h1 {
+    @apply lg:text-5xl text-3xl md:text-4xl font-bold text-center;
+  }
+
+  /* ── Stat Row ── */
+  .eduStatsRow {
+    @apply grid grid-cols-2 sm:flex sm:flex-wrap justify-center items-stretch gap-0 mb-6 w-full max-w-[1700px] mx-auto;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+    backdrop-filter: blur(16px);
+    overflow: hidden;
+  }
+
+  .eduStatCard {
+    @apply flex flex-col items-center justify-center py-4 px-3.5 flex-1 min-w-0;
+    text-align: center;
+    transition: background 0.25s ease;
+  }
+
+  .eduStatCard:nth-of-type(1) {
+    border-right: 1px solid rgba(255, 255, 255, 0.10);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  .eduStatCard:nth-of-type(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  .eduStatCard:nth-of-type(3) {
+    border-right: 1px solid rgba(255, 255, 255, 0.10);
+  }
+
+  @media (min-width: 640px) {
+
+    .eduStatCard:nth-of-type(1),
+    .eduStatCard:nth-of-type(2),
+    .eduStatCard:nth-of-type(3) {
+      border-right: none;
+      border-bottom: none;
+    }
+  }
+
+  .eduStatCard:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .eduStatValue {
+    @apply text-xl sm:text-2xl font-extrabold text-white block w-full;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .eduStatValue .eduStatSub {
+    @apply text-xs font-semibold text-gray-300;
+    letter-spacing: 0;
+  }
+
+  .eduStatLabel {
+    @apply text-[11px] sm:text-xs uppercase tracking-widest text-gray-400 font-medium mt-0.5 block w-full;
+    text-align: center;
+  }
+
+  .eduStatDivider {
+    @apply hidden sm:block;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.10);
+    flex-shrink: 0;
+  }
+
+  /* ── Timeline Wrapper ── */
+  .eduTimeline {
+    @apply flex flex-col gap-0 w-full max-w-[1700px] mx-auto flex-1 justify-center;
+  }
+
+  .eduTimelineItem {
+    @apply flex gap-0 w-full;
+    min-height: auto;
+  }
+
+  /* ── Left date column ── */
+  .eduTimelineLeft {
+    @apply flex flex-col items-end justify-start pt-4 pr-4 flex-shrink-0;
+    width: 90px;
+  }
+
+  @media (max-width: 640px) {
+
+    .eduTimelineLeft,
+    .eduTimelineConnector {
+      display: none !important;
+    }
+
+    .eduTimelineCard {
+      margin-left: 0 !important;
+    }
+  }
+
+  .eduTimelineYear {
+    @apply text-sm font-bold text-white block;
+    line-height: 1.2;
+  }
+
+  .eduTimelineYearSub {
+    @apply text-[10px] uppercase tracking-widest text-gray-500 font-medium block;
+  }
+
+  /* ── Connector column ── */
+  .eduTimelineConnector {
+    @apply flex flex-col items-center flex-shrink-0;
+    width: 48px;
+    padding-top: 18px;
+  }
+
+  .eduTimelineDot {
+    @apply flex items-center justify-center rounded-full text-black font-bold flex-shrink-0 z-10;
+    width: 40px;
+    height: 40px;
+    background: #07ff39;
+    font-size: 15px;
+    transition: transform 0.3s ease;
+  }
+
+  .eduTimelineDot:hover {
+    transform: scale(1.05);
+  }
+
+  .eduTimelineDotAlt {
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.80);
+  }
+
+  .eduTimelineLine {
+    flex: 1;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.10);
+    margin-top: 6px;
+  }
+
+  /* ── Card ── */
+  .eduTimelineCard {
+    @apply flex-1 flex flex-col gap-1.5 rounded-2xl mb-4 ml-4;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(14px);
+    padding: 16px 22px;
+    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .eduTimelineCard:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-4px);
+  }
+
+  .eduTimelineCardHeader {
+    @apply flex items-start justify-between gap-2 pb-0;
+  }
+
+  /* ── Badges ── */
+  .eduBadgeRow {
+    @apply flex flex-wrap gap-2 mb-2;
+  }
+
+  .eduBadge {
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full;
+  }
+
+  .eduBadgeSchool {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .eduBadgeAchievement {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e5e7eb;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .eduBadgeSelf {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e5e7eb;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  /* ── Card Title & Meta ── */
+  .eduCardTitle {
+    @apply text-xl font-bold text-white mt-1;
+    letter-spacing: -0.01em;
+  }
+
+  .eduCardMeta {
+    @apply text-xs text-gray-400 font-normal mt-1 flex gap-1.5 items-center flex-wrap;
+  }
+
+  .eduCardMeta i {
+    @apply text-gray-400;
+  }
+
+  /* ── Score Pill ── */
+  .eduScorePill {
+    @apply flex flex-col items-center justify-center flex-shrink-0 rounded-xl;
+    min-width: 72px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .eduScorePillAlt {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.10);
+  }
+
+  .eduScoreNum {
+    @apply text-2xl font-extrabold text-white leading-none;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .eduScoreLabel {
+    @apply text-[10px] uppercase tracking-widest text-gray-400 font-medium;
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  /* ── Card Description ── */
+  .eduCardDesc {
+    @apply text-gray-300 text-sm leading-relaxed font-light;
+  }
+
+  /* ── Progress Bars ── */
+  .eduProgressRow {
+    @apply flex flex-col gap-2.5 mt-2;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding-top: 12px;
+  }
+
+  .eduProgressItem {
+    @apply flex flex-col gap-1.5;
+  }
+
+  .eduProgressHeader {
+    @apply flex justify-between items-center text-xs text-gray-400;
+  }
+
+  .eduProgressBar {
+    @apply w-full rounded-full overflow-hidden;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .eduProgressFill {
+    height: 100%;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.40);
+    animation: progressGrow 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @keyframes progressGrow {
+    from {
+      width: 0% !important;
+    }
+
+    to {
+      /* width set by inline style */
+    }
+  }
+
+  /* ── Option 2: Dot Matrix Visualizer ── */
+  .eduDotGrid {
+    @apply flex flex-wrap items-center justify-center mt-1.5 mb-2 max-w-full;
+    gap: 6px 5px;
+  }
+
+  .eduDot {
+    width: 7px;
+    height: 7px;
+    margin: 3px 0;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+  }
+
+  .eduDot:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.6);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  }
+
+  .eduDot.activeDot {
+    position: relative;
+    width: 13px;
+    height: 13px;
+    margin: 0;
+    background: #ffffff;
+    color: #0b0f19;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    font-weight: bold;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+
+  .eduDot.activeDot::after {
+    content: "👑 Talha KILIÇ (Rank 1 / 133 · Top 0.75%)";
+    position: absolute;
+    bottom: 135%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    background: rgba(11, 15, 25, 0.95);
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 50;
+  }
+
+  .eduDot.activeDot:hover {
+    transform: scale(1.2);
+    background: #ffffff;
+  }
+
+  .eduDot.activeDot:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+
+  /* ── Tags Row ── */
+  .eduTagsRow {
+    @apply flex flex-wrap gap-2;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding-top: 14px;
   }
 
   /*
@@ -180,11 +750,24 @@
   }
 
   .thirdSection .textContainerProjects {
-    @apply flex w-full items-center justify-center flex-1 text-white;
+    @apply flex w-full items-center justify-center flex-col gap-4 text-white;
   }
 
   .thirdSection .textContainerProjects h1 {
     @apply lg:text-7xl text-3xl md:text-5xl font-bold text-center;
+  }
+
+  .projectFilterTabs {
+    @apply flex justify-center items-center gap-3 mt-8 flex-wrap px-4 z-10;
+  }
+
+  .filterTabBtn {
+    @apply px-5 py-2 rounded-full text-sm font-medium text-gray-300 bg-white/5 border border-white/10 backdrop-blur-md transition-all duration-300 cursor-pointer hover:text-white hover:border-white/30 hover:bg-white/10;
+  }
+
+  .filterTabBtn.activeFilter {
+    @apply text-black bg-white border-white font-semibold;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
   }
 
   .thirdSection .projectsContainer {
@@ -192,14 +775,34 @@
   }
 
   .thirdSection .projectsContainer .row {
-    @apply flex lg:justify-between justify-center lg:flex-row flex-col mt-5 pr-5 pl-5 items-center flex-1 max-w-[1700px] w-full flex-wrap;
-    row-gap: 40px;
+    @apply flex justify-center lg:flex-row flex-col mt-5 pr-5 pl-5 items-center flex-1 max-w-[1700px] w-full flex-wrap gap-8 lg:gap-10;
   }
 
   .thirdSection .projectsContainer .row .project {
     @apply lg:w-19/40 w-full bg-gray-700 rounded-2xl relative overflow-hidden;
     aspect-ratio: 16 / 9;
     cursor: pointer;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  }
+
+  .thirdSection .projectsContainer .row .project.fade-slide-up {
+    animation: fadeSlideUp 0.25s ease-out forwards;
+  }
+
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .thirdSection .projectsContainer .row .project.hideProject {
+    display: none !important;
   }
 
   .thirdSection .projectsContainer .row .project .projectInfo {
@@ -214,7 +817,7 @@
   }
 
   .thirdSection .projectsContainer .row .project img {
-    @apply w-full rounded-2xl;
+    @apply w-full h-full object-cover rounded-2xl;
     aspect-ratio: 16/9;
   }
 
@@ -235,7 +838,8 @@
   }
 
   .tech-badge:hover {
-    @apply bg-[#1d7a05]/70 text-white border-[#07ff39]/60 shadow-[0_2px_10px_rgba(7, 255, 57, 0.25)];
+    @apply bg-[#1d7a05]/70 text-white border-[#07ff39]/60;
+    box-shadow: 0 2px 10px rgba(7, 255, 57, 0.25);
   }
 
   .projectActionBtns {
@@ -255,7 +859,7 @@
   }
 
   .fourthSection .textContainerSocials {
-    @apply flex w-full items-center justify-center mb-8 text-white;
+    @apply flex w-full items-center justify-center flex-col gap-4 text-white;
   }
 
   .fourthSection .textContainerSocials h1 {
