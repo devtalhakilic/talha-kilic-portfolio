@@ -21,7 +21,7 @@ let socialsLink1 = document.getElementById("socialsLink1")
 const buffer = 400
 
 let typed = new Typed("#skill", {
-  strings: ["a Junior Front End Developer", "From Turkey", "14 years old"],
+  strings: ["a Junior Front End Developer", "From Turkey", "15 years old"],
   typeSpeed: 60, // hız
   backSpeed: 40, // geri silme hızı
   loop: true, // sonsuz döngü
@@ -313,6 +313,7 @@ filterButtons.forEach((btn) => {
     })
   })
 })
+
 
 // Skill Slider Logic
 const skillTrack = document.getElementById("skillTrack")

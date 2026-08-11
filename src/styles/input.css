@@ -261,21 +261,11 @@
     animation: skillItemCascade 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .skillSlide.activeSlide .skillItem:nth-child(1) {
-    animation-delay: 0.05s;
-  }
-
-  .skillSlide.activeSlide .skillItem:nth-child(2) {
-    animation-delay: 0.10s;
-  }
-
-  .skillSlide.activeSlide .skillItem:nth-child(3) {
-    animation-delay: 0.15s;
-  }
-
-  .skillSlide.activeSlide .skillItem:nth-child(4) {
-    animation-delay: 0.20s;
-  }
+  .skillSlide.activeSlide .skillItem:nth-child(1) { animation-delay: 0.05s; }
+  .skillSlide.activeSlide .skillItem:nth-child(2) { animation-delay: 0.10s; }
+  .skillSlide.activeSlide .skillItem:nth-child(3) { animation-delay: 0.15s; }
+  .skillSlide.activeSlide .skillItem:nth-child(4) { animation-delay: 0.20s; }
+  .skillSlide.activeSlide .skillItem:nth-child(5) { animation-delay: 0.25s; }
 
   .skillPaginationControl {
     @apply flex justify-center items-center gap-4 mt-6 z-10;
