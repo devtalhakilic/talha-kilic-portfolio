@@ -873,22 +873,21 @@
     @apply lg:w-19/40 w-full bg-gray-700 rounded-2xl relative overflow-hidden;
     aspect-ratio: 16 / 9;
     cursor: pointer;
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
   }
 
   .thirdSection .projectsContainer .row .project.fade-slide-up {
-    animation: fadeSlideUp 0.25s ease-out forwards;
+    animation: fadeSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   @keyframes fadeSlideUp {
     from {
       opacity: 0;
-      transform: translateY(6px);
+      transform: translateY(16px) scale(0.98);
     }
 
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
   }
 
@@ -962,7 +961,8 @@
   }
 
   .fourthSection .socialsLinkContainer .social {
-    @apply flex w-full min-h-40 rounded-2xl gap-5 items-center p-6 text-white overflow-hidden border border-white/10 transition-all duration-300 relative no-underline;
+    @apply flex w-full min-h-40 rounded-2xl gap-5 items-center p-6 text-white overflow-hidden border border-white/10 relative no-underline;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     backdrop-filter: blur(20px);
     background-color: rgba(255, 255, 255, 0.05);
     cursor: pointer;

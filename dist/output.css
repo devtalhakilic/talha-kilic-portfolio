@@ -1844,19 +1844,18 @@
     }
     aspect-ratio: 16 / 9;
     cursor: pointer;
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
   }
   .thirdSection .projectsContainer .row .project.fade-slide-up {
-    animation: fadeSlideUp 0.25s ease-out forwards;
+    animation: fadeSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
   @keyframes fadeSlideUp {
     from {
       opacity: 0;
-      transform: translateY(6px);
+      transform: translateY(16px) scale(0.98);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
   }
   .thirdSection .projectsContainer .row .project.hideProject {
@@ -2079,11 +2078,7 @@
     padding: calc(var(--spacing) * 6);
     color: var(--color-white);
     text-decoration-line: none;
-    transition-property: all;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-    --tw-duration: 300ms;
-    transition-duration: 300ms;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     backdrop-filter: blur(20px);
     background-color: rgba(255, 255, 255, 0.05);
     cursor: pointer;

@@ -154,6 +154,17 @@ function hamburgerMenu() {
   }
 }
 
+const cleanupReveal = (el) => {
+  el.style.visibility = "visible"
+  el.style.opacity = "1"
+  el.style.transform = "none"
+  try {
+    if (typeof ScrollReveal === "function" && typeof ScrollReveal().clean === "function") {
+      ScrollReveal().clean(el)
+    }
+  } catch (e) {}
+}
+
 ScrollReveal().reveal(".skill", {
   beforeReveal: (el) => {
     el.classList.add("animate__animated", "animate__fadeInLeft")
@@ -161,10 +172,12 @@ ScrollReveal().reveal(".skill", {
       "animationend",
       () => {
         el.classList.remove("animate__animated", "animate__fadeInLeft")
+        cleanupReveal(el)
       },
       { once: true }
     )
   },
+  afterReveal: (el) => cleanupReveal(el),
   reset: false,
 })
 
@@ -172,6 +185,7 @@ ScrollReveal().reveal(".secondSection .textContainer", {
   beforeReveal: (el) => {
     el.classList.add("animate__animated", "animate__fadeInUp")
   },
+  afterReveal: (el) => cleanupReveal(el),
   reset: false,
 })
 
@@ -179,6 +193,7 @@ ScrollReveal().reveal(".skillContentBlock", {
   beforeReveal: (el) => {
     el.classList.add("animate__animated", "animate__fadeInUp")
   },
+  afterReveal: (el) => cleanupReveal(el),
   reset: false,
 })
 
@@ -186,6 +201,7 @@ ScrollReveal().reveal(".eduStatsRow", {
   beforeReveal: (el) => {
     el.classList.add("animate__animated", "animate__fadeInUp")
   },
+  afterReveal: (el) => cleanupReveal(el),
   reset: false,
 })
 
@@ -193,6 +209,7 @@ ScrollReveal().reveal(".eduTimelineItem", {
   beforeReveal: (el) => {
     el.classList.add("animate__animated", "animate__fadeInUp")
   },
+  afterReveal: (el) => cleanupReveal(el),
   interval: 150,
   reset: false,
 })
@@ -213,10 +230,12 @@ ScrollReveal().reveal(".aboutMeText", {
         } else {
           el.classList.remove("animate__animated", "animate__fadeInLeft")
         }
+        cleanupReveal(el)
       },
       { once: true }
     )
   },
+  afterReveal: (el) => cleanupReveal(el),
   reset: false,
 })
 
@@ -236,10 +255,12 @@ ScrollReveal().reveal(".logoContainer", {
         } else {
           el.classList.remove("animate__animated", "animate__fadeInRight")
         }
+        cleanupReveal(el)
       },
       { once: true }
     )
   },
+  afterReveal: (el) => cleanupReveal(el),
   reset: false,
 })
 
@@ -247,6 +268,7 @@ ScrollReveal().reveal(".thirdSection .textContainerProjects", {
   beforeReveal: (el) => {
     el.classList.add("animate__animated", "animate__fadeInUp")
   },
+  afterReveal: (el) => cleanupReveal(el),
   reset: false,
 })
 
@@ -258,10 +280,12 @@ ScrollReveal().reveal(".textContainerSocials", {
       "animationend",
       () => {
         el.classList.remove("animate__animated", "animate__fadeInDown")
+        cleanupReveal(el)
       },
       { once: true }
     )
   },
+  afterReveal: (el) => cleanupReveal(el),
   reset: false,
 })
 
@@ -273,10 +297,12 @@ ScrollReveal().reveal(".social", {
       "animationend",
       () => {
         el.classList.remove("animate__animated", "animate__fadeInUp")
+        cleanupReveal(el)
       },
       { once: true }
     )
   },
+  afterReveal: (el) => cleanupReveal(el),
   interval: 100,
   reset: false,
 })
@@ -290,10 +316,12 @@ ScrollReveal().reveal(".project", {
       "animationend",
       () => {
         el.classList.remove("animate__animated", "animate__fadeInUp")
+        cleanupReveal(el)
       },
       { once: true }
     )
   },
+  afterReveal: (el) => cleanupReveal(el),
   interval: 120,
   reset: false,
 })
@@ -312,29 +340,33 @@ filterButtons.forEach((btn) => {
     filterButtons.forEach((b) => b.classList.remove("activeFilter"))
     btn.classList.add("activeFilter")
 
-    // Instantly filter projects and trigger subtle slide up animation on visible cards
+    // Instant filter: strictly NO animation when switching categories
     projectCards.forEach((card) => {
       const category = card.getAttribute("data-category")
       const isMatch = filter === "all" || category === filter
 
-      card.classList.remove("fade-slide-up")
+      // Remove any animation classes and kill all transitions/animations
+      card.classList.remove("fade-slide-up", "animate__animated", "animate__fadeInUp", "animate__fadeInDown")
+      card.style.animation = "none"
+      card.style.transition = "none"
+      card.style.opacity = "1"
+      card.style.transform = "none"
+      card.style.animationDelay = ""
 
       if (isMatch) {
         card.classList.remove("hideProject")
-        void card.offsetWidth // trigger reflow for smooth restart
-        card.classList.add("fade-slide-up")
+        card.style.visibility = "visible"
       } else {
         card.classList.add("hideProject")
       }
-    })
 
-    // Recalculate ScrollReveal bounds & offsets after section height changes
-    setTimeout(() => {
-      if (typeof ScrollReveal === "function") {
-        ScrollReveal().sync()
-      }
-      window.dispatchEvent(new Event("scroll"))
-    }, 150)
+      // Unobserve card from ScrollReveal so ScrollReveal NEVER re-animates it
+      try {
+        if (typeof ScrollReveal === "function" && typeof ScrollReveal().clean === "function") {
+          ScrollReveal().clean(card)
+        }
+      } catch (e) {}
+    })
   })
 })
 
