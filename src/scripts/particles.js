@@ -128,22 +128,6 @@
 
     connectParticles();
 
-    // Mouse ambient glow on desktop
-    if (!isMobile && mouse.x !== null && mouse.y !== null) {
-      const gradient = ctx.createRadialGradient(
-        mouse.x,
-        mouse.y,
-        0,
-        mouse.x,
-        mouse.y,
-        220
-      );
-      gradient.addColorStop(0, "rgba(7, 255, 57, 0.045)");
-      gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, width, height);
-    }
-
     requestAnimationFrame(animate);
   }
 

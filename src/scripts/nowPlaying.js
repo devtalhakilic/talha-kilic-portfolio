@@ -10,6 +10,14 @@ const NowPlayingWidget = {
   isPlayingPreview: false,
   currentTrackKey: null,
   pollInterval: null,
+  isUserDismissed: false,
+  isCollapsed: (function() {
+    try {
+      const saved = localStorage.getItem("np_widget_collapsed");
+      if (saved !== null) return saved === "true";
+    } catch (e) {}
+    return true; // Default collapsed on PC and Mobile
+  })(),
 
   init() {
     this._injectStyles();
@@ -25,7 +33,7 @@ const NowPlayingWidget = {
     // Create container
     this.container = document.createElement("div");
     this.container.id = "now-playing-widget";
-    this.container.className = "np-widget hidden";
+    this.container.className = `np-widget hidden ${this.isCollapsed ? 'np-collapsed' : ''}`;
 
     // Inner HTML structure
     this.container.innerHTML = `
@@ -51,9 +59,27 @@ const NowPlayingWidget = {
         <span id="np-artist" class="np-artist-name"></span>
         <span id="np-time-ago" class="np-time-ago"></span>
       </div>
+      <button id="np-toggle-btn" class="np-toggle-btn" aria-label="Toggle Details">
+        <i class="fa-solid ${this.isCollapsed ? 'fa-chevron-up' : 'fa-chevron-down'}" id="np-toggle-icon"></i>
+      </button>
     `;
 
     document.body.appendChild(this.container);
+
+    // Container click listener: expand on click if collapsed
+    this.container.addEventListener("click", (e) => {
+      if (this.isCollapsed && !e.target.closest("#np-play-btn")) {
+        this.toggleCollapse(false);
+      }
+    });
+
+    const toggleBtn = document.getElementById("np-toggle-btn");
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        this.toggleCollapse();
+      });
+    }
 
     // Event Listeners
     const btn = document.getElementById("np-play-btn");
@@ -62,7 +88,77 @@ const NowPlayingWidget = {
       this.togglePreview();
     });
 
+    // Touch Swipe Left to Dismiss
+    this.initSwipeToDismiss();
+
     this.startPolling();
+  },
+
+  initSwipeToDismiss() {
+    let startX = 0;
+    let startY = 0;
+    let currentX = 0;
+    let isSwiping = false;
+
+    this.container.addEventListener("touchstart", (e) => {
+      if (e.touches.length !== 1) return;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      currentX = startX;
+      isSwiping = false;
+      this.container.style.transition = "none";
+    }, { passive: true });
+
+    this.container.addEventListener("touchmove", (e) => {
+      if (e.touches.length !== 1) return;
+      currentX = e.touches[0].clientX;
+      const deltaX = currentX - startX;
+      const deltaY = e.touches[0].clientY - startY;
+
+      // Check if swiping left primarily
+      if (deltaX < 0 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        isSwiping = true;
+        this.container.style.transform = `translateX(${deltaX}px)`;
+        const opacity = Math.max(0, 1 - Math.abs(deltaX) / 180);
+        this.container.style.opacity = opacity;
+      }
+    }, { passive: true });
+
+    this.container.addEventListener("touchend", () => {
+      const deltaX = currentX - startX;
+      this.container.style.transition = "transform 0.3s ease, opacity 0.3s ease";
+
+      if (isSwiping && deltaX < -40) {
+        // Dismiss widget when swiped left
+        this.container.style.transform = "translateX(-120%)";
+        this.container.style.opacity = "0";
+        this.isUserDismissed = true;
+        this.stopAudio();
+        setTimeout(() => {
+          this.hide();
+        }, 300);
+      } else {
+        // Reset position
+        this.container.style.transform = "";
+        this.container.style.opacity = "";
+      }
+      isSwiping = false;
+    });
+  },
+
+  toggleCollapse(explicitState) {
+    this.isCollapsed = explicitState !== undefined ? explicitState : !this.isCollapsed;
+    try {
+      localStorage.setItem("np_widget_collapsed", this.isCollapsed);
+    } catch (e) {}
+    const toggleIcon = document.getElementById("np-toggle-icon");
+    if (this.isCollapsed) {
+      this.container.classList.add("np-collapsed");
+      if (toggleIcon) toggleIcon.className = "fa-solid fa-chevron-up";
+    } else {
+      this.container.classList.remove("np-collapsed");
+      if (toggleIcon) toggleIcon.className = "fa-solid fa-chevron-down";
+    }
   },
 
   _injectStyles() {
@@ -80,17 +176,17 @@ const NowPlayingWidget = {
         align-items: center;
         gap: 12px;
         padding: 10px 15px;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.75);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 12px;
         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        max-width: 300px;
+        max-width: 320px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         transform: translateY(0);
         opacity: 1;
-        transition: transform 0.5s ease, opacity 0.5s ease;
+        transition: transform 0.5s ease, opacity 0.5s ease, padding 0.3s ease, max-width 0.3s ease, border-radius 0.3s ease;
       }
 
       .np-widget.hidden {
@@ -104,6 +200,7 @@ const NowPlayingWidget = {
         width: 48px;
         height: 48px;
         flex-shrink: 0;
+        transition: width 0.3s ease, height 0.3s ease;
       }
 
       .np-art {
@@ -178,6 +275,8 @@ const NowPlayingWidget = {
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        flex: 1;
+        min-width: 0;
       }
 
       .np-label {
@@ -190,6 +289,9 @@ const NowPlayingWidget = {
         align-items: center;
         gap: 4px;
         margin-bottom: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       
       .np-label.offline {
@@ -225,11 +327,74 @@ const NowPlayingWidget = {
         margin-top: 2px;
         font-style: italic;
       }
+
+      .np-toggle-btn {
+        background: transparent;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 11px;
+        cursor: pointer;
+        padding: 4px 6px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.2s ease, background-color 0.2s ease;
+        margin-left: auto;
+        flex-shrink: 0;
+      }
+
+      .np-toggle-btn:hover {
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Compact / Collapsed Mode (PC & Mobile) */
+      .np-widget.np-collapsed {
+        padding: 6px 12px;
+        max-width: 250px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .np-widget.np-collapsed .np-artist-name,
+      .np-widget.np-collapsed .np-time-ago {
+        display: none;
+      }
+
+      .np-widget.np-collapsed .np-art-container {
+        width: 34px;
+        height: 34px;
+      }
+
+      .np-widget.np-collapsed .np-track-name {
+        font-size: 12px;
+        max-width: 130px;
+      }
+
+      .np-widget.np-collapsed .np-label {
+        font-size: 9px;
+        margin-bottom: 0px;
+      }
+
+      @media (max-width: 640px) {
+        .np-widget {
+          bottom: 12px;
+          left: 12px;
+          max-width: calc(100vw - 24px);
+          touch-action: pan-y;
+        }
+      }
     `;
     document.head.appendChild(style);
   },
 
   updateUI(track) {
+    if (this.isUserDismissed) {
+      this.hide();
+      return;
+    }
+
     if (track) {
       console.log("Widget Update - API Track:", track.name, "Is Playing:", track.isPlaying);
     }
@@ -242,6 +407,7 @@ const NowPlayingWidget = {
     const timeAgo = document.getElementById("np-time-ago");
 
     if (track) {
+      this.lastTrackData = track;
       art.src = (track.image && track.image.trim() !== '') ? track.image : "src/images/icons/spotify_icon.png";
       link.textContent = track.name;
       link.href = track.url;
@@ -262,19 +428,25 @@ const NowPlayingWidget = {
       }
       // ---------------------------------------------------
 
+      const nowText = (window.I18nManager) ? window.I18nManager.t("spotify.nowListening") : "Talha's Now Listening";
+      const lastText = (window.I18nManager) ? window.I18nManager.t("spotify.lastPlayed") : "Talha's Last Played";
+      const agoSuffix = (window.I18nManager) ? window.I18nManager.t("spotify.ago") : "ago";
+
       if (track.isPlaying) {
-        label.innerHTML = '<i class="fa-brands fa-spotify"></i> Talha\'s Now Listening';
+        label.innerHTML = `<i class="fa-brands fa-spotify"></i> ${nowText}`;
         label.className = "np-label";
         equalizer.classList.remove("hidden");
         timeAgo.textContent = "";
       } else {
         // DIRECT MODE: Even if not playing, show the last track immediately
-        label.innerHTML = '<i class="fa-brands fa-spotify"></i> Talha\'s Last Played';
+        label.innerHTML = `<i class="fa-brands fa-spotify"></i> ${lastText}`;
         label.className = "np-label offline";
         equalizer.classList.add("hidden");
 
         const ago = this.getTimeAgo(track.timestamp);
-        timeAgo.textContent = ago + " ago";
+        timeAgo.textContent = (window.I18nManager && window.I18nManager.currentLang === "tr")
+          ? `${ago} ${agoSuffix}`
+          : `${ago} ${agoSuffix}`;
       }
 
       this.show();

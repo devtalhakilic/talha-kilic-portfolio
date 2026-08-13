@@ -39,6 +39,10 @@
 </head>
 
 <body id="body">
+  <!-- Custom Neon Cursor Elements -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
   <div class="bg"></div>
 
   <div class="content">
@@ -52,11 +56,16 @@
         </div>
         <div class="navbarRightSide">
           <nav class="navigation">
-            <a href="#firstSection" class="navigationItem" id="aboutMeLink">About Me</a>
-            <a href="#secondSection" class="navigationItem" id="skillsLink">Skills</a>
-            <a href="#experienceSection" class="navigationItem" id="experienceLink">Education</a>
-            <a href="#thirdSection" class="navigationItem" id="projectsLink">Projects</a>
-            <a href="#fourthSection" class="navigationItem" id="socialsLink">Socials</a>
+            <a href="#firstSection" class="navigationItem" id="aboutMeLink" data-i18n="nav.aboutMe">About Me</a>
+            <a href="#secondSection" class="navigationItem" id="skillsLink" data-i18n="nav.skills">Skills</a>
+            <a href="#experienceSection" class="navigationItem" id="experienceLink" data-i18n="nav.education">Education</a>
+            <a href="#thirdSection" class="navigationItem" id="projectsLink" data-i18n="nav.projects">Projects</a>
+            <a href="#fourthSection" class="navigationItem" id="socialsLink" data-i18n="nav.socials">Socials</a>
+            <button class="langToggleBtn navItemLangBtn" onclick="I18nManager.toggleLanguage()" aria-label="Toggle Language" title="Turkish / English">
+              <span class="langOption" data-lang="tr">TR</span>
+              <span class="langDivider">/</span>
+              <span class="langOption activeLang" data-lang="en">EN</span>
+            </button>
           </nav>
         </div>
       </div>
@@ -64,11 +73,20 @@
 
     <div class="responsiveNavigationBar animate__animated hiddenNav" id="responsiveNavigationBar">
       <div class="navigationMenuResponsive">
-        <a href="#firstSection" class="navigationItem" onclick="hamburgerMenu()" id="aboutMeLink1">About Me</a>
-        <a href="#secondSection" class="navigationItem" onclick="hamburgerMenu()" id="skillsLink1">Skills</a>
-        <a href="#experienceSection" class="navigationItem" onclick="hamburgerMenu()" id="experienceLink1">Education</a>
-        <a href="#thirdSection" class="navigationItem" onclick="hamburgerMenu()" id="projectsLink1">Projects</a>
-        <a href="#fourthSection" class="navigationItem" onclick="hamburgerMenu()" id="socialsLink1">Socials</a>
+        <a href="#firstSection" class="navigationItem" onclick="hamburgerMenu()" id="aboutMeLink1" data-i18n="nav.aboutMe">About Me</a>
+        <a href="#secondSection" class="navigationItem" onclick="hamburgerMenu()" id="skillsLink1" data-i18n="nav.skills">Skills</a>
+        <a href="#experienceSection" class="navigationItem" onclick="hamburgerMenu()" id="experienceLink1" data-i18n="nav.education">Education</a>
+        <a href="#thirdSection" class="navigationItem" onclick="hamburgerMenu()" id="projectsLink1" data-i18n="nav.projects">Projects</a>
+        <a href="#fourthSection" class="navigationItem" onclick="hamburgerMenu()" id="socialsLink1" data-i18n="nav.socials">Socials</a>
+
+        <!-- Mobile Language Toggle Button -->
+        <div class="mt-2">
+          <button class="langToggleBtn mobileLangBtn" onclick="I18nManager.toggleLanguage()" aria-label="Toggle Language">
+            <span class="langOption activeLang" data-lang="tr">TR 🇹🇷</span>
+            <span class="langDivider">|</span>
+            <span class="langOption" data-lang="en">EN 🇬🇧</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -84,12 +102,11 @@
           <h1>Talha KILIÇ</h1>
           <div class="text">
             <span class="text-[#1d7a05]">
-              I'm..
               <span id="skill"></span>
             </span>
           </div>
 
-          <p class="text-xl">Hello everyone, my name is Talha Kılıç. I’ve been passionate about software and technology
+          <p class="text-xl" data-i18n="hero.bio">Hello everyone, my name is Talha Kılıç. I’ve been passionate about software and technology
             since I was 11 years old, and what started as a simple curiosity has now grown into a serious interest and
             skill set. In the early days, I experimented with small Python projects, writing basic scripts and exploring
             how coding works behind the scenes, which gave me a strong foundation in problem-solving and logic. Over
@@ -135,140 +152,143 @@
       <!-- Center content: Heading & Skill Slider -->
       <div class="skillsCenterContainer flex-1 flex flex-col items-center w-full max-w-xl mx-auto z-10 px-2">
         <div class="textContainer">
-          <h1>My Skills</h1>
-          <p class="text-center text-gray-300 max-w-xl mx-auto font-light">
+          <h1 data-i18n="skills.title">My Skills</h1>
+          <p class="text-center text-gray-300 max-w-xl mx-auto font-light" data-i18n="skills.subtitle">
             Scripting, markup, programming languages, and design tools I've learned through 4.5 years of experience.
           </p>
         </div>
 
-        <!-- Slider Navigation Dots -->
-        <div class="skillSliderNav">
-          <button class="skillNavDot activeSkillNav" data-slide="0">Frontend</button>
-          <button class="skillNavDot" data-slide="1">Programming</button>
-          <button class="skillNavDot" data-slide="2">Tools & Design</button>
-        </div>
-
-        <!-- Slider Container -->
-        <div class="skillSliderWrapper relative w-full">
-          <div class="skillSliderTrack flex transition-transform duration-500 ease-out" id="skillTrack">
-
-            <!-- Slide 1: Frontend -->
-            <div class="skillSlide w-full flex-shrink-0">
-              <div class="skillCategoryCard" id="skillCard1">
-                <div class="categoryHeader">
-                  <i class="fa-solid fa-code"></i>
-                  <h2>Frontend Development</h2>
-                </div>
-                <div class="skillList">
-                  <div class="skillItem">
-                    <div class="skillItemLeft">
-                      <img src="https://skillicons.dev/icons?i=html" alt="HTML5" />
-                      <span>HTML5</span>
-                    </div>
-                    <span class="skillLevelBadge advanced">Advanced</span>
-                  </div>
-                  <div class="skillItem">
-                    <div class="skillItemLeft">
-                      <img src="https://skillicons.dev/icons?i=css" alt="CSS3" />
-                      <span>CSS3</span>
-                    </div>
-                    <span class="skillLevelBadge advanced">Advanced</span>
-                  </div>
-                  <div class="skillItem">
-                    <div class="skillItemLeft">
-                      <img src="https://skillicons.dev/icons?i=javascript" alt="JavaScript" />
-                      <span>JavaScript</span>
-                    </div>
-                    <span class="skillLevelBadge advanced">Intermediate</span>
-                  </div>
-                  <div class="skillItem">
-                    <div class="skillItemLeft">
-                      <img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind CSS" />
-                      <span>Tailwind CSS</span>
-                    </div>
-                    <span class="skillLevelBadge advanced">Advanced</span>
-                  </div>
-                  <div class="skillItem">
-                    <div class="skillItemLeft">
-                      <img src="https://skillicons.dev/icons?i=bootstrap" alt="Bootstrap" />
-                      <span>Bootstrap</span>
-                    </div>
-                    <span class="skillLevelBadge intermediate">Intermediate</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 2: Programming & Logic -->
-            <div class="skillSlide w-full flex-shrink-0">
-              <div class="skillCategoryCard" id="skillCard2">
-                <div class="categoryHeader">
-                  <i class="fa-solid fa-terminal"></i>
-                  <h2>Programming & Logic</h2>
-                </div>
-                <div class="skillList">
-                  <div class="skillItem">
-                    <div class="skillItemLeft">
-                      <img src="https://skillicons.dev/icons?i=python" alt="Python" />
-                      <span>Python</span>
-                    </div>
-                    <span class="skillLevelBadge intermediate">Scripting & Logic</span>
-                  </div>
-                  <div class="skillItem">
-                    <div class="skillItemLeft">
-                      <img src="https://skillicons.dev/icons?i=java" alt="Java" />
-                      <span>Java</span>
-                    </div>
-                    <span class="skillLevelBadge learning">Learning OOP</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 3: Tools & Design -->
-            <div class="skillSlide w-full flex-shrink-0">
-              <div class="skillCategoryCard" id="skillCard3">
-                <div class="categoryHeader">
-                  <i class="fa-solid fa-wand-magic-sparkles"></i>
-                  <h2>Tools & Design</h2>
-                </div>
-                <div class="skillList">
-                  <div class="skillItem">
-                    <div class="skillItemLeft">
-                      <img src="https://skillicons.dev/icons?i=figma" alt="Figma" />
-                      <span>Figma</span>
-                    </div>
-                    <span class="skillLevelBadge intermediate">UI/UX Design</span>
-                  </div>
-                  <div class="skillItem">
-                    <div class="skillItemLeft">
-                      <img src="https://skillicons.dev/icons?i=github" alt="Git & GitHub" />
-                      <span>Git / GitHub</span>
-                    </div>
-                    <span class="skillLevelBadge advanced">Version Control</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Unified Pagination & Navigation Control Bar (Below Card) -->
-        <div class="skillPaginationControl">
-          <button class="skillSliderBtn prevBtn" id="skillPrevBtn" aria-label="Previous Skill Category">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-
-          <div class="skillPaginationDots">
-            <button class="skillDot activeSkillDot" data-slide="0" aria-label="Slide 1"></button>
-            <button class="skillDot" data-slide="1" aria-label="Slide 2"></button>
-            <button class="skillDot" data-slide="2" aria-label="Slide 3"></button>
+        <!-- Slider & Content Block (Animated as single unit) -->
+        <div class="skillContentBlock w-full flex flex-col items-center">
+          <!-- Slider Navigation Dots -->
+          <div class="skillSliderNav">
+            <button class="skillNavDot activeSkillNav" data-slide="0" data-i18n="skills.catFrontend">Frontend</button>
+            <button class="skillNavDot" data-slide="1" data-i18n="skills.catProgramming">Programming</button>
+            <button class="skillNavDot" data-slide="2" data-i18n="skills.catTools">Tools & Design</button>
           </div>
 
-          <button class="skillSliderBtn nextBtn" id="skillNextBtn" aria-label="Next Skill Category">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
+          <!-- Slider Container -->
+          <div class="skillSliderWrapper relative w-full">
+            <div class="skillSliderTrack flex transition-transform duration-500 ease-out" id="skillTrack">
+
+              <!-- Slide 1: Frontend -->
+              <div class="skillSlide w-full flex-shrink-0">
+                <div class="skillCategoryCard" id="skillCard1">
+                  <div class="categoryHeader">
+                    <i class="fa-solid fa-code"></i>
+                    <h2 data-i18n="skills.cardFrontendTitle">Frontend Development</h2>
+                  </div>
+                  <div class="skillList">
+                    <div class="skillItem">
+                      <div class="skillItemLeft">
+                        <img src="https://skillicons.dev/icons?i=html" alt="HTML5" />
+                        <span>HTML5</span>
+                      </div>
+                      <span class="skillLevelBadge advanced" data-i18n="skills.badgeAdvanced">Advanced</span>
+                    </div>
+                    <div class="skillItem">
+                      <div class="skillItemLeft">
+                        <img src="https://skillicons.dev/icons?i=css" alt="CSS3" />
+                        <span>CSS3</span>
+                      </div>
+                      <span class="skillLevelBadge advanced" data-i18n="skills.badgeAdvanced">Advanced</span>
+                    </div>
+                    <div class="skillItem">
+                      <div class="skillItemLeft">
+                        <img src="https://skillicons.dev/icons?i=javascript" alt="JavaScript" />
+                        <span>JavaScript</span>
+                      </div>
+                      <span class="skillLevelBadge advanced" data-i18n="skills.badgeIntermediate">Intermediate</span>
+                    </div>
+                    <div class="skillItem">
+                      <div class="skillItemLeft">
+                        <img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind CSS" />
+                        <span>Tailwind CSS</span>
+                      </div>
+                      <span class="skillLevelBadge advanced" data-i18n="skills.badgeAdvanced">Advanced</span>
+                    </div>
+                    <div class="skillItem">
+                      <div class="skillItemLeft">
+                        <img src="https://skillicons.dev/icons?i=bootstrap" alt="Bootstrap" />
+                        <span>Bootstrap</span>
+                      </div>
+                      <span class="skillLevelBadge intermediate" data-i18n="skills.badgeIntermediate">Intermediate</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2: Programming & Logic -->
+              <div class="skillSlide w-full flex-shrink-0">
+                <div class="skillCategoryCard" id="skillCard2">
+                  <div class="categoryHeader">
+                    <i class="fa-solid fa-terminal"></i>
+                    <h2 data-i18n="skills.cardProgrammingTitle">Programming & Logic</h2>
+                  </div>
+                  <div class="skillList">
+                    <div class="skillItem">
+                      <div class="skillItemLeft">
+                        <img src="https://skillicons.dev/icons?i=python" alt="Python" />
+                        <span>Python</span>
+                      </div>
+                      <span class="skillLevelBadge intermediate" data-i18n="skills.badgeScripting">Scripting & Logic</span>
+                    </div>
+                    <div class="skillItem">
+                      <div class="skillItemLeft">
+                        <img src="https://skillicons.dev/icons?i=java" alt="Java" />
+                        <span>Java</span>
+                      </div>
+                      <span class="skillLevelBadge learning" data-i18n="skills.badgeLearningOOP">Learning OOP</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3: Tools & Design -->
+              <div class="skillSlide w-full flex-shrink-0">
+                <div class="skillCategoryCard" id="skillCard3">
+                  <div class="categoryHeader">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <h2 data-i18n="skills.cardToolsTitle">Tools & Design</h2>
+                  </div>
+                  <div class="skillList">
+                    <div class="skillItem">
+                      <div class="skillItemLeft">
+                        <img src="https://skillicons.dev/icons?i=figma" alt="Figma" />
+                        <span>Figma</span>
+                      </div>
+                      <span class="skillLevelBadge intermediate" data-i18n="skills.badgeUIUX">UI/UX Design</span>
+                    </div>
+                    <div class="skillItem">
+                      <div class="skillItemLeft">
+                        <img src="https://skillicons.dev/icons?i=github" alt="Git & GitHub" />
+                        <span>Git / GitHub</span>
+                      </div>
+                      <span class="skillLevelBadge advanced" data-i18n="skills.badgeVersionControl">Version Control</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Unified Pagination & Navigation Control Bar (Below Card) -->
+          <div class="skillPaginationControl">
+            <button class="skillSliderBtn prevBtn" id="skillPrevBtn" aria-label="Previous Skill Category">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="skillPaginationDots">
+              <button class="skillDot activeSkillDot" data-slide="0" aria-label="Slide 1"></button>
+              <button class="skillDot" data-slide="1" aria-label="Slide 2"></button>
+              <button class="skillDot" data-slide="2" aria-label="Slide 3"></button>
+            </div>
+
+            <button class="skillSliderBtn nextBtn" id="skillNextBtn" aria-label="Next Skill Category">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -299,8 +319,8 @@
 
     <section class="experienceSection section" id="experienceSection">
       <div class="textContainerExp">
-        <h1>Education &amp; Academics</h1>
-        <p class="text-center text-gray-300 max-w-xl mx-auto font-light">
+        <h1 data-i18n="edu.title">Education &amp; Academics</h1>
+        <p class="text-center text-gray-300 max-w-xl mx-auto font-light" data-i18n="edu.subtitle">
           Academic excellence combined with a passion for building the future through code.
         </p>
       </div>
@@ -309,22 +329,22 @@
       <div class="eduStatsRow">
         <div class="eduStatCard">
           <span class="eduStatValue">483<span class="eduStatSub">/500</span></span>
-          <span class="eduStatLabel">LGS Score</span>
+          <span class="eduStatLabel" data-i18n="edu.statLgsLabel">LGS Score</span>
         </div>
         <div class="eduStatDivider"></div>
         <div class="eduStatCard">
           <span class="eduStatValue">%0.75</span>
-          <span class="eduStatLabel">Nationwide</span>
+          <span class="eduStatLabel" data-i18n="edu.statNationwideLabel">Nationwide</span>
         </div>
         <div class="eduStatDivider"></div>
         <div class="eduStatCard">
           <span class="eduStatValue">4.5+</span>
-          <span class="eduStatLabel">Years Coding</span>
+          <span class="eduStatLabel" data-i18n="edu.statYearsLabel">Years Coding</span>
         </div>
         <div class="eduStatDivider"></div>
         <div class="eduStatCard">
-          <span class="eduStatValue">10<span class="eduStatSub">th</span></span>
-          <span class="eduStatLabel">Grade</span>
+          <span class="eduStatValue" data-i18n-html="edu.statGradeValue">10<span class="eduStatSub">th</span></span>
+          <span class="eduStatLabel" data-i18n="edu.statGradeLabel">Grade</span>
         </div>
       </div>
 
@@ -335,7 +355,7 @@
         <div class="eduTimelineItem" id="edu1">
           <div class="eduTimelineLeft">
             <span class="eduTimelineYear">2023</span>
-            <span class="eduTimelineYearSub">Present</span>
+            <span class="eduTimelineYearSub" data-i18n="edu.present">Present</span>
           </div>
 
           <div class="eduTimelineConnector">
@@ -349,14 +369,14 @@
             <div class="eduTimelineCardHeader">
               <div>
                 <h2 class="eduCardTitle">Ankara Atatürk Anadolu Lisesi</h2>
-                <p class="eduCardMeta">
+                <p class="eduCardMeta" data-i18n-html="edu.schoolLocation">
                   <i class="fa-solid fa-location-dot"></i> Ankara, Turkey &nbsp;·&nbsp;
                   <i class="fa-regular fa-calendar"></i> 2023 – Present
                 </p>
               </div>
             </div>
 
-            <p class="eduCardDesc">
+            <p class="eduCardDesc" data-i18n-html="edu.schoolDesc">
               Currently a 10th-grade student at <strong>Ankara Atatürk Anadolu Lisesi (AAAL)</strong>, one of Turkey's
               most prestigious high schools.
               I was admitted by scoring <strong>483 out of 500</strong> on the LGS national exam, placing me in the
@@ -368,7 +388,7 @@
             <div class="eduGlassPanel p-4 mt-4 bg-white/[0.03] border border-white/10 rounded-xl backdrop-blur-sm">
               <div class="eduProgressItem">
                 <div class="eduProgressHeader">
-                  <span>LGS Score Performance</span>
+                  <span data-i18n="edu.metricLgsHeader">LGS Score Performance</span>
                   <span class="text-gray-300 font-medium">483 / 500 (96.6%)</span>
                 </div>
                 <div class="eduProgressBar">
@@ -378,8 +398,8 @@
 
               <div class="eduProgressItem mt-5">
                 <div class="eduProgressHeader">
-                  <span>Nationwide Percentile Standing</span>
-                  <span class="text-emerald-400 font-medium">Top 0.75% <span
+                  <span data-i18n="edu.metricPercentileHeader">Nationwide Percentile Standing</span>
+                  <span class="text-emerald-400 font-medium" data-i18n-html="edu.metricPercentileSub">Top 0.75% <span
                       class="text-xs text-gray-400 font-normal">(1
                       in 133 candidates)</span></span>
                 </div>
@@ -476,7 +496,7 @@
                   <span class="eduDot" title="Other Exam Candidate"></span><span class="eduDot"
                     title="Other Exam Candidate"></span><span class="eduDot" title="Other Exam Candidate"></span>
                 </div>
-                <span class="text-[11px] text-gray-400 block text-center mt-2">Visualized: Selected among top 1
+                <span class="text-[11px] text-gray-400 block text-center mt-2" data-i18n="edu.visualizedText">Visualized: Selected among top 1
                   candidate out of ~133 test-takers nationwide</span>
               </div>
             </div>
@@ -487,7 +507,7 @@
         <div class="eduTimelineItem" id="edu2">
           <div class="eduTimelineLeft">
             <span class="eduTimelineYear">2021</span>
-            <span class="eduTimelineYearSub">Present</span>
+            <span class="eduTimelineYearSub" data-i18n="edu.present">Present</span>
           </div>
 
           <div class="eduTimelineConnector">
@@ -499,14 +519,14 @@
           <div class="eduTimelineCard">
             <div class="eduTimelineCardHeader">
               <div>
-                <h2 class="eduCardTitle">Independent Developer Journey</h2>
-                <p class="eduCardMeta">
+                <h2 class="eduCardTitle" data-i18n="edu.journeyTitle">Independent Developer Journey</h2>
+                <p class="eduCardMeta" data-i18n-html="edu.journeyMetaDate">
                   <i class="fa-regular fa-calendar"></i> 2021 – Present
                 </p>
               </div>
             </div>
 
-            <p class="eduCardDesc">
+            <p class="eduCardDesc" data-i18n="edu.journeyDesc">
               Started coding at age 11 with Python scripting and algorithm fundamentals. Over 4.5+ years of continuous
               self-learning,
               I built modern web applications using HTML5, CSS3, JavaScript, Tailwind CSS, Bootstrap and Java OOP;
@@ -520,18 +540,18 @@
 
     <section class="thirdSection section" id="thirdSection">
       <div class="textContainerProjects">
-        <h1>My Projects</h1>
-        <p class="text-center text-gray-300 max-w-xl mx-auto font-light">
+        <h1 data-i18n="projects.title">My Projects</h1>
+        <p class="text-center text-gray-300 max-w-xl mx-auto font-light" data-i18n="projects.subtitle">
           Explore a curated showcase of my freelance client work and personal web development projects.
         </p>
         <div class="projectFilterTabs">
-          <button class="filterTabBtn activeFilter" data-filter="all" id="filterAll">
+          <button class="filterTabBtn activeFilter" data-filter="all" id="filterAll" data-i18n="projects.filterAll">
             All Projects
           </button>
-          <button class="filterTabBtn" data-filter="freelance" id="filterFreelance">
+          <button class="filterTabBtn" data-filter="freelance" id="filterFreelance" data-i18n="projects.filterFreelance">
             Freelance & Client
           </button>
-          <button class="filterTabBtn" data-filter="personal" id="filterPersonal">
+          <button class="filterTabBtn" data-filter="personal" id="filterPersonal" data-i18n="projects.filterPersonal">
             Personal Projects
           </button>
         </div>
@@ -542,7 +562,7 @@
             <img src="src/images/projects/tunc-kurt-matematik.png" alt="Tunç Kurt Mathematics Website" />
             <div class="projectInfo">
               <h1>Tunç Kurt Math</h1>
-              <p>The website I created for Mr. Tunç for his mathematics channel was designed to provide a clean, modern,
+              <p data-i18n="projects.p1Desc">The website I created for Mr. Tunç for his mathematics channel was designed to provide a clean, modern,
                 and user-friendly educational platform.</p>
               <div class="projectBadges">
                 <span class="tech-badge">HTML5</span>
@@ -550,11 +570,11 @@
                 <span class="tech-badge">JavaScript</span>
               </div>
               <div class="projectActionBtns">
-                <a href="https://tunckurt.patar.tr/" target="_blank" class="projectActionBtn" title="Live Demo">
+                <a href="https://tunckurt.patar.tr/" target="_blank" class="projectActionBtn" title="Live Demo" data-i18n-title="projects.liveDemo">
                   <i class="fa-solid fa-up-right-from-square"></i>
                 </a>
                 <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn"
-                  title="GitHub Repository">
+                  title="GitHub Repository" data-i18n-title="projects.githubRepo">
                   <i class="fa-brands fa-github"></i>
                 </a>
               </div>
@@ -564,7 +584,7 @@
             <img src="src/images/projects/dostlar_manti.png" alt="Dostlar Mantı Restaurant Website" />
             <div class="projectInfo">
               <h1>Dostlar Mantı</h1>
-              <p>A modern, responsive website created for Dostlar Mantı restaurant featuring a digital menu, brand
+              <p data-i18n="projects.p2Desc">A modern, responsive website created for Dostlar Mantı restaurant featuring a digital menu, brand
                 highlights, and location details.</p>
               <div class="projectBadges">
                 <span class="tech-badge">HTML5</span>
@@ -572,11 +592,11 @@
                 <span class="tech-badge">JavaScript</span>
               </div>
               <div class="projectActionBtns">
-                <a href="https://dostlar-manti.netlify.app/" target="_blank" class="projectActionBtn" title="Live Demo">
+                <a href="https://dostlar-manti.netlify.app/" target="_blank" class="projectActionBtn" title="Live Demo" data-i18n-title="projects.liveDemo">
                   <i class="fa-solid fa-up-right-from-square"></i>
                 </a>
                 <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn"
-                  title="GitHub Repository">
+                  title="GitHub Repository" data-i18n-title="projects.githubRepo">
                   <i class="fa-brands fa-github"></i>
                 </a>
               </div>
@@ -586,7 +606,7 @@
             <img src="src/images/projects/ders-alanim.png" alt="Ders Alanım Study Website" />
             <div class="projectInfo">
               <h1>Ders Alanım</h1>
-              <p>A comprehensive study platform with customizable timers, Pomodoro timers, note-taking, question
+              <p data-i18n="projects.p3Desc">A comprehensive study platform with customizable timers, Pomodoro timers, note-taking, question
                 tracking, and detailed study statistics.</p>
               <div class="projectBadges">
                 <span class="tech-badge">HTML5</span>
@@ -594,11 +614,11 @@
                 <span class="tech-badge">JavaScript</span>
               </div>
               <div class="projectActionBtns">
-                <a href="https://ders-alanim.netlify.app/" target="_blank" class="projectActionBtn" title="Live Demo">
+                <a href="https://ders-alanim.netlify.app/" target="_blank" class="projectActionBtn" title="Live Demo" data-i18n-title="projects.liveDemo">
                   <i class="fa-solid fa-up-right-from-square"></i>
                 </a>
                 <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn"
-                  title="GitHub Repository">
+                  title="GitHub Repository" data-i18n-title="projects.githubRepo">
                   <i class="fa-brands fa-github"></i>
                 </a>
               </div>
@@ -608,7 +628,7 @@
             <img src="src/images/projects/twbulteni.png" alt="Cehennem Bülteni Newsletter" />
             <div class="projectInfo">
               <h1>Cehennem Bülteni</h1>
-              <p>A newsletter where we gather and summarize the most popular and interesting events on Twitter from the
+              <p data-i18n="projects.p4Desc">A newsletter where we gather and summarize the most popular and interesting events on Twitter from the
                 past week in an entertaining way!</p>
               <div class="projectBadges">
                 <span class="tech-badge">SQL</span>
@@ -617,11 +637,11 @@
                 <span class="tech-badge">JavaScript</span>
               </div>
               <div class="projectActionBtns">
-                <a href="https://twbulteni.com.tr/" target="_blank" class="projectActionBtn" title="Live Demo">
+                <a href="https://twbulteni.com.tr/" target="_blank" class="projectActionBtn" title="Live Demo" data-i18n-title="projects.liveDemo">
                   <i class="fa-solid fa-up-right-from-square"></i>
                 </a>
                 <a href="https://github.com/devtalhakilic" target="_blank" class="projectActionBtn"
-                  title="GitHub Repository">
+                  title="GitHub Repository" data-i18n-title="projects.githubRepo">
                   <i class="fa-brands fa-github"></i>
                 </a>
               </div>
@@ -633,8 +653,8 @@
 
     <section class="fourthSection section" id="fourthSection">
       <div class="textContainerSocials">
-        <h1>My Socials</h1>
-        <p class="text-center text-gray-300 max-w-xl mx-auto font-light">
+        <h1 data-i18n="socials.title">My Socials</h1>
+        <p class="text-center text-gray-300 max-w-xl mx-auto font-light" data-i18n="socials.subtitle">
           Connect with me across social platforms, view my open-source code, or send me a message.
         </p>
       </div>
@@ -650,7 +670,7 @@
               <i class="fa-solid fa-arrow-up-right-from-square socialArrow"></i>
             </div>
             <div class="my-2 border-t border-white/10"></div>
-            <p>Check out my projects and contributions on GitHub.</p>
+            <p data-i18n="socials.githubDesc">Check out my projects and contributions on GitHub.</p>
             <span class="socialTag">@devtalhakilic</span>
           </div>
         </a>
@@ -660,11 +680,11 @@
           </div>
           <div class="socialText">
             <div class="socialHeader">
-              <h2>E-Mail</h2>
+              <h2 data-i18n="socials.emailTitle">E-Mail</h2>
               <i class="fa-solid fa-arrow-up-right-from-square socialArrow"></i>
             </div>
             <div class="my-2 border-t border-white/10"></div>
-            <p>Feel free to contact me via email for any inquiries or professional correspondence.</p>
+            <p data-i18n="socials.emailDesc">Feel free to contact me via email for any inquiries or professional correspondence.</p>
             <span class="socialTag">devtalhakilic@gmail.com</span>
           </div>
         </a>
@@ -678,7 +698,7 @@
               <i class="fa-solid fa-arrow-up-right-from-square socialArrow"></i>
             </div>
             <div class="my-2 border-t border-white/10"></div>
-            <p>Follow me on Twitter to see my thoughts, reactions, and everyday updates.</p>
+            <p data-i18n="socials.twitterDesc">Follow me on Twitter to see my thoughts, reactions, and everyday updates.</p>
             <span class="socialTag">@devtalhakilic</span>
           </div>
         </a>
@@ -692,7 +712,7 @@
               <i class="fa-solid fa-arrow-up-right-from-square socialArrow"></i>
             </div>
             <div class="my-2 border-t border-white/10"></div>
-            <p>Connect with me on LinkedIn for professional networking and career updates.</p>
+            <p data-i18n="socials.linkedinDesc">Connect with me on LinkedIn for professional networking and career updates.</p>
             <span class="socialTag">@talha-kilic</span>
           </div>
         </a>
@@ -700,7 +720,7 @@
     </section>
 
     <footer class="footer">
-      <p>&copy; 2025 This Website Developed by Talha KILIÇ.</p>
+      <p data-i18n="footer.text">&copy; 2025 This Website Developed by Talha KILIÇ.</p>
     </footer>
   </div>
 
@@ -712,6 +732,8 @@
   <script src="src/scripts/lastfm.js"></script>
   <script src="src/scripts/nowPlaying.js"></script>
   <script src="src/scripts/particles.js"></script>
+  <script src="src/scripts/i18n.js"></script>
+  <script src="src/scripts/cursor.js"></script>
   <script src="src/scripts/index.js"></script>
 </body>
 

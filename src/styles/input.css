@@ -6,8 +6,70 @@
   font-style: normal;
 }
 
-.capitalize {
-  text-transform: capitalize;
+/* Custom Neon Ring & Dot Cursor (Desktop Only) */
+@media (pointer: fine) {
+  body,
+  body * {
+    cursor: none !important;
+  }
+
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #07ff39;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 0 10px rgba(7, 255, 57, 0.8);
+  }
+
+  .cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid rgba(7, 255, 57, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999998;
+    transform: translate(-50%, -50%);
+    transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                height 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.25s ease, 
+                background-color 0.25s ease;
+  }
+
+  /* Interactive Hover state */
+  body.cursor-hover .cursor-outline {
+    width: 52px;
+    height: 52px;
+    border-color: rgba(7, 255, 57, 0.9);
+    background-color: rgba(7, 255, 57, 0.08);
+    box-shadow: 0 0 20px rgba(7, 255, 57, 0.25);
+  }
+
+  body.cursor-hover .cursor-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+  }
+
+  /* Click active feedback state */
+  body.cursor-active .cursor-outline {
+    transform: translate(-50%, -50%) scale(0.8);
+    border-color: #07ff39;
+  }
+
+  body.cursor-active .cursor-dot {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
 }
 
 @layer components {
@@ -16,7 +78,7 @@
   Navbar
   */
   .navbar {
-    @apply flex w-full h-20 z-10 justify-center text-white fixed;
+    @apply flex w-full h-20 z-[1000] justify-center text-white fixed top-0 left-0;
     transition: 0.2s ease-in;
   }
 
@@ -33,11 +95,11 @@
   }
 
   .navbar .navbarRightSide {
-    @apply flex flex-2;
+    @apply flex items-center justify-end;
   }
 
   .navbar .navbarRightSide .navigation {
-    @apply lg:flex justify-between w-full hidden;
+    @apply lg:flex justify-between items-center gap-6 hidden;
   }
 
   .navigationItem {
@@ -48,16 +110,43 @@
     text-shadow: 0px 0px 9px rgba(0, 0, 0, 1);
   }
 
+  /*
+  Language Switcher Toggle Button (Clean & Minimal)
+  */
+  .langToggleBtn {
+    @apply flex items-center gap-1.5 text-sm font-medium tracking-wide uppercase cursor-pointer select-none transition-colors duration-200 bg-transparent border-0 p-0 text-white ml-3;
+    text-shadow: 0px 0px 9px rgba(0, 0, 0, 1);
+  }
+
+  .langOption {
+    @apply text-gray-400 hover:text-white transition-colors duration-200;
+  }
+
+  .langOption.activeLang {
+    color: #07ff39;
+    font-weight: 600;
+  }
+
+  .langDivider {
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 300;
+  }
+
+  .mobileLangBtn {
+    @apply px-4 py-2 text-lg font-semibold tracking-widest text-white border border-white/20 rounded-full;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
   .hamburgerButton {
-    @apply lg:hidden flex sticky top-0 right-1 z-50 text-white h-20 w-full justify-end items-center;
+    @apply lg:hidden flex fixed top-0 right-0 z-[1002] text-white h-20 justify-end items-center pr-5 pointer-events-none;
   }
 
   .hamburgerButton button {
-    @apply lg:hidden text-2xl pr-5;
+    @apply lg:hidden text-2xl pointer-events-auto cursor-pointer;
   }
 
   .responsiveNavigationBar {
-    @apply h-[100vh] w-full z-20 fixed flex items-start;
+    @apply h-[100vh] w-full z-[1001] fixed top-0 left-0 flex items-start;
     backdrop-filter: blur(8px);
     background-color: #00000080;
   }
@@ -187,7 +276,7 @@
   }
 
   .secondSection .skillsContainer .skill .skillImage:hover {
-    filter: drop-shadow(0 0 15px rgba(7, 255, 57, 0.6));
+    opacity: 0.9;
   }
 
   .secondSection .skillsContainer .skill:nth-child(odd) {
@@ -220,7 +309,6 @@
 
   .skillNavDot.activeSkillNav {
     @apply text-black bg-white border-white font-semibold;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
   }
 
   .skillSliderWrapper {
@@ -261,11 +349,25 @@
     animation: skillItemCascade 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .skillSlide.activeSlide .skillItem:nth-child(1) { animation-delay: 0.05s; }
-  .skillSlide.activeSlide .skillItem:nth-child(2) { animation-delay: 0.10s; }
-  .skillSlide.activeSlide .skillItem:nth-child(3) { animation-delay: 0.15s; }
-  .skillSlide.activeSlide .skillItem:nth-child(4) { animation-delay: 0.20s; }
-  .skillSlide.activeSlide .skillItem:nth-child(5) { animation-delay: 0.25s; }
+  .skillSlide.activeSlide .skillItem:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .skillSlide.activeSlide .skillItem:nth-child(2) {
+    animation-delay: 0.10s;
+  }
+
+  .skillSlide.activeSlide .skillItem:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+
+  .skillSlide.activeSlide .skillItem:nth-child(4) {
+    animation-delay: 0.20s;
+  }
+
+  .skillSlide.activeSlide .skillItem:nth-child(5) {
+    animation-delay: 0.25s;
+  }
 
   .skillPaginationControl {
     @apply flex justify-center items-center gap-4 mt-6 z-10;
@@ -299,7 +401,6 @@
 
   .skillDot.activeSkillDot {
     @apply w-8 h-2.5 rounded-full bg-[#07ff39];
-    box-shadow: 0 0 12px rgba(7, 255, 57, 0.5);
   }
 
   .skillCategoryCard {

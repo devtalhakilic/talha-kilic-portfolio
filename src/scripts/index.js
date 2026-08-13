@@ -1,3 +1,13 @@
+// Force scroll to top on page load & refresh
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual"
+}
+window.scrollTo(0, 0)
+
+window.addEventListener("beforeunload", () => {
+  window.scrollTo(0, 0)
+})
+
 let navbar = document.getElementById("navbar")
 let firstSection = document.getElementById("firstSection")
 let secondSection = document.getElementById("secondSection")
@@ -20,8 +30,10 @@ let projectsLink1 = document.getElementById("projectsLink1")
 let socialsLink1 = document.getElementById("socialsLink1")
 const buffer = 400
 
-let typed = new Typed("#skill", {
-  strings: ["a Junior Front End Developer", "From Turkey", "15 years old"],
+window.typedInstance = new Typed("#skill", {
+  strings: (window.I18nManager && window.I18nManager.currentLang === "tr")
+    ? ["Junior Frontend Geliştiriciyim", "Türkiye'de Yaşıyorum", "15 Yaşındayım"]
+    : ["a Junior Front End Developer", "Based in Turkey", "15 years old"],
   typeSpeed: 60, // hız
   backSpeed: 40, // geri silme hızı
   loop: true, // sonsuz döngü
@@ -41,6 +53,7 @@ window.addEventListener("scroll", () => {
 })
 
 window.addEventListener("load", () => {
+  window.scrollTo(0, 0)
   navColor()
 })
 
@@ -155,7 +168,14 @@ ScrollReveal().reveal(".skill", {
   reset: false,
 })
 
-ScrollReveal().reveal(".skillCategoryCard", {
+ScrollReveal().reveal(".secondSection .textContainer", {
+  beforeReveal: (el) => {
+    el.classList.add("animate__animated", "animate__fadeInUp")
+  },
+  reset: false,
+})
+
+ScrollReveal().reveal(".skillContentBlock", {
   beforeReveal: (el) => {
     el.classList.add("animate__animated", "animate__fadeInUp")
   },
@@ -174,10 +194,6 @@ ScrollReveal().reveal(".eduTimelineItem", {
     el.classList.add("animate__animated", "animate__fadeInUp")
   },
   interval: 150,
-  reset: false,
-})
-
-ScrollReveal().reveal(".textContainer", {
   reset: false,
 })
 
@@ -311,6 +327,14 @@ filterButtons.forEach((btn) => {
         card.classList.add("hideProject")
       }
     })
+
+    // Recalculate ScrollReveal bounds & offsets after section height changes
+    setTimeout(() => {
+      if (typeof ScrollReveal === "function") {
+        ScrollReveal().sync()
+      }
+      window.dispatchEvent(new Event("scroll"))
+    }, 150)
   })
 })
 
@@ -340,6 +364,11 @@ function goToSkillSlide(index) {
     } else {
       slide.classList.remove("activeSlide")
     }
+  })
+
+  document.querySelectorAll(".skillCategoryCard").forEach((card) => {
+    card.style.visibility = "visible"
+    card.style.opacity = "1"
   })
 
   skillNavDots.forEach((dot, idx) => {
